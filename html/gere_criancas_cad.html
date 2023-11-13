@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<title>cadastrar criança</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="../css/estilo.css">
+	<script type="text/JavaScript"></script>
+</head>
+<!--Dados das crianças-->
+<body>
+	<div id="gere_menu">
+		<div>
+			<img src="../img/fundo_foto_padrao.png" />
+			<p>Bem Vindo<br>Condutor</p>
+		</div>
+		<div>
+			<br />
+			<div class="gere_links"><a href="gere_inicio.html">Home</a></div><br /><br />
+			<div class="gere_links"><a href="gere_revisao.html">Revisão</a></div><br /><br />
+			<div id="gere_local"><a href="gere_criancas_escolas.html">Crianças</a></div><br /><br />
+			<div class="gere_links"><a href="gere_lucro.html">Lucro</a></div><br /><br />
+			<div class="gere_links"><a href="gere_perfil.html">Perfil</a></div><br /><br />
+		</div>
+
+		<footer id="gere_sair"><a href="">Sair</a></footer>
+	</div>
+
+	<div id="gere_conteudo">
+
+		<div id="cad_crianca">
+
+			<div id="cad_crianca_foto">
+				<img src="../img/fundo_foto_padrao.png">
+				<p><b>Nome da criança</b></p>
+			</div>
+
+			<div class="form-container">
+
+				<!-- Campos principais -->
+
+				<div class="form-group">
+
+					<label for="rua">Rua:</label>
+					<input type="text" id="rua" name="rua" style=" width: 70%;" required>
+					<label for="numero" style=" width: 5%;">N°:</label>
+					<input type="text" id="numero" name="numero" style="width: 10%;" required>
+
+				</div>
+
+				<div class="form-group">
+					<label for="bairro">Bairro:</label>
+					<input type="text" id="bairro" name="bairro" style=" width: 40%;" required>
+
+					<label for="cep" style=" width: 7%;">CEP:</label>
+					<input type="text" id="cep" name="cep" style=" width: 40%;" required>
+				</div>
+
+				<div class="form-group">
+					<label for="genero">Gênero:</label>
+					<select id="genero" name="genero" required>
+						<option value="masculino">Masculino</option>
+						<option value="feminino">Feminino</option>
+						<option value="outro">Outro</option>
+					</select>
+
+					<label for="escola">Escola:</label>
+					<input type="text" id="escola" name="escola" required>
+
+				</div>
+
+				<div class="form-group" style=" width: 50%;">
+					<label for="dataNascimento" style=" width: 40%;">Data de Nascimento:</label>
+					<input type="date" id="dataNascimento" name="dataNascimento"
+						style=" width: 60%; text-align: center;" required>
+				</div>
+
+				<!-- Campos do Responsável e Conteúdo -->
+				<div class="responsavel_dados">
+
+					<div class="form-group">
+						<label for="responsavel" style=" width: 18%;">Responsável:</label>
+						<input type="text" id="responsavel" name="responsavel" style=" width: 82%;" required>
+					</div>
+
+					<div class="form-group" style=" width: 50%;">
+						<label for="contato" style=" width: 30%;">Contato:</label>
+						<input type="text" id="contato" name="contato" style=" width: 70%;" required>
+					</div>
+
+				</div>
+
+				<div class="form-group" style="border-bottom-width: 0px;">
+					<label for="cuidadosEspeciais" style=" width: 40%;">Cuidados Especiais:</label>
+					<textarea id="cuidadosEspeciais" name="cuidadosEspeciais" rows="4"></textarea>
+				</div>
+
+				<div class="form-group" style="border-bottom-width: 0px; text-align: center;">
+					<input type="submit" value="Salvar">
+				</div>
+			</div>
+
+
+			<div id="gere_voltar" style="margin-top: 5vh; margin-right: -10vw;">
+				<footer><a href="gere_lucro.html">Voltar</a></footer>
+			</div>
+
+		</div>
+	</div>
+</body>
+
+</html>

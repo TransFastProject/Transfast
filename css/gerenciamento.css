@@ -1,0 +1,408 @@
+@import url(estilo.css);
+
+@media (min-width: 721px){
+    /* Telas de gerenciamento*/
+
+    #testes {
+        width: 20vw;
+        height: 100vh;
+        background-color: #1E184C;
+        text-align: center;
+        padding-top: 20px;
+    }
+
+    #testes img {
+        width: 100px;
+        height: 100px;
+        border-left-style: none;
+        border-radius: 50px;
+        margin-top: 20px;
+    }
+
+    #testes a {
+        width: 80%;
+        color: #fff;
+    }
+
+
+    #gere_menu {
+        position: absolute;
+        background-color: #1E184C;
+        width: 20vw;
+        height: 100vh;
+        position: fixed;
+        text-align: center;
+        color: #fff;
+        font-weight: bold;
+    }
+    .btn_expandir{
+        width: 50px;
+        color: #fff;
+        text-align: left;
+        visibility: hidden;
+    }
+    .btn_expandir i{
+        visibility: hidden;
+    }
+
+    #gere_menu img {
+        width: 50%;
+    }
+
+    #gere_menu a {
+        width: 100%;
+        text-decoration: none;
+    }
+
+    #gere_local {
+        background-color: #FEC849;
+        color: black;
+    }
+
+    #gere_local a {
+        color: black;
+    }
+
+    .gere_links a {
+        color: #fff;
+    }
+
+    .gere_links,
+    #gere_local {
+        width: 90%;
+        height: 5vh;
+        margin-left: 5%;
+        margin-top: -2.5vh;
+        display: flex;
+        align-items: center;
+        border-radius: 5px;
+    }
+
+    .gere_links:hover,
+    #gere_menu .gere_links a:hover {
+        background-color: #FEC849;
+    }
+
+    #gere_sair {
+        position: absolute;
+        bottom: 0;
+        margin-bottom: 1vh;
+        width: 100%;
+        text-align: center;
+    }
+
+    #gere_sair a {
+        color: #FEC849;
+    }
+
+    #gere_voltar {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        float: right;
+    }
+
+    #gere_voltar footer {
+        width: 8vw;
+        text-align: center;
+        border-radius: 10px;
+        background: #1E184C;
+
+    }
+
+    #gere_voltar footer a {
+        text-decoration: none;
+        color: #fff;
+    }
+
+    #gere_conteudo {
+        position: absolute;
+        width: 75vw;
+        height: 100vh;
+        margin-left: 21vw;
+        font-size: 1.5vw;
+    }
+
+    #gere_inicio {
+        position: absolute;
+        width: 75vw;
+        height: 100vh;
+        margin-left: 21vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    .gere_conteudo_2 {
+        border-radius: 20px;
+        background: #fff;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        height: 14vw;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .gere_conteudo_2:not(:first-child) {
+        width: 50vw;
+        margin-left: 13vw;
+    }
+
+    .gere_card {
+        border-radius: 20px;
+        background: #ECECEC;
+        width: 13vw;
+        height: 12vw;
+        text-align: center;
+        box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    }
+
+    .gere_card img {
+        width: 4vw;
+        height: 4vw;
+        margin-top: 2vh;
+    }
+
+    .gere_card p {
+        font-size: 1.3vw;
+        margin: 0;
+    }
+
+    .gere_card b {
+        font-size: 1em;
+    }
+    /***** Tela de revisão *****/
+    #rev_btn{
+        text-align: center;
+        padding-bottom:100px;
+    }
+
+    #rev_btn a{
+        background-color: #FEC849;
+        color: black;
+        text-decoration: none;
+        padding:0 10px ;
+        border-radius: 10px;
+        font-size: 2vw;
+    }
+    
+    #revisao_lista{
+        margin-top: 2vw;
+        font-size: 2vw;
+    }
+    #revisao_lista div{
+        margin-top: 1vw;
+        display: flex;
+        align-items: center;
+    }
+    #revisao_lista input[type='checkbox']{
+        width: 1.5vw;
+        height: 1.5vw;
+    }
+
+    
+}
+
+@media (max-width: 720px){
+
+    #gere_menu {
+        position: absolute;
+        background-color: #1E184C;
+        width: 40vw;
+        margin-left: -40vw;
+        height: 100vh;
+        position: fixed;
+        text-align: center;
+        color: #fff;
+        font-weight: bold;
+        z-index: 1;
+    }
+    #gere_menu:hover{
+        margin-left: 0;
+        transition: 1.5s;
+    }
+    #gere_menu{
+        transition: 1.5s;
+    }
+    .btn_expandir{
+        width: 60px;
+        margin-top: 1vw;
+        position: absolute;
+        margin-left: 38vw;
+        color: #fff;
+        background-color: #1E184C;
+        border-radius: 10px;
+    }
+    .btn_expandir i{
+        font-size: 5vw; 
+        font-weight: bolder;
+        padding-left: 10px;
+        cursor: pointer;
+    }
+
+
+
+    #gere_menu img {
+        width: 50%;
+        margin-top: 10vh;
+    }
+
+    #gere_menu a {
+        width: 100%;
+        text-decoration: none;
+    }
+
+    #gere_local {
+        background-color: #FEC849;
+        color: black;
+    }
+
+    #gere_local a {
+        color: black;
+    }
+
+    .gere_links a {
+        color: #fff;
+    }
+
+    .gere_links,
+    #gere_local {
+        width: 90%;
+        height: 5vh;
+        margin-left: 5%;
+        margin-top: -2.5vh;
+        display: flex;
+        align-items: center;
+        border-radius: 5px;
+    }
+
+    .gere_links:hover,
+    #gere_menu .gere_links a:hover {
+        background-color: #FEC849;
+    }
+
+    #gere_sair {
+        position: absolute;
+        bottom: 0;
+        margin-bottom: 1vh;
+        width: 100%;
+        text-align: center;
+    }
+
+    #gere_sair a {
+        color: #FEC849;
+    }
+
+    #gere_voltar {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        float: right;
+        font-size: 3vw;
+    }
+
+    #gere_voltar footer {
+        width: 10vw;
+        text-align: center;
+        border-radius: 10px;
+        background: #1E184C;
+
+    }
+
+    #gere_voltar footer a {
+        text-decoration: none;
+        color: #fff;
+    }
+
+    #gere_conteudo {
+        position: absolute;
+        width: 90vw;
+        height: 100vh;
+        margin-left:5vw;
+    }
+
+    #gere_inicio {
+        width: 75vw;
+        height: 100vh;
+        margin-left: 10vw;
+        display: flex;
+        flex-wrap: wrap;
+        text-align: center;
+    }
+
+    .gere_conteudo_2 {
+        border-radius: 20px;
+        background: #fff;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin-top: 10vh;
+    }
+
+    .gere_conteudo_2:not(:first-child) {
+        width: 50vw;
+        margin-left: 13vw;
+    }
+
+    .gere_card {
+        border-radius: 20px;
+        background: #ECECEC;
+        width: 35vw;
+        height: 40vh;
+        text-align: center;
+        margin: 5vh 2vw;
+    }
+
+    .gere_card img {
+        width: 10vw;
+        height: 10vw;
+        margin-top: 2vh;
+    }
+
+    .gere_card p {
+        margin: 5px 0;
+    }
+
+    .gere_card b {
+        font-size: 4vw;
+    }
+    /***** Tela de revisão *****/
+    #rev_btn{
+        text-align: center;
+        padding-bottom:100px;
+    }
+
+    #rev_btn a{
+        background-color: #FEC849;
+        color: black;
+        text-decoration: none;
+        padding:0 10px ;
+        border-radius: 10px;
+        font-size: 4vw;
+    }
+
+    #gere_revi{
+        text-align: center;
+    }
+        
+    #revisao_lista{
+        margin-top: 10vw;
+        font-size: 3vw;
+    }
+    #revisao_lista div{
+        margin-top: 5vw;
+        display: flex;
+        align-items: center;
+    }
+    #revisao_lista input[type='checkbox']{
+        width: 4vw;
+        height: 4vw;
+    }
+
+}

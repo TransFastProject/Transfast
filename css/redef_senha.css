@@ -1,0 +1,144 @@
+@import url(estilo.css);
+
+
+@media (min-width: 721px) {
+    /* forms */
+    .forms_redef_senha{
+        width: 50vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .forms_redef_senha div{
+        width: 90%;
+        margin-left: 5vw;
+    }
+    .forms_redef_senha h1{
+        color: #1E184C;
+    }
+    .forms_redef_senha input[type='email'],
+    .forms_redef_senha input[type='text'],
+    .forms_redef_senha input[type='password']{
+        width: 60%;
+        height: 2vw;
+        background-color: #d9d9d9;
+        border: 0;
+        border-radius: 10px;
+        text-indent: 20px;
+    }
+    .forms_redef_senha input[type='submit']{
+        background-color: #fec849;
+        border: 0;
+        border-radius: 10px;
+        font-size: 1.5vw;
+        padding: 5px 8px;
+    }
+    .forms_redef_senha:not(:first-child){
+        width: 45vw;
+        margin-left: 5vw;
+        background-image: url(../img/cad_fundo.png);
+        background-size: 50vw 100vh;
+    }
+    .forms_redef_senha:not(:first-child) img{
+        width: 14vw;
+        height: 11vw;
+    }
+/* tela de informação */
+    .agradecimento{
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        font-size: 1.5vw;
+        color: #1E184C;
+    }
+    .agradecimento img{
+        width: 6vw;
+        height: 7vw;
+    }
+    .agradecimento h4{
+        margin-top: 0;
+
+    }
+    .agradecimento a{
+        background-color: #fec849;
+        color: #1E184C;
+        text-decoration: none;
+        padding: 1vw;
+        border-radius: 10px;
+    }
+
+}
+@media (max-width: 720px) {
+    /* inserir senha */
+    .forms_redef_senha{
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .forms_redef_senha h1{
+        color: #1E184C;
+    }
+    .forms_redef_senha input[type='email'],
+    .forms_redef_senha input[type='text'],
+    .forms_redef_senha input[type='password']{
+        width: 80%;
+        height: 4vw;
+        background-color: #d9d9d9;
+        border: 0;
+        border-radius: 10px;
+        text-indent: 20px;
+        font-size: 2.5vw;
+    }
+    .forms_redef_senha input[type='submit']{
+        background-color: #fec849;
+        border: 0;
+        border-radius: 10px;
+        font-size: 3vw;
+        padding: 5px 8px;
+    }
+    .forms_redef_senha:not(:first-child){
+        visibility: hidden;
+    }
+    .forms_redef_senha:not(:first-child) img{
+        visibility: hidden;
+        width: 14vw;
+        height: 11vw;
+    }
+    /* tela de informação */
+    .agradecimento{
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: #1E184C;
+    }
+    .agradecimento img{
+        width: 13vw;
+        height: 12vw;
+    }
+    .agradecimento h1{
+        font-size: 5vw;
+        margin: 1vw;
+    }
+    .agradecimento h4{
+        margin-top: 0;
+        font-size: 3.5vw;
+
+    }
+    .agradecimento a{
+        background-color: #fec849;
+        color: #1E184C;
+        text-decoration: none;
+        padding: 1vw;
+        border-radius: 10px;
+    }
+}

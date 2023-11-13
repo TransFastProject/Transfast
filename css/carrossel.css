@@ -1,0 +1,93 @@
+    /*Carrossel*/
+	
+@media (min-width: 721px){
+    #pequenos_detalhes {
+      margin-top: 5vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background-color: #1E184C;
+      color: white;
+  }
+
+  .carrossel {
+      width: 90%;
+      margin-left: 2vw;
+      margin-top: 2vw;
+      height: 300px;
+      top: 60px;
+      left: calc(5%);
+      display: flex;
+  }
+
+  .card {
+      display: flex;
+      height: 28vh;
+      width: 22vw;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 5px 4px 10px #000;
+      transition: 0.4s ease-out;
+      position: relative;
+      margin-left: 5%;
+  }
+
+  .card:not(:first-child) {
+      margin-left: -40px;
+  }
+
+  .card:not(:first-child):hover {
+      margin-left: -100px;
+  }
+
+  .card:hover {
+      transform: translateX(-30vw);
+      transition: 0.6s ease-out;
+      transform: scale(115%);
+	  z-index: 1;
+  }
+
+  .card:hover~.card {
+      position: relative;
+      left: 3vw;
+      transition: 1s ease-out;
+  }
+
+  .title {
+      color: rgb(0, 0, 0);
+      font-weight: 300;
+      height: 30px;
+      position: absolute;
+      border-radius: 10px;
+      font-size: 1.5vw;
+  }
+
+  .cabeca {
+      background-color: #FEC849;
+      margin: 0;
+      width: 100%;
+      height: 40px;
+      border-radius: 10px;
+  }
+
+  .carrossel h2 {
+      margin-top: 45px;
+      margin-left: 10px;
+      width: 100%;
+      height: 1.5vh;
+  }
+
+  .texto {
+      margin-top: 10vh;
+      position: absolute;
+      color: rgb(0, 0, 0);
+      margin-left: 20px;
+  }
+
+  .texto p {
+      font-size: 1.3vw;
+      margin-left: 10px;
+  }
+}

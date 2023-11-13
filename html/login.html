@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../css/estilo.css" />
+  <link rel="stylesheet" href="../css/cadastro.css">
+  <title>Login</title>
+</head>
+
+<body id="login">
+  <div class="header_horizontal">
+    <img src="../img/cad_fundo.png" id="login_fundo" />
+  </div>
+
+  <div id="corpo_login">
+    <div class="login_logo">
+      <img src="../img/logo_v2.png" class="logo" />
+      <h1>TransFast</h1>
+    </div>
+
+    <div class="forms_login">
+      <form action="../php/valida.php" method="post">
+        <h1>Faça seu login</h1>
+        <label><b>CPF</b></label><br />
+        <input type="text" name="cpf" /><br />
+        <label><b>Senha</b></label><br />
+        <input type="password" name="senha" /><br /><br />
+
+        <div id="btn_cadastro">
+          <input type="submit" value="." name="acessar" id="btn_fcadastro" />
+        </div>
+
+        <p>Não possui conta? <a href="../php/cadastro.php">Cadastre-se</a></p>
+        <p><a href="esq_senha.html">Esqueci minha senha</a></p>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>

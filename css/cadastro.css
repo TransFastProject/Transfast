@@ -1,0 +1,551 @@
+@import url(estilo.css);
+
+@media (min-width: 721px){
+       /*------------------ Tela de Cadastro --------------------*/
+
+       .forms_cadastro,
+       .forms_cad_ende {
+           width: 45vw;
+           height: 85vh;
+           margin-left: 27.5vw;
+           margin-top: 10vh;
+           background-image: url(../img/cad_fundo.png);
+           background-size: 60vw 90vh;
+           border-radius: 30px;
+       }
+   
+       .forms_cadastro {
+           text-align: center;
+           align-items: center;
+           justify-content: center;
+       }
+   
+       .forms_cadastro h1,
+       .forms_cad_ende h1 {
+           color: #FEC849;
+           padding-top: 5%;
+           text-align: center;
+       }
+   
+       .label_cad,
+       .label_ende {
+           color: #fff;
+           width: 5vw;
+           font-size: 1.5vw;
+           margin-bottom: 15px;
+       }
+   
+       .input_cad {
+           width: 15vw;
+           height: 3.5vh;
+           border-radius: 15px;
+           border-style: none;
+           background-color: #564D97;
+           color: #fff;
+           font-size: 1vw;
+           text-indent: 3px;
+       }
+   
+       .input_cad[type=date] {
+           width: 15.3vw;
+           height: 30px;
+           justify-content: center;
+           align-items: center;
+           text-align: center;
+       }
+   
+       #btn_cadastro {
+           display: flex;
+           padding-top: 1vh;
+           width: 100%;
+           text-align: center;
+           justify-content: center;
+       }
+   
+       #btn_fcadastro {
+           background-image: url("../img/img_seta_direita.png");
+           background-color: #1E184C;
+           background-size: cover;
+           background-repeat: no-repeat;
+           width: 65px;
+           height: 65px;
+           border: none;
+           border-radius: 10px;
+           cursor: pointer;
+       }
+   
+       .forms_cadastro div {
+           margin-top: 1vh;
+           display: flex;
+           flex-wrap: wrap;
+           justify-content: space-around;
+       }
+   
+       .forms_cadastro div div {
+           display: inline;
+           text-align: left;
+           flex-wrap: wrap;
+       }
+   
+       .forms_cadastro button[type=submit] {
+           background-color: #1E184C;
+           border: 0;
+           border-radius: 5px;
+           padding: 0;
+           width: 50px;
+           height: 50px;
+           cursor: pointer;
+       }
+   
+       .forms_cadastro button[type=submit] img {
+           text-align: center;
+           width: 50px;
+           height: 50px;
+       }
+   
+       .forms_cadastro p {
+           color: #fff;
+           font-size: 1vw;
+       }
+   
+       .forms_cadastro a {
+           color: #D9D9D9;
+       }
+   
+       /*Cadastro de endereço*/
+   
+       #cad_endereco div {
+           margin-top: 1.5vh;
+       }
+   
+       #cad_endereco div div {
+           align-items: left;
+           justify-content: left;
+       }
+   
+       .input_ende {
+           height: 4vh;
+           border-radius: 10px;
+           border-style: none;
+           background-color: #564D97;
+           color: #fff;
+           font-size: 1vw;
+           text-indent: 3px;
+       }
+   
+       #ipt_ende1 {
+           width: 40vw;
+       }
+   
+       #ipt_ende2 {
+           width: 10vw;
+           text-align: center
+       }
+   
+       #ipt_ende3 {
+           width: 25vw;
+       }
+   
+       .ipt_ende45 {
+           width: 17.5vw;
+       }
+   
+       .sem_nome {
+           width: 100%;
+           display: flex;
+           justify-content: space-around;
+           float: left;
+       }
+   
+       .btn_forms {
+           background-image: url("../img/img_seta_direita.png");
+           background-color: #1E184C;
+           background-size: cover;
+           background-repeat: no-repeat;
+           width: 50px;
+           height: 50px;
+           border: none;
+           border-radius: 10px;
+           cursor: pointer;
+   
+       }
+   
+       #btn_enviar {
+           display: flex;
+           padding-top: 10vh;
+           width: 100%;
+           text-align: center;
+           justify-content: center;
+       }
+   
+       #cad_endereco p {
+           color: #fff;
+           font-size: 1vw;
+           text-align: center;
+       }
+   
+       #cad_endereco a {
+           color: #D9D9D9;
+       }
+
+       /*Login*/
+       
+    #login {
+        overflow: hidden;
+    }
+
+    .header_horizontal {
+        height: 100vh;
+        position: fixed;
+        top: 0;
+    }
+
+    #login_fundo {
+        width: 30vw;
+        height: 100vh;
+    }
+
+    #login_corpo {
+        display: flex;
+        position: absolute;
+    }
+
+    .login_logo {
+        position: absolute;
+        margin-top: 40vh;
+        margin-left: 6vw;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .login_logo img {
+        width: 15vw;
+    }
+
+    .login_logo h1 {
+        color: white;
+        font-size: 2vw;
+    }
+
+    .forms_login {
+        position: absolute;
+        margin-left: 50vw;
+        margin-top: 18.5vh;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .forms_login h1 {
+        margin-bottom: 10vh;
+        font-size: 2vw;
+        text-align: center;
+        color: #1E184C;
+    }
+
+    .forms_login form p {
+        font-size: 1.5vw;
+    }
+
+    .forms_login input[type=text],
+    .forms_login input[type=password] {
+        background-color: #564D97;
+        border-radius: 15px;
+        border: 0;
+        color: #fff;
+        width: 25vw;
+        height: 5vh;
+        margin: 0;
+        vertical-align: bottom;
+        text-indent: 20px;
+    }
+
+    .forms_login button[type=submit] {
+        background-color: #1E184C;
+        border: 0;
+        border-radius: 5px;
+        padding: 0;
+        width: 50px;
+        height: 50px;
+    }
+
+    .forms_login button[type=submit] img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .forms_login button[type=submit]:hover {
+        cursor: pointer;
+    }
+
+    .forms_login label {
+        font-size: 1.8vw;
+        float: left;
+    }
+
+ 
+    
+
+   
+    
+}
+@media (max-width: 720px){
+    .forms_cadastro,.forms_cad_ende {
+        width:100%;
+        height: 180vh;
+        background-image: url(../img/cad_fundo.png);
+    }
+
+    .forms_cadastro {
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .forms_cadastro h1,
+    .forms_cad_ende h1 {
+        color: #FEC849;
+        padding-top: 5%;
+        text-align: center;
+    }
+
+    .label_cad,
+    .label_ende {
+        color: #fff;
+        width: 5vw;
+        font-size: 3.5vw;
+        margin-bottom: 15px;
+    }
+
+    .input_cad {
+        width: 50vw;
+        height: 5vh;
+        border-radius: 15px;
+        border-style: none;
+        background-color: #564D97;
+        color: #fff;
+        font-size: 3vw;
+        text-align: center;
+    }
+
+    .input_cad[type=date] {
+        width: 20;
+        height: 30px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        
+    }
+    select{
+        height: 100px;
+    }
+
+    #btn_cadastro {
+        display: flex;
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+
+    #btn_fcadastro {
+        background-image: url("../img/img_seta_direita.png");
+        background-color: #1E184C;
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 65px;
+        height: 65px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    .forms_cadastro div {
+        margin-top: 4vh;
+        margin-bottom: 2vh;
+    }
+
+    .forms_cadastro div div {
+        display: inline;
+        text-align: left;
+        flex-wrap: wrap;
+    }
+
+    .forms_cadastro button[type=submit] {
+        background-color: #1E184C;
+        border: 0;
+        border-radius: 5px;
+        padding: 0;
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+    }
+
+    .forms_cadastro button[type=submit] img {
+        text-align: center;
+        width: 50px;
+        height: 50px;
+    }
+
+    .forms_cadastro p {
+        color: #fff;
+        font-size: 3vw;
+    }
+
+    .forms_cadastro a {
+        color: #D9D9D9;
+    }
+    /*Cadastro de endereço*/
+   
+    #cad_endereco div {
+        margin-top: 3vh;
+    }
+
+    .input_ende {
+        height: 4vh;
+        border-radius: 10px;
+        border-style: none;
+        background-color: #564D97;
+        color: #fff;
+        font-size: 3vw;
+        text-indent: 3px;
+    }
+
+    .sem_nome {
+        width: 100%;
+        text-align: center;
+    }
+
+    .btn_forms {
+        background-image: url("../img/img_seta_direita.png");
+        background-color: #1E184C;
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 65px;
+        height: 65px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    #btn_enviar {
+        display: flex;
+        padding-top: 1vh;
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+
+    #cad_endereco p {
+        color: #fff;
+        font-size: 3vw;
+        text-align: center;
+    }
+
+    #cad_endereco a {
+        color: #D9D9D9;
+    }
+
+    /*Login*/
+    
+    #login {
+        overflow: hidden;
+    }
+
+    .header_horizontal {
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        visibility: hidden;
+    }
+
+    #login_fundo {
+        width: 30vw;
+        height: 100vh;
+        margin-left: -30vw;
+    }
+
+    #login_corpo {
+        display: flex;
+        position: absolute;
+    }
+
+    .login_logo {
+        position: absolute;
+        margin-top: 40vh;
+        margin-left: 6vw;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        visibility: hidden;
+    }
+
+    .login_logo img {
+        width: 15vw;
+    }
+
+    .login_logo h1 {
+        color: white;
+        font-size: 2vw;
+    }
+
+    .forms_login {
+        position: absolute;
+        margin-left: 30vw;
+        margin-top: 18.5vh;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .forms_login h1 {
+        margin-bottom: 10vh;
+        font-size: 4vw;
+        text-align: center;
+        color: #1E184C;
+    }
+
+    .forms_login form p {
+        font-size: 2vw;
+    }
+
+    .forms_login input[type=text],
+    .forms_login input[type=password] {
+        background-color: #564D97;
+        border-radius: 15px;
+        border: 0;
+        color: #fff;
+        width: 40vw;
+        height: 5vh;
+        margin: 0;
+        vertical-align: bottom;
+        text-indent: 20px;
+    }
+
+    .forms_login button[type=submit] {
+        background-color: #1E184C;
+        border: 0;
+        border-radius: 5px;
+        padding: 0;
+        width: 10vw;
+        height: 10vw;
+    }
+
+    .forms_login button[type=submit] img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .forms_login button[type=submit]:hover {
+        cursor: pointer;
+    }
+
+    .forms_login label {
+        font-size: 3vw;
+    }
+
+ 
+    
+
+
+}

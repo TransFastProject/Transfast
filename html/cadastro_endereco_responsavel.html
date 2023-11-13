@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Cadastro responsável</title>
+    <link rel="stylesheet" href="../css/estilo.css" />
+    <link rel="stylesheet" href="../css/cadastro.css" />
+</head>
+
+<body>
+    <form action="salvar_endereco_responsavel.php" method="post" class="forms_cad_ende" id="cad_endereco">
+        <h1>Endereço</h1>
+
+        <div class="sem_nome">
+            <div>
+                <label for="" class="label_ende"><b>Rua</b></label><br />
+                <input type="text" class="input_ende" id="ipt_ende1" name="rua" required /><br />
+            </div>
+        </div>
+
+        <div class="sem_nome">
+            <div>
+                <label for="" class="label_ende"><b>Número</b></label><br />
+                <input type="text" class="input_ende" id="ipt_ende2" name="numero" required /><br />
+            </div>
+            <div>
+                <label for="" class="label_ende"><b>Complemento(Opcional)</b></label><br />
+                <input type="text " class="input_ende" id="ipt_ende3" name="complemento" />
+            </div>
+        </div>
+
+
+        <div class="sem_nome">
+            <div>
+                <label for=" " class="label_ende"><b>CEP</b></label><br />
+                <input type="text " class="input_ende ipt_ende45" name="cep" required /><br />
+            </div>
+            <div>
+                <label for=" " class="label_ende"><b>Bairro</b></label><br />
+                <input type="text " class="input_ende ipt_ende45" name="bairro" required /><br />
+            </div>
+        </div>
+
+        <br><br><br>
+        <div id="btn_enviar">
+            <input type="submit" value="." class="btn_forms" name="btnEnd" />
+        </div>
+        <p>Já possui conta? <a href="../html/login.html">Faça o Login</a></p>
+
+    </form>
+</body>
+
+</html>

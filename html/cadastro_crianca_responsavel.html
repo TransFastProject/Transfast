@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Cadastro responsável</title>
+  <link rel="stylesheet" href="../css/estilo.css" />
+  <link rel="stylesheet" href="../css/cadastro.css" />
+</head>
+
+<body class="cad_body">
+  <form action="salvar_responsável.php" method="POST" class="forms_cadastro">
+    <h1>Cadastre sua criança</h1>
+
+    <div>
+      <div>
+        <label for="" class="label_cad"><b>Nome</b></label><br />
+        <input type="text" name="nome" id="nome" class="input_cad" required /><br />
+      </div>
+      <div>
+        <label for="" class="label_cad"><b>Idade</b></label><br />
+        <input type="number" name="idade" id="idade" class="input_cad" required /><br />
+      </div>
+    </div>
+
+    <div>
+      <div>
+        <label for="" class="label_cad" id="label_genero"><b>Gênero</b></label><span id="avisoCpf"></span><br />
+        <select name="genero" id="genero" class="input_cad">
+          <option value="masculino">Masculino</option>
+          <option value="feminino">Feminino</option>
+          <option value="outro">Outro</option>
+          <option value="prefiro não dizer">Prefiro não dizer</option>
+        </select>
+      </div>
+      <div>
+        <label for="" class="label_cad"><b>Escola</b></label><br />
+        <input type="text" name="escola" id="escola" class="input_cad" required /><br />
+      </div>
+
+    </div>
+
+
+    <div>
+      <div>
+        <label for="" class="label_cad"><b>Data de Nascimento</b></label><br />
+        <input type="date" name="dtnascimento" id="dtnascimento" class="input_cad" required />
+      </div>
+      <div>
+        <label for="" class="label_cad" id="label_genero"><b>Possui deficiência?</b></label><span id="avisoCpf"></span><br />
+        <select name="deficiencia" id="deficiencia" class="input_cad">
+          <option value="masculino">Não possui</option>
+          <option value="visual">Visual</option>
+          <option value="auditiva">Auditiva</option>
+          <option value="fisica">Física</option>
+          <option value="cognitiva">Cognitiva</option>
+        </select>
+      </div>
+    </div>
+
+
+    <div id="btn_cadastro">
+      <input type="submit" value="." name="btnCad" id="btn_fcadastro">
+    </div>
+    <p>Já possui conta? <a href="../html/login.html">Faça o Login</a></p>
+
+  </form>
+</body>
+
+</html>
