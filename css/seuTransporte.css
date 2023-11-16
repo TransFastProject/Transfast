@@ -1,0 +1,22 @@
+.semTransporte {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.semTransporte input {
+  width: 30vw;
+  font-size: 15px;
+  border-radius: 1vw;
+  height: 3vw;
+  border: none;
+  padding-left: 1vw;
+}
+
+.semTransporte a {
+  text-decoration: none;
+  margin-top: 10px;
+  color: #FEC849;
+}
