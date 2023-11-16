@@ -76,6 +76,7 @@ if($revi_item01_value === '1' && $revi_item02_value === '1' && $revi_item03_valu
 	<link rel="stylesheet" type="text/css" href="../css/estilo.css">
 	<link rel="stylesheet" href="../css/gerenciamento.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+	<link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon">
 	<script type="text/JavaScript"></script>
 </head>
 <body>

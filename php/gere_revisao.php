@@ -16,6 +16,7 @@ $linked_moto = mysqli_fetch_assoc($link_moto);
 	<link rel="stylesheet" type="text/css" href="../css/estilo.css">
 	<link rel="stylesheet" href="../css/gerenciamento.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+	<link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon">
 	<script type="text/JavaScript"></script>
 </head>
 

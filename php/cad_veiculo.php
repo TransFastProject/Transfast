@@ -60,6 +60,7 @@ if ($btnCadVeiculo) {
   <title>Cadastro de Veiculo</title>
   <link rel="stylesheet" href="../css/estilo.css" />
   <link rel="stylesheet" href="../css/cadastro.css" />
+  <link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon">
 </head>
 
 <body>

@@ -6,6 +6,7 @@
   <title>Faça seu cadastro</title>
   <link rel="stylesheet" href="../css/estilo.css" />
   <link rel="stylesheet" href="../css/cadastro.css">
+  <link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon">
   <script language="javascript">
     function ChecaCpf() {
       try {

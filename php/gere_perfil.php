@@ -56,6 +56,7 @@ if (isset($_SESSION["moto_cpf"])) {
   <link rel="stylesheet" href="../css/gerenciamento.css">
 	<link rel="stylesheet" href="../css/gerenciamento.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon">
   <script type="text/JavaScript"></script>
 </head>
 
