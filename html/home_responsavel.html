@@ -14,9 +14,12 @@
 
 <body class="home-body">
     <header class="home-header row justify-content-center align-items-center g-2 col-12">
-        <a href="" class="col-4">
-            <img src="../img/logo_v2.png" alt="Logo Transfast" class="home-logo">
-        </a>
+        <div class="col-4" style="">
+            <a href="">
+                <img src="../img/logo_v2.png" alt="Logo Transfast" class="home-logo">
+            </a>
+        </div>
+
 
         <div class="home-searchbar col-4">
             <form action="" method="post">
@@ -60,104 +63,65 @@
     <div class="transportes">
         <h3>Transportes</h3>
         <div class="transportes-container">
-            <div class="transportes-item">
-                <img src="/img/image 5.png" alt="" class="img-transporte">
-                <div class="transporte-info">
-                    <div class="transporte-info-i">
-                        <p>Tia Sany</p>
-                        <ul>
-                            <li>Jardim Ângela</li>
-                            <li>(11) 912345678</li>
-                        </ul>
-                    </div>
-                    <div class="transporte-info-i">
-                        <img src="/img/Group 11.png" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="transportes-item">
-                <img src="/img/image 5.png" alt="" class="img-transporte">
-                <div class="transporte-info">
-                    <div class="transporte-info-i">
-                        <p>Tia Sany</p>
-                        <ul>
-                            <li>Jardim Ângela</li>
-                            <li>(11) 912345678</li>
-                        </ul>
-                    </div>
-                    <div class="transporte-info-i">
-                        <img src="/img/Group 11.png" alt="">
+            <a href="#" id="card1">
+                <div class="transportes-item">
+                    <img src="/img/image 5.png" alt="" class="img-transporte">
+                    <div class="transporte-info">
+                        <div class="transporte-info-i">
+                            <p>Tia Sany</p>
+                            <ul>
+                                <li>Jardim Ângela</li>
+                                <li>(11) 912345678</li>
+                            </ul>
+                        </div>
+                        <div class="transporte-info-i">
+                            <img src="/img/Group 11.png" alt="">
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="transportes-item">
-                <img src="/img/image 5.png" alt="" class="img-transporte">
-                <div class="transporte-info">
-                    <div class="transporte-info-i">
-                        <p>Tia Sany</p>
-                        <ul>
-                            <li>Jardim Ângela</li>
-                            <li>(11) 912345678</li>
-                        </ul>
-                    </div>
-                    <div class="transporte-info-i">
-                        <img src="/img/Group 11.png" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="transportes-item">
-                <img src="/img/image 5.png" alt="" class="img-transporte">
-                <div class="transporte-info">
-                    <div class="transporte-info-i">
-                        <p>Tia Sany</p>
-                        <ul>
-                            <li>Jardim Ângela</li>
-                            <li>(11) 912345678</li>
-                        </ul>
-                    </div>
-                    <div class="transporte-info-i">
-                        <img src="/img/Group 11.png" alt="">
-                    </div>
-                </div>
-            </div>
+            </a>
         </div>
     </div>
 
     <div class="transportes" style="margin-top: 3vw;">
         <h3>Melhores avaliações</h3>
         <div class="transportes-container">
-            <div class="transportes-item">
-                <img src="/img/image 5.png" alt="" class="img-transporte">
-                <div class="transporte-info">
-                    <div class="transporte-info-i">
-                        <p>Tia Sany</p>
-                        <ul>
-                            <li>Jardim Ângela</li>
-                            <li>(11) 912345678</li>
-                        </ul>
-                    </div>
-                    <div class="transporte-info-i">
-                        <img src="/img/Group 11.png" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="transportes-item">
-                <img src="/img/image 5.png" alt="" class="img-transporte">
-                <div class="transporte-info">
-                    <div class="transporte-info-i">
-                        <p>Tia Sany</p>
-                        <ul>
-                            <li>Jardim Ângela</li>
-                            <li>(11) 912345678</li>
-                        </ul>
-                    </div>
-                    <div class="transporte-info-i">
-                        <img src="/img/Group 11.png" alt="">
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
+
+    <dialog>
+        <button id="fechar-modal"><i class="ph ph-x"></i></button>
+        <img src="/img/image 5.png" alt="" class="img-transporte-modal">
+        <div class="modal-informacao">
+            <div class="motorista">
+                <img src="/img/foto_motorista.png" alt="foto do motorista">
+                <div class="avaliacao">
+                    <i class="ph ph-star"></i>
+                    <i class="ph ph-star"></i>
+                    <i class="ph ph-star"></i>
+                    <i class="ph ph-star"></i>
+                    <i class="ph ph-star"></i>
+                </div>
+                <p>Status da vistoria:</p>
+                <p class="vistoria">Completa</p>
+            </div>
+            <div class="motorista-informacoes">
+                <p>Tia Sany</p>
+                <p>(11)91234-5678</p>
+                <p>Estado: São Paulo</p>
+                <p>Cidade: São Paulo</p>
+                <p>Bairro: Alto da Rivieira</p>
+                <p>Monitor: Marcos</p>
+            </div>
+        </div>
+        <a href="" class="btn-contato">
+            Entrar em contato
+            <i class="ph ph-chat-circle-dots"></i>
+        </a>
+
+    </dialog>
+
+    <script src="/js/script.js"></script>
 </body>
 
 </html>
