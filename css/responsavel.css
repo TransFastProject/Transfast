@@ -107,6 +107,10 @@ body {
     text-align: center;
 }
 
+.home-menu-item a i:hover{
+    
+}
+
 .home-menu-item a p {
     margin: 0;
     font-size: 11px;
