@@ -201,7 +201,7 @@ dialog {
     height: 70%;
 }
 
-dialog button{
+dialog #fechar-modal {
     position: absolute;
     right: 10px;
     top: 10px;
