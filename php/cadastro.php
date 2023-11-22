@@ -8,41 +8,6 @@
   <link rel="stylesheet" href="../css/cadastro.css">
   <link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon">
   <script language="javascript">
-    function ChecaCpf() {
-      try {
-        objetoAJAX = new XMLHttpRequest();
-      } catch (e1) {
-        try {
-          objetoAJAX = new ActiveXObject("MSXM12.XMLHTTP");
-        } catch (e2) {
-          try {
-            objetoAJAX = new ActiveXObject("Microsoft.XMLHTTP");
-          } catch (e3) {
-            obejtoAJAX = false;
-          }
-        }
-      }
-      if (objetoAJAX) {
-        var objSpan = document.getElementById("avisoCpf");
-        objSpan.innerHTML = "Checando...";
-        var txtCPF = document.getElementById("cpf").value;
-        var enderecoURL = 'localizaCpf.php?moto_cpf=' + escape(txtCPF);
-
-        objetoAJAX.open("GET", enderecoURL, true);
-        objetoAJAX.onreadystatechange = function () {
-          if (objetoAJAX.readyState == 4) {
-            if (objetoAJAX.status == 200) {
-              var texto = objetoAJAX.responseText;
-
-              objSpan.innerHTML = texto;
-            } else {
-              objSpan.innerHTML = "Falha na localização do CPF:" + objetoAJAXstatusText;
-            }
-          }
-        }
-        objetoAJAX.send(null);
-      }
-    }
     function ChecaEmail() {
       try {
         objetoAJAX = new XMLHttpRequest();
@@ -78,8 +43,6 @@
         objetoAJAX.send(null);
       }
     }
-
-
   </script>
 </head>
 
