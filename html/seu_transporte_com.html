@@ -13,18 +13,26 @@
     <title>Seu transporte</title>
 </head>
 
-<body class="home-body"
+<body class="home-body" id="transporte-body"
     style="display: flex; height: 100%; flex-direction: column; justify-content: center; align-items: center;">
     <header class="home-header row justify-content-center align-items-center g-2 col-12"
-        style="position: absolute;top: 0;padding: 0 2vw;">
-        <a href="home_responsavel.html" class="col-6">
-            <img src="/img/logo_v2.png" alt="Logo Transfast" class="home-logo">
-        </a>
+        style="position: absolute;top: 0;padding: 0 2vw; display: relative;">
+        <span class="col-6"
+            style="display: flex;flex-direction: row; justify-content: start; align-items: center; gap: 4vw;">
+            <a href="home_responsavel.html">
+                <img src="/img/logo_v2.png" alt="Logo Transfast" class="home-logo">
+            </a>
+            <span style="display: flex;flex-direction: row; justify-content: center; align-items: center; gap: 2vw;">
+                <a href="perfilCrianca.html"
+                    style="padding: 1vw 1.5vw; background-color: #3C3577; border-radius: 1vw;text-decoration: none;color: #fff;">CHAMADA</a>
+            </span>
+        </span>
+
 
         <div class="home-menu col-6">
             <div class="home-menu-container row justify-content-center align-items-center">
                 <div class="home-menu-item col">
-                    <a href="">
+                    <a href="home_responsavel.html">
                         <i class="ph ph-house"></i>
                         <p>Início</p>
                     </a>
@@ -58,33 +66,67 @@
         </div>
         <div class="foto-perfil">
             <img src="../img/foto_motorista.png" alt="foto-motorista">
-            <a href="">
-                <i class="ph ph-chat-circle-dots"></i>
-            </a>
-            <a href="">
-                <i class="ph ph-star"></i>
-            </a>
+            <span>
+                <a href="">
+                    <i class="ph ph-chat-circle-dots"></i>
+                </a>
+                <a href="" id="avaliar">
+                    <i class="ph ph-star"></i>
+                </a>
+            </span>
+
         </div>
         <div class="informacoes">
             <div class="info-transporte">
-                <p class="info">Tia Sany</p>
-                <p class="info">(55) 11 91234-5678</p>
-                <p class="titulo-info">Monitor</p>
-                <p class="info">Luiz Silva</p>
-                <p class="titulo-info">Vistoria</p>
-                <p class="info">Completa</p>
+                <div class="info-item">
+                    <p class="titulo-info">Tia Sany</p>
+                    <p class="info">+55 (11) 91234-5678</p>
+                </div>
+                <div class="info-item">
+                    <p class="titulo-info">Monitor</p>
+                    <p class="info">Luiz Silva</p>
+                </div>
+                <div class="info-item">
+                    <p class="titulo-info">Vistoria</p>
+                    <p class="info">Completa</p>
+                </div>
             </div>
             <div class="info-transporte">
-                <p class="titulo-info">Estado</p>
-                <p class="info">São Paulo</p>
-                <p class="titulo-info">Cidade</p>
-                <p class="info">São Paulo</p>
-                <p class="titulo-info">Bairro</p>
-                <p class="info">Alto da Rivieira</p>
+                <div class="info-item">
+                    <p class="titulo-info">Estado</p>
+                    <p class="info">São Paulo</p>
+                </div>
+                <div class="info-item">
+                    <p class="titulo-info">Cidade</p>
+                    <p class="info">São Paulo</p>
+                </div>
+                <div class="info-item">
+                    <p class="titulo-info">Bairro</p>
+                    <p class="info">Alto da Rivieira</p>
+                </div>
             </div>
         </div>
 
     </div>
+
+    <dialog id="modal-avaliar" >
+        <p>Avalie este condutor</p>
+        <div class="modal-avaliacao">
+            <span class="avaliacao">
+                <img src="../img/yellow_star.png" alt="" class="star">
+                <img src="../img/yellow_star.png" alt="" class="star">
+                <img src="../img/yellow_star.png" alt="" class="star">
+                <img src="../img/yellow_star.png" alt="" class="star">
+                <img src="../img/purple_star.png" alt="" class="star">
+            </span>
+            <button id="avaliar-close">Avaliar</button>
+        </div>
+    </dialog>
+
+    <div id="fundoDialog" style="width: 100vw; height: 100vh; background-color: rgba(0, 0, 0, 0.5); position: fixed; top: 0; left: 0; display: none;">
+    </div>
+
+    <script src="../js/script.js"></script>
 </body>
 
 </html>
