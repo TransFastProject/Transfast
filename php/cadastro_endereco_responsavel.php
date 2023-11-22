@@ -1,3 +1,51 @@
+<?php
+$btnCadEnd = filter_input(INPUT_POST, 'btnEnd', FILTER_DEFAULT);
+if ($btnCadEnd) {
+  include_once 'conexao.php';
+  session_start();
+  
+  $dados_rc = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+
+  $erro = false;
+
+  $dados_st = array_map('strip_tags', $dados_rc);
+  $dados = array_map('trim', $dados_st);
+
+  if (empty($dados['complemento'])) {
+    unset($dados['complemento']);
+  }
+
+  if (in_array('', $dados) && !isset($dados['complemento'])) {
+    $erro = true;
+    $_SESSION['msg'] = "Necessário preencher todos os dados, com exceção do complemento";
+  }
+
+  if (!$erro) {
+    $_SESSION['res_cep'] = $dados['cep'];
+    $_SESSION['res_rua'] = $dados['rua'];
+    $_SESSION['res_bairro'] = $dados['bairro'];
+    $_SESSION['res_numero'] = $dados['numero'];
+    $_SESSION['res_complemento'] = $dados['complemento'];
+    $result_end = "UPDATE responsavel SET cep='" . $_SESSION['res_cep'] . "', rua='" . $_SESSION['res_rua'] . "', bairro='" . $_SESSION['res_bairro'] . "', numero='" . $_SESSION['res_numero'] . "'";
+
+    if (isset($dados['complemento'])) {
+      $result_end .= ", complemento='" . $_SESSION['res_complemento'] . "'";
+    }
+
+    $result_end .= " WHERE res_cpf='" . $_SESSION['res_cpf'] . "'";
+
+    $resultado_end = mysqli_query($sql, $result_end);
+
+    if ($resultado_end && mysqli_affected_rows($sql) > 0) {
+      $_SESSION['msg'] = "Dados do Responsável cadastrados com sucesso";
+      header("Location: ../php/cadastro_crianca_responsavel.php");
+      exit();
+    } else {
+      $_SESSION['msg'] = "Erro ao cadastrar os dados do responsável: " . mysqli_error($sql);
+    }
+  }
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -10,7 +58,7 @@
 </head>
 
 <body>
-    <form action="salvar_endereco_responsavel.php" method="post" class="forms_cad_ende" id="cad_endereco">
+    <form action="" method="post" class="forms_cad_ende" id="cad_endereco">
         <h1>Endereço</h1>
 
         <div class="sem_nome">

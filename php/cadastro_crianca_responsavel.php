@@ -1,3 +1,56 @@
+<?php 
+$btnCadCrianca = filter_input(INPUT_POST, 'btnCad', FILTER_DEFAULT);
+if ($btnCadCrianca) {
+  include_once 'conexao.php';
+  session_start();
+
+  $dados_rc = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+
+  $erro = false;
+
+  $dados_st = array_map('strip_tags', $dados_rc);
+  $dados = array_map('trim', $dados_st);
+
+  if (in_array('', $dados)) {
+    $erro = true;
+    $_SESSION['msg'] = "Necessário preencher todos os dados";
+  }
+
+  if (!$erro) {
+    $cria_id = "SELECT cria_id from crianca WHERE res_cpf='". $_SESSION['res_cpf'] ."'";
+    $link_id = mysqli_query($sql,$cria_id);
+    $linked_id = mysqli_fetch_assoc($link_id);
+    $_SESSION['cria_id'] = $linked_id;
+    $_SESSION['nome_crianca'] = $dados['nome'];
+    $_SESSION['idade'] = $dados['idade'];
+    $_SESSION['genero'] = $dados['genero'];
+    $_SESSION['escola'] = $dados['escola'];
+    $_SESSION['dtnascimento'] = $dados['dtnascimento'];
+    $_SESSION['deficiencia'] = $dados['deficiencia'];
+
+    $result_crianca = "INSERT crianca (res_cpf, trans_id, nome, idade, genero, data_nascimento, escola, deficiencia) VALUES (
+          '" . $_SESSION['res_cpf'] . "',
+          1,
+          '" . $_SESSION['nome_crianca'] . "',
+          '" . $_SESSION['idade'] . "',
+          '" . $_SESSION['genero'] . "',
+          '" . $_SESSION['escola'] . "',
+          '" . $_SESSION['dtnascimento'] . "',
+          '" . $_SESSION['deficiencia'] . "'
+      )";
+
+    $resultado_crianca = mysqli_query($sql, $result_crianca);
+
+    if (mysqli_insert_id($sql)) {
+      $_SESSION['msg'] = "Crianca cadastrado com sucesso";
+      header("Location: ../html/home_responsavel.html");
+      exit();
+    } else {
+      $_SESSION['msg'] = "Erro ao cadastrar a crianca: " . mysqli_error($sql);
+    }
+  }
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -10,7 +63,7 @@
 </head>
 
 <body class="cad_body">
-  <form action="salvar_responsável.php" method="POST" class="forms_cadastro">
+  <form action="" method="POST" class="forms_cadastro">
     <h1>Cadastre sua criança</h1>
 
     <div>

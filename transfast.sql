@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `motorista` (
   `moto_cpf` varchar(14) NOT NULL,
   `nome` varchar(30) NOT NULL,
   `email` varchar(30) NOT NULL,
-  `senha` varchar(150) NOT NULL,
+  `senha` varchar(300) NOT NULL,
   `genero` varchar(9) DEFAULT NULL,
   `telefone` varchar(16) NOT NULL,
   `data_nascimento` varchar(10) NOT NULL,
@@ -47,14 +47,14 @@ CREATE TABLE IF NOT EXISTS `responsavel` (
   `res_cpf` varchar(14) NOT NULL,
   `nome` varchar(30) NOT NULL,
   `email` varchar(30) NOT NULL,
-  `senha` varchar(20) NOT NULL,
+  `senha` varchar(300) NOT NULL,
   `genero` varchar(9) NOT NULL,
   `telefone` varchar(16) NOT NULL,
   `data_nascimento` varchar(10) NOT NULL,
-  `cep` varchar(9) NOT NULL,
-  `rua` varchar(30) NOT NULL,
-  `bairro` varchar(30) NOT NULL,
-  `numero` varchar(5) NOT NULL,
+  `cep` varchar(9) DEFAULT NULL,
+  `rua` varchar(30) DEFAULT NULL,
+  `bairro` varchar(30) DEFAULT NULL,
+  `numero` varchar(5) DEFAULT NULL,
   `complemento` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`res_cpf`)
 );
@@ -96,11 +96,8 @@ CREATE TABLE IF NOT EXISTS `crianca` (
   `genero` varchar(10) NOT NULL,
   `data_nascimento` varchar(10) NOT NULL,
   `escola` varchar(20) NOT NULL,
-  `tipo_sanguineo` varchar(3) NOT NULL,
-  `alergias` varchar(30) NOT NULL,
-  `peso` varchar(6) NOT NULL,
-  `medicamentos` varchar(30) DEFAULT NULL,
-  `valor` decimal(7,2) NOT NULL,
+  `deficiencia` varchar(20) NOT NULL,
+  `valor` decimal(7,2) DEFAULT NULL,
   PRIMARY KEY (`cria_id`),
   KEY `res_cpf` (`res_cpf`),
   KEY `trans_id` (`trans_id`),
@@ -109,10 +106,10 @@ CREATE TABLE IF NOT EXISTS `crianca` (
 );
 
 -- Copiando dados para a tabela transfast.crianca: ~3 rows (aproximadamente)
-INSERT INTO `crianca` (`cria_id`, `res_cpf`, `trans_id`, `nome`, `idade`, `genero`, `data_nascimento`, `escola`, `tipo_sanguineo`, `alergias`, `peso`, `medicamentos`, `valor`) VALUES
-	(1, '000.000.000-00', 1, 'Sem Dados', 0, 'Sem Dados', '0000-00-00', 'Sem Dados', 'A+', 'Inexistente', '00kg', 'Inexistente', 0.00),
-	(2, '200.200.200-20', 1, 'samantha', 6, 'feminino', '2005-02-05', 'josefina pereira', 'O+', 'Poeira', '17kg', 'loratadina de 6 em 6 horas', 100.00),
-	(3, '200.200.200-20', 1, 'samantha', 6, 'feminino', '2005-02-05', 'josefina pereira', 'O+', 'Poeira', '17kg', 'loratadina de 6 em 6 horas', 150.00);
+INSERT INTO `crianca` (`cria_id`, `res_cpf`, `trans_id`, `nome`, `idade`, `genero`, `data_nascimento`, `escola`, `deficiencia`, `valor`) VALUES
+	(1, '000.000.000-00', 1, 'Sem Dados', 0, 'Sem Dados', '0000-00-00', 'Sem Dados', 'visual', 0.00),
+	(2, '200.200.200-20', 1, 'samantha', 6, 'feminino', '2005-02-05', 'josefina pereira','cognitiva', 100.00),
+	(3, '200.200.200-20', 1, 'samantha', 6, 'feminino', '2005-02-05', 'josefina pereira','tetraplegico', 150.00);
 
 CREATE TABLE `gastos` (
 	`gastos_id` INT(10) NOT NULL AUTO_INCREMENT,

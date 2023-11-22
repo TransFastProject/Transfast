@@ -1,7 +1,7 @@
 <?php
 $btnCadRes = filter_input(INPUT_POST, 'btnCad', FILTER_DEFAULT);
 if ($btnCadRes) {
-  include_once 'conexao.php';
+  include 'conexao.php';
   session_start();
   $dados_rc = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
@@ -36,27 +36,27 @@ if ($btnCadRes) {
   if (!$erro) {
     $dados['senha'] = password_hash($dados['senha'], PASSWORD_DEFAULT);
     $_SESSION['res_cpf'] = $dados['cpf'];
-    $_SESSION['nome'] = $dados['nome'];
-    $_SESSION['email'] = $dados['email'];
-    $_SESSION['senha'] = $dados['senha'];
-    $_SESSION['genero'] = $dados['genero'];
-    $_SESSION['telefone'] = $dados['telefone'];
-    $_SESSION['dtnascimento'] = $dados['dtnascimento'];
+    $_SESSION['res_nome'] = $dados['nome'];
+    $_SESSION['res_email'] = $dados['email'];
+    $_SESSION['res_senha'] = $dados['senha'];
+    $_SESSION['res_genero'] = $dados['genero'];
+    $_SESSION['res_telefone'] = $dados['telefone'];
+    $_SESSION['res_dtnascimento'] = $dados['dtnascimento'];
 
     $result_responsavel = "INSERT INTO responsavel (res_cpf, nome, email, senha, genero, telefone, data_nascimento) VALUES (
           '" . $_SESSION['res_cpf'] . "',
-          '" . $_SESSION['nome'] . "',
-          '" . $_SESSION['email'] . "',
-          '" . $_SESSION['senha'] . "',
-          '" . $_SESSION['genero'] . "',
-          '" . $_SESSION['telefone'] . "',
-          '" . $_SESSION['dtnascimento'] . "'
+          '" . $_SESSION['res_nome'] . "',
+          '" . $_SESSION['res_email'] . "',
+          '" . $_SESSION['res_senha'] . "',
+          '" . $_SESSION['res_genero'] . "',
+          '" . $_SESSION['res_telefone'] . "',
+          '" . $_SESSION['res_dtnascimento'] . "'
       )";
     
     $resultado_responsavel = mysqli_query($sql, $result_responsavel);
     
     if ($resultado_responsavel && mysqli_affected_rows($sql) > 0) {
-      header("Location:../php/cadastro_endereco_responsavel.php");
+      header("Location: ../php/cadastro_endereco_responsavel.php");
       exit();
     } else {
       $_SESSION['msg'] = "Erro ao cadastrar o usuário: " . mysqli_error($sql);
