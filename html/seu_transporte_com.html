@@ -109,7 +109,7 @@
 
     </div>
 
-    <dialog id="modal-avaliar" >
+    <dialog id="modal-avaliar">
         <p>Avalie este condutor</p>
         <div class="modal-avaliacao">
             <span class="avaliacao">
@@ -123,7 +123,34 @@
         </div>
     </dialog>
 
-    <div id="fundoDialog" style="width: 100vw; height: 100vh; background-color: rgba(0, 0, 0, 0.5); position: fixed; top: 0; left: 0; display: none;">
+    <dialog id="modal-chamada" style="width: 60vw; height: 40vw;">
+        <p>Avalie este condutor</p>
+        <div class="modal-avaliacao" style="height: 100%; padding: 4vw 0;">
+            <div class="chamada" style="height: 100%;">
+                <div class="chamada-item" style="display: flex; flex-direction: row; justify-content: center; align-items: center;gap: 2vw;">
+                    <div class="chamada-crianca" style="display: flex; flex-direction: row; align-items: center; padding: 10px 10px; background-color: #1E184C; border-radius: 10px; color: #fff; gap: 10px; width: 25vw;">
+                        <img src="../img/foto_motorista.png" alt="" srcset="" style="width: 4vw; height: 4vw; object-fit: cover; justify-content: start; border-radius: 10px;">
+                        <p style="margin: 0;">YGOR IZAQUE LIMA</p>
+                    </div>
+                    <div style="display: flex; gap: 1vw;">
+                        <span style="padding: 10px 10px; background-color: #1E184C; border-radius: 10px; color: #fff; display: flex; justify-content: center; align-items: center; gap: 10px;">
+                            <input type="radio" name="presente" id="presente">
+                            <label for="presente">Presente</label>
+                        </span>
+                        <span style="padding: 10px 10px; border: solid 1px #1E184C;border-radius: 10px; display: flex; justify-content: center; align-items: center; gap: 10px;">
+                            <input type="radio" name="ausente" id="ausente">
+                            <label for="ausente">Ausente</label>
+                        </span>
+
+                    </div>
+                </div>
+            </div>
+            <button id="avaliar-close">SALVAR</button>
+        </div>
+    </dialog>
+
+    <div id="fundoDialog"
+        style="width: 100vw; height: 100vh; background-color: rgba(0, 0, 0, 0.5); position: fixed; top: 0; left: 0; display: none;">
     </div>
 
     <script src="../js/script.js"></script>
