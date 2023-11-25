@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `motorista` (
 
 -- Copiando dados para a tabela transfast.motorista: ~2 rows (aproximadamente)
 INSERT INTO `motorista` (`moto_cpf`, `nome`, `email`, `senha`, `genero`, `telefone`, `data_nascimento`, `cep`, `rua`, `bairro`, `numero`, `complemento`, `foto`) VALUES
-	('inexistente', 'inexistente', 'inexistente', '1234', 'inexisten', 'inexistente', '2000-02-02', '0', 'inexistente', 'inexistente', '00', NULL, NULL);
+	('inexistente', 'inexistente', 'inexistente', '1234', 'inexistente', 'inexistente', '2000-02-02', '0', 'inexistente', 'inexistente', '00', NULL, NULL);
 
 -- Copiando estrutura para tabela transfast.responsavel
 CREATE TABLE IF NOT EXISTS `responsavel` (
@@ -83,7 +83,7 @@ CREATE TABLE IF NOT EXISTS `transporte` (
 );
 
 -- Copiando dados para a tabela transfast.transporte: ~2 rows (aproximadamente)
-INSERT INTO `transporte` (`trans_id`, `moto_cpf`, `nome`, `nome_monitor`, `placa`, `n_assentos`, `estado`, `cidade`, `cep`, `bairro`, `nota`) VALUES
+INSERT INTO `transporte` (`trans_id`, `moto_cpf`, `nome`, `monitor`, `placa`, `n_assentos`, `estado`, `cidade`, `cep`, `bairro`, `nota`) VALUES
 	(1, 'inexistente', 'inexistente', 'inexistente', 'ghd-2310', 15, 'indefinido', 'indefinido', '22000', 'indefinido', 0);
 
 -- Copiando estrutura para tabela transfast.crianca
