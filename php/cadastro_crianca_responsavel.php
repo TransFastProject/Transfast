@@ -28,14 +28,14 @@ if ($btnCadCrianca) {
     $_SESSION['dtnascimento'] = $dados['dtnascimento'];
     $_SESSION['deficiencia'] = $dados['deficiencia'];
 
-    $result_crianca = "INSERT crianca (res_cpf, trans_id, nome, idade, genero, data_nascimento, escola, deficiencia) VALUES (
+    $result_crianca = "INSERT INTO crianca (res_cpf, trans_id, nome, idade, genero, data_nascimento, escola, deficiencia) VALUES (
           '" . $_SESSION['res_cpf'] . "',
           1,
           '" . $_SESSION['nome_crianca'] . "',
           '" . $_SESSION['idade'] . "',
           '" . $_SESSION['genero'] . "',
-          '" . $_SESSION['escola'] . "',
           '" . $_SESSION['dtnascimento'] . "',
+          '" . $_SESSION['escola'] . "',
           '" . $_SESSION['deficiencia'] . "'
       )";
 

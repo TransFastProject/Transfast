@@ -8,11 +8,11 @@ $linked_moto = mysqli_fetch_assoc($link_moto);
 $cria_id = $_GET['cria_id'];
 
 if ($cria_id == "?") {
-	$select_values = "SELECT crianca.nome as nome_crianca, crianca.data_nascimento as dt_crianca, crianca.genero as genero_crianca, crianca.escola as escola_crianca, crianca.medicamentos as medicamentos_crianca, responsavel.nome as nome_responsavel, responsavel.rua as rua_responsavel, responsavel.bairro as bairro_responsavel, responsavel.cep as cep_responsavel, responsavel.telefone as telefone_responsavel, responsavel.numero as numero_responsavel  FROM crianca INNER JOIN responsavel ON crianca.res_cpf = responsavel.res_cpf WHERE crianca.cria_id=1";
+	$select_values = "SELECT crianca.nome as nome_crianca, crianca.data_nascimento as dt_crianca, crianca.genero as genero_crianca, crianca.escola as escola_crianca, crianca.deficiencia as deficiencia_crianca, responsavel.nome as nome_responsavel, responsavel.rua as rua_responsavel, responsavel.bairro as bairro_responsavel, responsavel.cep as cep_responsavel, responsavel.telefone as telefone_responsavel, responsavel.numero as numero_responsavel  FROM crianca INNER JOIN responsavel ON crianca.res_cpf = responsavel.res_cpf WHERE crianca.cria_id=1";
 	$link_values = mysqli_query($sql, $select_values);
 	$linked_values = mysqli_fetch_assoc($link_values);
 }else {
-	$select_values = "SELECT crianca.nome as nome_crianca, crianca.data_nascimento as dt_crianca, crianca.genero as genero_crianca, crianca.escola as escola_crianca, crianca.medicamentos as medicamentos_crianca, responsavel.nome as nome_responsavel, responsavel.rua as rua_responsavel, responsavel.bairro as bairro_responsavel, responsavel.cep as cep_responsavel, responsavel.telefone as telefone_responsavel, responsavel.numero as numero_responsavel  FROM crianca INNER JOIN responsavel ON crianca.res_cpf = responsavel.res_cpf WHERE crianca.cria_id= $cria_id";
+	$select_values = "SELECT crianca.nome as nome_crianca, crianca.data_nascimento as dt_crianca, crianca.genero as genero_crianca, crianca.escola as escola_crianca, crianca.deficiencia as deficiencia_crianca, responsavel.nome as nome_responsavel, responsavel.rua as rua_responsavel, responsavel.bairro as bairro_responsavel, responsavel.cep as cep_responsavel, responsavel.telefone as telefone_responsavel, responsavel.numero as numero_responsavel  FROM crianca INNER JOIN responsavel ON crianca.res_cpf = responsavel.res_cpf WHERE crianca.cria_id= $cria_id";
 	$link_values = mysqli_query($sql, $select_values);
 	$linked_values = mysqli_fetch_assoc($link_values);
 }
@@ -150,10 +150,10 @@ if ($cria_id == "?") {
 				</div>
 
 				<div class="form-group" style="border-bottom-width: 50%;">
-					<label for="cuidadosEspeciais" style=" width: 40%;">Cuidados Especiais:</label>
+					<label for="cuidadosEspeciais" style=" width: 40%;">Deficiencias:</label>
 					<input type="text" id="cuidadosEspeciais" name="cuidadosEspeciais"
 						style="margin-right:20%;width:80%;"
-						value="<?php echo $linked_values['medicamentos_crianca']; ?>"></textarea>
+						value="<?php echo $linked_values['deficiencia_crianca']; ?>"></textarea>
 				</div>
 
 				<div class="form-group" style="border-bottom-width: 0px; text-align: center;">

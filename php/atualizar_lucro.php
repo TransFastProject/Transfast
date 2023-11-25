@@ -16,12 +16,12 @@ $row_cria = mysqli_fetch_assoc($result_cria);
 $meses = array('janeiro', 'fevereiro', 'marco', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro');
 
 // Modificação do código que você forneceu
-$query = "SELECT * FROM mes WHERE cria_id = '$cria_id'"; // Use a consulta correta aqui
+$query = "SELECT * FROM verificacao WHERE cria_id = '$cria_id'"; // Use a consulta correta aqui
 $result = mysqli_query($sql, $query);
 
 if ($result && $result->num_rows > 0) {
     
-    $select_query = "SELECT * FROM mes WHERE cria_id = '$cria_id'";
+    $select_query = "SELECT * FROM verificacao WHERE cria_id = '$cria_id'";
     $result = mysqli_query($sql, $select_query);
 
     if ($result) {
@@ -31,7 +31,7 @@ if ($result && $result->num_rows > 0) {
                 $$mes = isset($_POST[$mes]) ? $_POST[$mes] : '-';
             }
 
-            $update_query = "UPDATE mes SET ";
+            $update_query = "UPDATE verificacao SET ";
             foreach ($meses as $mes) {
                 $update_query .= "$mes = '" . $$mes . "', ";
             }
@@ -53,7 +53,7 @@ if ($result && $result->num_rows > 0) {
                 $insert_fields[] = $mes;
                 $insert_values[] = "'$value'";
             }
-            $insert_query = "INSERT INTO mes (cria_id, " . implode(', ', $insert_fields) . ") VALUES ('$cria_id', " . implode(', ', $insert_values) . ")";
+            $insert_query = "INSERT INTO verificacao (cria_id, " . implode(', ', $insert_fields) . ") VALUES ('$cria_id', " . implode(', ', $insert_values) . ")";
             
             if (mysqli_query($sql, $insert_query)) {
                 echo "Registro inserido com sucesso.";

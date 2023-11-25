@@ -28,7 +28,7 @@ $row_cria = mysqli_fetch_assoc($result_cria);
 $meses = array('janeiro', 'fevereiro', 'marco', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro');
 
 // Obter os valores do banco de dados para cada mês
-$select_query = "SELECT * FROM mes WHERE cria_id = '$cria_id'";
+$select_query = "SELECT * FROM verificacao WHERE cria_id = '$cria_id'";
 $result = mysqli_query($sql, $select_query);
 $row_meses = mysqli_fetch_assoc($result);
 foreach ($meses as $mes) {
