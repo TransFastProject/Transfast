@@ -8,7 +8,6 @@ if ($acessar) {
     $senha = filter_input(INPUT_POST, 'senha', FILTER_DEFAULT);
 
     if ((!empty($cpf)) and (!empty($senha))) {
-        $result_responsavel = $sql->query("select res_cpf, nome, email, senha, telefone, data_nascimento, cep, rua, bairro, numero, complemento from responsavel where res_cpf = '$cpf' LIMIT 1");
         $result_motorista = $sql->query("select moto_cpf, nome, email, senha, telefone, data_nascimento, cep, rua, bairro, numero, complemento from motorista where moto_cpf= '$cpf' LIMIT 1");
 
         if ($result_motorista->num_rows > 0) {
@@ -29,29 +28,6 @@ if ($acessar) {
 
             } 
             else {
-                $_SESSION['msg'] = "<texto>SENHA INCORRETA </texto>";
-                header("Location: ../html/login.html");
-            }
-        } else {
-            $_SESSION['msg'] = "<texto>CPF INCORRETO</texto>";
-            header("Location: ../html/login.html");
-        }
-        if ($result_responsavel->num_rows > 0) {
-            $row_usuario = mysqli_fetch_assoc($result_responsavel);
-            if (password_verify($senha, $row_usuario['senha'])) {
-                $_SESSION['res_cpf'] = $row_usuario['res_cpf'];
-                $_SESSION['res_nome'] = $row_usuario['nome'];
-                $_SESSION['res_email'] = $row_usuario['email'];
-                $_SESSION['res_genero'] = $row_usuario['genero'];
-                $_SESSION['res_telefone'] = $row_usuario['telefone'];
-                $_SESSION['res_dtnascimento'] = $row_usuario['data_nascimento'];
-                $_SESSION['res_cep'] = $row_usuario['cep'];
-                $_SESSION['res_rua'] = $row_usuario['rua'];
-                $_SESSION['res_bairro'] = $row_usuario['bairro'];
-                $_SESSION['res_numero'] = $row_usuario['numero'];
-                $_SESSION['res_complemento'] = $row_usuario['complemento'];
-                header('Location: ../html/home_responsavel.html');
-            }else {
                 $_SESSION['msg'] = "<texto>SENHA INCORRETA </texto>";
                 header("Location: ../html/login.html");
             }
