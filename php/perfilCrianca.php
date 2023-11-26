@@ -100,8 +100,14 @@
             </span>
             <span style="display: flex;flex-direction: row; justify-content: space-between; align-items: center; width: 100%;">
               <span style="width:50vw;">
-                <p class="campo-perfil">Deficiência:</p>
-                <p></p>
+                <select name="" id="" class="campo-perfil" style="background: none; width: 50vw; border: none; outline: none;">
+                  <option value="" style="background-color: #1E184C;">Deficiência:</option>
+                  <option value="nenhuma" style="background-color: #1E184C;">Não possui</option>
+                  <option value="visual" style="background-color: #1E184C;">Visual</option>
+                  <option value="auditiva" style="background-color: #1E184C;">Auditiva</option>
+                  <option value="fisica" style="background-color: #1E184C;">Física</option>
+                  <option value="cognitiva" style="background-color: #1E184C;">Cognitiva</option>
+                </select>
               </span>
             </span>
           </div>
