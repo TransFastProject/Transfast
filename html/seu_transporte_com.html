@@ -23,8 +23,8 @@
                 <img src="/img/logo_v2.png" alt="Logo Transfast" class="home-logo">
             </a>
             <span style="display: flex;flex-direction: row; justify-content: center; align-items: center; gap: 2vw;">
-                <a href="perfilCrianca.html"
-                    style="padding: 1vw 1.5vw; background-color: #3C3577; border-radius: 1vw;text-decoration: none;color: #fff;">CHAMADA</a>
+                <a href=""
+                    style="padding: 1vw 1.5vw; background-color: #3C3577; border-radius: 1vw;text-decoration: none;color: #fff;" id="chamada">CHAMADA</a>
             </span>
         </span>
 
@@ -38,7 +38,7 @@
                     </a>
                 </div>
                 <div class="home-menu-item col">
-                    <a href="">
+                    <a href="chat.html">
                         <i class="ph ph-chat-circle-dots"></i>
                         <p>Mensagens</p>
                     </a>
@@ -50,7 +50,7 @@
                     </a>
                 </div>
                 <div class="home-menu-item col">
-                    <a href="">
+                    <a href="perfilResponsavel.html">
                         <i class="ph ph-user"></i>
                         <p>Perfil</p>
                     </a>
@@ -70,7 +70,7 @@
                 <a href="">
                     <i class="ph ph-chat-circle-dots"></i>
                 </a>
-                <a href="" id="avaliar">
+                <a href="#" id="avaliar">
                     <i class="ph ph-star"></i>
                 </a>
             </span>
@@ -125,19 +125,24 @@
 
     <dialog id="modal-chamada" style="width: 60vw; height: 40vw;">
         <p>Avalie este condutor</p>
-        <div class="modal-avaliacao" style="height: 100%; padding: 4vw 0;">
-            <div class="chamada" style="height: 100%;">
-                <div class="chamada-item" style="display: flex; flex-direction: row; justify-content: center; align-items: center;gap: 2vw;">
-                    <div class="chamada-crianca" style="display: flex; flex-direction: row; align-items: center; padding: 10px 10px; background-color: #1E184C; border-radius: 10px; color: #fff; gap: 10px; width: 25vw;">
-                        <img src="../img/foto_motorista.png" alt="" srcset="" style="width: 4vw; height: 4vw; object-fit: cover; justify-content: start; border-radius: 10px;">
+        <div class="modal-avaliacao" style="padding: 4vw 0;">
+            <div class="chamada" >
+                <div class="chamada-item"
+                    style="display: flex; flex-direction: row; justify-content: center; align-items: center;gap: 2vw;">
+                    <div class="chamada-crianca"
+                        style="display: flex; flex-direction: row; align-items: center; padding: 10px 10px; background-color: #1E184C; border-radius: 10px; color: #fff; gap: 10px; width: 25vw;">
+                        <img src="../img/foto_motorista.png" alt=""
+                            style="width: 4vw; height: 4vw; object-fit: cover; justify-content: start; border-radius: 10px;">
                         <p style="margin: 0;">YGOR IZAQUE LIMA</p>
                     </div>
                     <div style="display: flex; gap: 1vw;">
-                        <span style="padding: 10px 10px; background-color: #1E184C; border-radius: 10px; color: #fff; display: flex; justify-content: center; align-items: center; gap: 10px;">
+                        <span
+                            style="padding: 10px 10px; background-color: #1E184C; border-radius: 10px; color: #fff; display: flex; justify-content: center; align-items: center; gap: 10px;">
                             <input type="radio" name="presente" id="presente">
                             <label for="presente">Presente</label>
                         </span>
-                        <span style="padding: 10px 10px; border: solid 1px #1E184C;border-radius: 10px; display: flex; justify-content: center; align-items: center; gap: 10px;">
+                        <span
+                            style="padding: 10px 10px; border: solid 1px #1E184C;border-radius: 10px; display: flex; justify-content: center; align-items: center; gap: 10px;">
                             <input type="radio" name="ausente" id="ausente">
                             <label for="ausente">Ausente</label>
                         </span>
@@ -145,15 +150,36 @@
                     </div>
                 </div>
             </div>
-            <button id="avaliar-close">SALVAR</button>
+            <button id="chamada-close">SALVAR</button>
         </div>
     </dialog>
 
-    <div id="fundoDialog"
-        style="width: 100vw; height: 100vh; background-color: rgba(0, 0, 0, 0.5); position: fixed; top: 0; left: 0; display: none;">
-    </div>
+    <script>
+        const avaliar = document.getElementById("avaliar")
+        const avaliarClose = document.getElementById("avaliar-close")
+        const modalAvaliar = document.getElementById("modal-avaliar")
 
-    <script src="../js/script.js"></script>
+        const chamada = document.getElementById("chamada")
+        const chamadaClose = document.getElementById("chamada-close")
+        const modalChamada = document.getElementById("modal-chamada")
+
+        avaliar.onclick = function () {
+            modalAvaliar.showModal()
+        }
+
+        avaliarClose.onclick = function () {
+            modalAvaliar.close()
+        }
+
+        chamada.onclick = function (event) {
+            modalChamada.showModal()
+            event.preventDefault();
+        }
+
+        chamadaClose.onclick = function () {
+            modalChamada.close()
+        }
+    </script>
 </body>
 
 </html>
