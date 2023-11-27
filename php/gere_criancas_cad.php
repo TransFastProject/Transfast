@@ -114,9 +114,9 @@ if ($cria_id == "?") {
 						<option value="<?php echo $linked_values['genero_crianca']; ?>">
 							<?php echo $linked_values['genero_crianca']; ?>
 						</option>
-						<option value="masculino">Masculino</option>
-						<option value="feminino">Feminino</option>
-						<option value="outro">Outro</option>
+						<option value="Masculino">Masculino</option>
+						<option value="Feminino">Feminino</option>
+						<option value="Outro">Outro</option>
 					</select>
 
 					<label for="escola">Escola:</label>

@@ -1,3 +1,21 @@
+<?php
+include_once "conexao.php";
+session_start();
+
+// Verifica se o responsável está logado
+if (!isset($_SESSION["res_cpf"])) {
+    header("Location: ../html/login.html"); // Redireciona para a página de login do responsável se não estiver logado
+    exit();
+}
+
+// Recupera as informações das crianças associadas ao responsável
+$stmt = mysqli_prepare($sql, "SELECT * FROM crianca WHERE res_cpf = ?");
+mysqli_stmt_bind_param($stmt, "s", $_SESSION['res_cpf']);
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt);
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -32,11 +50,11 @@
         <span class="col-6"
             style="display: flex;flex-direction: row; justify-content: start; align-items: center; gap: 4vw;">
             <a href="home_responsavel.html">
-                <img src="/img/logo_v2.png" alt="Logo Transfast" class="home-logo">
+                <img src="../img/logo_v2.png" alt="Logo Transfast" class="home-logo">
             </a>
             <span style="display: flex;flex-direction: row; justify-content: center; align-items: center; gap: 2vw;">
-                <a href="perfilResponsavel.html" style="text-decoration: none; color: #fff;">RESPONSÁVEL</a>
-                <a href="perfilCrianca.html"
+                <a href="perfilResponsavel.php" style="text-decoration: none; color: #fff;">RESPONSÁVEL</a>
+                <a href="perfilCriancaSelecionar.php"
                     style="padding: 1vw 1.5vw; background-color: #3C3577; border-radius: 1vw;text-decoration: none;color: #fff;">CRIANÇA</a>
             </span>
         </span>
@@ -76,21 +94,29 @@
     <div class="semTransporte">
         <h3 style="font-weight: 600;">SELECIONE A CRIANÇA</h3>
         <div class="perfil-container"
-            style="width:50vw; display: flex;flex-direction: column; justify-content: center; align-items: center;gap: 10vw; margin-top: 2vw;">
-            <a href="perfilCrianca.html">
-                <span
-                    style="display: flex;flex-direction: row; justify-content: start; align-items: center;gap: 1vw; background-color: #3C3577; padding: 0.5vw 1vw;"
-                    class="rounded-4">
-                    <img src="https://source.unsplash.com/random/50x50" alt="" class="rounded-4">
-                    <div class="perfil-info-usuario">
-                        <p style="margin: 0; font-size: 20px;">NOME DA CRIANÇA</p>
-                    </div>
-                </span>
-            </a>
+            style="width:50vw; display: flex;flex-direction: column; justify-content: center; align-items: center;gap: 1vw; margin-top: 2vw;">
+            <div class="criancas" style="overflow-y: auto; width: 35vw; max-height: 20vw; display: flex;flex-direction: column; justify-content: start; align-items: center;gap: 1vw;">
+            <?php
+                while ($row_crianca = mysqli_fetch_assoc($result)) {
+                    $nome_crianca = $row_crianca['nome'];
+                    $id_crianca = $row_crianca['cria_id']; // Supondo que há um campo 'id' na sua tabela
+
+                    echo "<a href='../php/perfilCrianca.php?id=$id_crianca'>"; // Adicione o id da criança à URL
+                    echo "<span style='display: flex;flex-direction: row; justify-content: start; align-items: center;gap: 1vw; background-color: #3C3577; padding: 0.5vw 1vw; width: 30vw' class='rounded-4'>";
+                    echo "<img src='https://source.unsplash.com/random/50x50' alt='' class='rounded-4'>";
+                    echo "<div class='perfil-info-usuario'>";
+                    echo "<p style='margin: 0; font-size: 18px;'>$nome_crianca</p>";
+                    echo "</div>";
+                    echo "</span>";
+                    echo "</a>";
+                }
+            ?>
+            </div>
+            
             <span
-                style="display: flex;flex-direction: row; justify-content: start; align-items: center;gap: 1vw; background-color: #3C3577; padding: 0.5vw 1vw;"
+                style="display: flex;flex-direction: row; justify-content: start; align-items: center;gap: 1vw; background-color: #3C3577; padding: 0.5vw 1vw; margin-top: 3vw;"
                 class="rounded-4">
-                <p style="margin: 0; font-size: 25px; font-weight: 600;">+</p>
+                <a href="adicionarCrianca.php" style="margin: 0; font-size: 25px; font-weight: 600; text-decoration: none; color: #fff">+</a>
             </span>
         </div>
     </div>

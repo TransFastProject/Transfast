@@ -182,9 +182,9 @@ if (isset($_SESSION["moto_cpf"])) {
             <label for="genero">Gênero:</label>
             <select id="genero" name="genero">
               <option value="<?php echo $row['genero'];?>"><?php echo $row['genero'];?></option>
-              <option value="masculino">Masculino</option>
-              <option value="feminino">Feminino</option>
-              <option value="outro">Outro</option>
+              <option value="Masculino">Masculino</option>
+              <option value="Feminino">Feminino</option>
+              <option value="Outro">Outro</option>
             </select>
 
           </div>

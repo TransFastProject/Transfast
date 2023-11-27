@@ -81,10 +81,10 @@ if ($btnCadCrianca) {
       <div>
         <label for="" class="label_cad" id="label_genero"><b>Gênero</b></label><span id="avisoCpf"></span><br />
         <select name="genero" id="genero" class="input_cad">
-          <option value="masculino">Masculino</option>
-          <option value="feminino">Feminino</option>
-          <option value="outro">Outro</option>
-          <option value="prefiro não dizer">Prefiro não dizer</option>
+          <option value="Masculino">Masculino</option>
+          <option value="Feminino">Feminino</option>
+          <option value="Outro">Outro</option>
+          <option value="Prefiro não dizer">Prefiro não dizer</option>
         </select>
       </div>
       <div>
@@ -103,11 +103,11 @@ if ($btnCadCrianca) {
       <div>
         <label for="" class="label_cad" id="label_genero"><b>Possui deficiência?</b></label><span id="avisoCpf"></span><br />
         <select name="deficiencia" id="deficiencia" class="input_cad">
-          <option value="masculino">Não possui</option>
-          <option value="visual">Visual</option>
-          <option value="auditiva">Auditiva</option>
-          <option value="fisica">Física</option>
-          <option value="cognitiva">Cognitiva</option>
+          <option value="Nenhuma">Não possui</option>
+          <option value="Visual">Visual</option>
+          <option value="Auditiva">Auditiva</option>
+          <option value="Física">Física</option>
+          <option value="Cognitiva">Cognitiva</option>
         </select>
       </div>
     </div>

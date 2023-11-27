@@ -32,8 +32,8 @@
             <img src="/img/logo_v2.png" alt="Logo Transfast" class="home-logo">
         </a>
         <span style="display: flex;flex-direction: row; justify-content: center; align-items: center; gap: 2vw;">
-          <a href="perfilResponsavel.html" style="padding: 1vw 1.5vw; background-color: #3C3577; border-radius: 1vw;text-decoration: none;color: #fff;">RESPONSÁVEL</a>
-          <a href="perfilCriancaSelecionar.html" style="text-decoration: none; color: #fff;">CRIANÇA</a>
+          <a href="perfilResponsavel.php" style="padding: 1vw 1.5vw; background-color: #3C3577; border-radius: 1vw;text-decoration: none;color: #fff;">RESPONSÁVEL</a>
+          <a href="perfilCriancaSelecionar.php" style="text-decoration: none; color: #fff;">CRIANÇA</a>
         </span>
       </span>
         
@@ -59,7 +59,7 @@
                     </a>
                 </div>
                 <div class="home-menu-item col">
-                    <a href="">
+                    <a href="perfilResponsavelphp">
                         <i class="ph ph-user"></i>
                         <p>Perfil</p>
                     </a>

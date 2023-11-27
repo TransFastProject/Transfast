@@ -81,10 +81,10 @@
         <div>
           <label for="" class="label_cad" id="label_genero"><b>Gênero</b></label><span id="avisoCpf"></span><br />
           <select name="genero" id="genero" class="input_cad">
-            <option value="masculino">Masculino</option>
-            <option value="feminino">Feminino</option>
-            <option value="outro">Outro</option>
-            <option value="prefiro não dizer">Prefiro não dizer</option>
+            <option value="Masculino">Masculino</option>
+            <option value="Feminino">Feminino</option>
+            <option value="Outro">Outro</option>
+            <option value="Prefiro não dizer">Prefiro não dizer</option>
           </select>
         </div>
       </div>
