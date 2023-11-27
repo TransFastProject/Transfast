@@ -37,8 +37,8 @@ $res_nome = $_SESSION['nome'];
 <body class="home-body" style="display: flex; height: 100%; flex-direction: column; justify-content: center; align-items: center;">
     <header class="home-header row justify-content-center align-items-center g-2 col-12" style="position: absolute;top: 0;padding: 0 2vw;">
       <span class="col-6" style="display: flex;flex-direction: row; justify-content: start; align-items: center; gap: 4vw;">
-        <a href="home_responsavel.html" >
-            <img src="/img/logo_v2.png" alt="Logo Transfast" class="home-logo">
+        <a href="../html/home_responsavel.html" >
+            <img src="../img/logo_v2.png" alt="Logo Transfast" class="home-logo">
         </a>
         <span style="display: flex;flex-direction: row; justify-content: center; align-items: center; gap: 2vw;">
           <a href="perfilResponsavel.php" style="text-decoration: none; color: #fff;">RESPONSÁVEL</a>

@@ -74,8 +74,8 @@ $opcoes_deficiencia = array("Nenhuma", "Visual", "Auditiva", "Física", "Cogniti
 <body class="home-body" style="display: flex; height: 100%; flex-direction: column; justify-content: center; align-items: center;">
     <header class="home-header row justify-content-center align-items-center g-2 col-12" style="position: absolute;top: 0;padding: 0 2vw;">
       <span class="col-6" style="display: flex;flex-direction: row; justify-content: start; align-items: center; gap: 4vw;">
-        <a href="home_responsavel.html" >
-            <img src="/img/logo_v2.png" alt="Logo Transfast" class="home-logo">
+        <a href="../html/home_responsavel.html" >
+            <img src="../img/logo_v2.png" alt="Logo Transfast" class="home-logo">
         </a>
         <span style="display: flex;flex-direction: row; justify-content: center; align-items: center; gap: 2vw;">
           <a href="perfilResponsavel.php" style="text-decoration: none; color: #fff;">RESPONSÁVEL</a>
@@ -129,14 +129,14 @@ $opcoes_deficiencia = array("Nenhuma", "Visual", "Auditiva", "Física", "Cogniti
               <span style="width: 23vw;">
               <p style="border-style: solid; color: #fff; padding: 0; border-bottom-width: 1px; border-top-width: 0; border-right-width: 0; border-left-width: 0; height: 2vw; display: flex;flex-direction: row; justify-content: start; align-items: center; gap: 10px">Gênero:
                 <!-- Campo de Seleção para Gênero -->
-        <select name="genero" class="campo-perfil" style="background: none; width: 23vw; border: none; outline: none; -moz-appearance: none; -webkit-appearance: none;">
-            <?php
-            foreach ($opcoes_genero as $opcao) {
-                $selected = ($genero == $opcao) ? "selected" : "";
-                echo "<option value=\"$opcao\" style=\"background-color: #1E184C;\" $selected>$opcao</option>";
-            }
-            ?>
-        </select>
+              <select name="genero" class="campo-perfil" style="background: none; width: 23vw; border: none; outline: none; -moz-appearance: none; -webkit-appearance: none;">
+                  <?php
+                  foreach ($opcoes_genero as $opcao) {
+                      $selected = ($genero == $opcao) ? "selected" : "";
+                      echo "<option value=\"$opcao\" style=\"background-color: #1E184C;\" $selected>$opcao</option>";
+                  }
+                  ?>
+              </select>
               </p>
               </span>
               <span style="width: 23vw;">
@@ -158,14 +158,14 @@ $opcoes_deficiencia = array("Nenhuma", "Visual", "Auditiva", "Física", "Cogniti
               <span style="width:50vw;">
               <p style="border-style: solid; color: #fff; padding: 0; border-bottom-width: 1px; border-top-width: 0; border-right-width: 0; border-left-width: 0; height: 2vw; display: flex;flex-direction: row; justify-content: start; align-items: center; gap: 10px">Deficiência: 
                 <!-- Campo de Seleção para Deficiência -->
-        <select name="deficiencia" class="campo-perfil" style="background: none; width: 50vw; border: none; outline: none; -moz-appearance: none; -webkit-appearance: none;">
-            <?php
-            foreach ($opcoes_deficiencia as $opcao) {
-                $selected = ($deficiencia == $opcao) ? "selected" : "";
-                echo "<option value=\"$opcao\" style=\"background-color: #1E184C;\" $selected>$opcao</option>";
-            }
-            ?>
-        </select>
+          <select name="deficiencia" class="campo-perfil" style="background: none; width: 50vw; border: none; outline: none; -moz-appearance: none; -webkit-appearance: none;">
+              <?php
+              foreach ($opcoes_deficiencia as $opcao) {
+                  $selected = ($deficiencia == $opcao) ? "selected" : "";
+                  echo "<option value=\"$opcao\" style=\"background-color: #1E184C;\" $selected>$opcao</option>";
+              }
+              ?>
+          </select>
               </p>
               </span>
             </span>
@@ -177,7 +177,7 @@ $opcoes_deficiencia = array("Nenhuma", "Visual", "Auditiva", "Física", "Cogniti
             <button style="border: none; width: 12vw; height: 2.5vw; border-radius: 1vw;">Voltar</button>
           </div>
 
-          </form>
+        </form>
         </div>
     </div>
 </body>

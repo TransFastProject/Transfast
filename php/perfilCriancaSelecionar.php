@@ -49,7 +49,7 @@ $result = mysqli_stmt_get_result($stmt);
         style="position: absolute;top: 0;padding: 0 2vw;">
         <span class="col-6"
             style="display: flex;flex-direction: row; justify-content: start; align-items: center; gap: 4vw;">
-            <a href="home_responsavel.html">
+            <a href="../html/home_responsavel.html">
                 <img src="../img/logo_v2.png" alt="Logo Transfast" class="home-logo">
             </a>
             <span style="display: flex;flex-direction: row; justify-content: center; align-items: center; gap: 2vw;">
