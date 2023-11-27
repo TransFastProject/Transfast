@@ -111,11 +111,14 @@ if($revi_item01_value === '1' && $revi_item02_value === '1' && $revi_item03_valu
 		</div>
 		<div>
 			<br />
-			<div id="gere_local"><a href="gere_inicio.php">Home</a></div><br /><br />
-			<div class="gere_links"><a href="gere_revisao.php">Revisão</a></div><br /><br />
-			<div class="gere_links"><a href="gere_criancas_escolas.php">Crianças</a></div><br /><br />
-			<div class="gere_links"><a href="gere_lucro.php">Lucro</a></div><br /><br />
-			<div class="gere_links"><a href="gere_perfil.php">Perfil</a></div><br /><br />
+			<div id="gere_local"><a href="gere_inicio.php">Home</a></div><br />
+			<div class="gere_links"><a href="gere_revisao.php">Revisão</a></div><br />
+			<div class="gere_links"><a href="gere_criancas_escolas.php">Crianças</a></div><br />
+			<div class="gere_links"><a href="gere_lucro.php">Lucro</a></div><br />
+			<div class="gere_links"><a href="gere_perfil.php">Perfil</a></div><br />
+			<div class="gere_links"><a href="">Chamada</a></div><br /> <!--chamada -->
+			<div class="gere_links"><a href="">Chat</a></div><br />
+
 		</div>
 
 		<footer id="gere_sair"><a href="sair.php">Sair</a></footer>

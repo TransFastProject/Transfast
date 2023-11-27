@@ -50,11 +50,14 @@ $linked_moto = mysqli_fetch_assoc($link_moto);
 		</div>
 		<div>
 			<br />
-			<div class="gere_links"><a href="gere_inicio.php">Home</a></div><br /><br />
-			<div class="gere_links"><a href="gere_revisao.php">Revisão</a></div><br /><br />
-			<div class="gere_links"><a href="gere_criancas_escolas.php">Crianças</a></div><br /><br />
-			<div id="gere_local"><a href="gere_lucro.php">Lucro</a></div><br /><br />
-			<div class="gere_links"><a href="gere_perfil.php">Perfil</a></div><br /><br />
+			<div class="gere_links"><a href="gere_inicio.php">Home</a></div><br />
+			<div class="gere_links"><a href="gere_revisao.php">Revisão</a></div><br />
+			<div class="gere_links"><a href="gere_criancas_escolas.php">Crianças</a></div><br />
+			<div id="gere_local"><a href="gere_lucro.php">Lucro</a></div><br />
+			<div class="gere_links"><a href="gere_perfil.php">Perfil</a></div><br />
+			<div class="gere_links"><a href="">Chamada</a></div><br /> <!--chamada -->
+			<div class="gere_links"><a href="">Chat</a></div><br />
+
 		</div>
 		<footer id="gere_sair"><a href="sair.php">Sair</a></footer>
 	</div>
@@ -64,7 +67,7 @@ $linked_moto = mysqli_fetch_assoc($link_moto);
 		<div id="registro_pagamento">
 			
 		<div id="filtro"><a></a><input type="text" id="barra_busca" style="font-size:20px;" placeholder="Pesquise aqui">
-			<button style="width:3.3vw; height:3.3vw;background-image: url(../img/icone_lupa_v2.png);background-size:2.8vw 2.8vw;background-repeat: no-repeat;" onclick="searchData()"></button>
+			<button id="btn_filtro" style="border: 0; width:3.3vw; height:3.3vw;background-image: url(../img/icone_lupa_v2.png);background-size:2.8vw 2.8vw;background-repeat: no-repeat;" onclick="searchData()"></button>
 			</div>
 			<table id="tabela_gastos">
 				<div>

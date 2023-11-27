@@ -54,7 +54,6 @@ if (isset($_SESSION["moto_cpf"])) {
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="../css/estilo.css">
   <link rel="stylesheet" href="../css/gerenciamento.css">
-	<link rel="stylesheet" href="../css/gerenciamento.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   <link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon">
   <script type="text/JavaScript"></script>
@@ -93,11 +92,13 @@ if (isset($_SESSION["moto_cpf"])) {
     </div>
     <div>
       <br />
-      <div class="gere_links"><a href="gere_inicio.php">Home</a></div><br /><br />
-      <div class="gere_links"><a href="gere_revisao.php">Revisão</a></div><br /><br />
-      <div class="gere_links"><a href="gere_criancas_escolas.php">Crianças</a></div><br /><br />
-      <div class="gere_links"><a href="gere_lucro.php">Lucro</a></div><br /><br />
-      <div id="gere_local"><a href="gere_perfil.php">Perfil</a></div><br /><br />
+      <div class="gere_links"><a href="gere_inicio.php">Home</a></div><br />
+      <div class="gere_links"><a href="gere_revisao.php">Revisão</a></div><br />
+      <div class="gere_links"><a href="gere_criancas_escolas.php">Crianças</a></div><br />
+      <div class="gere_links"><a href="gere_lucro.php">Lucro</a></div><br />
+      <div id="gere_local"><a href="gere_perfil.php">Perfil</a></div><br />
+      <div class="gere_links"><a href="../html/gere_chamada_escolas.html">Chamada</a></div><br />
+      <div class="gere_links"><a href="">Chat</a></div><br />
     </div>
     <footer id="gere_sair"><a href="sair.php">Sair</a></footer>
   </div>
@@ -143,39 +144,37 @@ if (isset($_SESSION["moto_cpf"])) {
             ?>
           </label>
           <input type="file" name="foto" id="seletor-foto" style="display:none;" accept="image/*"><br>
+
+          <div id="informacoes">
+            <label for=""><b>Nome:</b></label>
+            <input type="text" id="nome" name="nome" value="<?php echo $row['nome']; ?>">
+              
+            <!--  editar esse input que aparece o nome, editar a fonte também, deixar sem borda e nome grande  -->
+            <div id="avaliacao"></div>
+          </div>
         </form>
       </div>
 
       <form type="text" name="form" method="post" id="formsperfil" action="salvar_perfil.php">
         <div class="form-container">
 
-          <div id="informacoes">
-
-            <input type="text" id="nome" name="nome" style="border: none; font-size: 25px; margin-left: 250px;"
-              value="<?php echo $row['nome']; ?>">
-<!--  editar esse input que aparece o nome, editar a fonte também, deixar sem borda e nome grande  -->
-            
-
-            <div id="avaliacao"></div>
-          </div>
-
           <!-- Campos principais -->
 
           <div class="form-group">
 
             <label for="estado">Estado:</label>
-            <input type="text" id="estado" name="estado" style=" width: 70%;" value="<?php echo $row_t['estado']; ?>">
-            <label for="cep" style=" width: 5%;">Zona:</label>
-            <input type="text" id="cep" name="cep" style="width: 10%;" value="<?php echo $row_t['cep']; ?>">
+            <input type="text" id="estado" name="estado" value="<?php echo $row_t['estado']; ?>">
+            <label for="cep">Zona:</label>
+            <input type="text" id="cep" name="cep" value="<?php echo $row_t['cep']; ?>">
 
           </div>
 
           <div class="form-group">
             <label for="bairro">Bairro:</label>
-            <input type="text" id="bairro" name="bairro" style=" width: 40%;" value="<?php echo $row_t['bairro']; ?>">
+            <input type="text" id="bairro" name="bairro" value="<?php echo $row_t['bairro']; ?>">
 
-            <label for="cidade" style=" width: 7%;">Cidade:</label>
-            <input type="text" id="cidade" name="cidade" style=" width: 40%;" value="<?php echo $row_t['cidade']; ?>">
+            <label for="cidade" style=" width: 8%;">Cidade:</label>
+            <input type="text" id="cidade" name="cidade" value="<?php echo $row_t['cidade']; ?>">
           </div>
 
           <div class="form-group">
@@ -205,19 +204,20 @@ if (isset($_SESSION["moto_cpf"])) {
             </select>
 
           </div>
+          <div class="form-group">
+          <label for="data_nascimento">Data de Nascimento:</label>
+            <input type="date" id="data_nascimento" name="data_nascimento" style="text-align: center;" value="<?php echo $row['data_nascimento']; ?>">
 
-          <div class="form-group" style=" width: 50%;">
-            <label for="data_nascimento" style=" width: 70%;">Data de Nascimento:</label>
-            <input type="date" id="data_nascimento" name="data_nascimento" style="width: 30%; text-align: center;"
-              value="<?php echo $row['data_nascimento']; ?>">
+            <label for="cidade">Monitor:</label>
+            <input type="text" id="monitor" name="monitor" value="">
           </div>
 
           <div class="responsavel_dados">
 
-            <div class="form-group" style=" width: 50%;">
-              <label for="telefone" style=" width: 30%;">Contato:</label>
-              <input type="text" id="telefone" name="telefone" style=" width: 70%;"
-                value="<?php echo $row['telefone']; ?>">
+            <div class="form-group">
+              <label for="telefone">Contato:</label>
+              <input type="text" id="telefone" name="telefone" value="<?php echo $row['telefone']; ?>">
+                
             </div>
 
           </div>
@@ -225,12 +225,22 @@ if (isset($_SESSION["moto_cpf"])) {
           <!-- colocar para mostrar numero de assentos -->
           <!-- tirar crianças especiais (quando terminar apaga esses comentarios :)  -->
 
-          <div class="form-group" style="border-bottom-width: 0px;">
-            <label for="cuidadosEspeciais" style=" width: 40%;">Crianças Especiais:</label>
-            <textarea id="cuidadosEspeciais" name="cuidadosEspeciais" rows="4"></textarea>
+          <div class="fotos_veiculo">
+
+          <div class="btn_add_foto">
+
+              <a href="">
+              <img src="../img/icone_add.png" alt=""><br>
+              Adicione imagens do seu veiculo
+              </a>
+
           </div>
 
-          <div class="form-group" style="border-bottom-width: 0px; text-align: center;">
+          </div>
+
+
+
+          <div class="form-group" style=" border-bottom-width: 0;">
 
             <input type="submit" value="Salvar" id="gp_btn">
           </div>
@@ -238,6 +248,7 @@ if (isset($_SESSION["moto_cpf"])) {
         </div>
     </div>
   </div>
+
   <script type="text/JavaScript">
     //parte de aparecer o simbolo e a imagem ficar mais escura.
     document.getElementById('foto-container').addEventListener('mouseover', function () {

@@ -10,6 +10,7 @@ if ($btnCadMoto) {
   $dados_st = array_map('strip_tags', $dados_rc);
   $dados = array_map('trim', $dados_st);
   $cpf = $dados['cpf'];
+  $dataUsuario = $dados['dtnascimento'];
 
   function cpfExiste($cpf)
   {
@@ -18,7 +19,21 @@ if ($btnCadMoto) {
 
     return $verifica_cpf->num_rows > 0;
   }
+  function verificaIdade($dataUsuario){
+    $dataAtual = new DateTime();
+    $dataNascimento = new DateTime($dataUsuario);
+    $diferenca = $dataAtual->diff($dataNascimento);
 
+    $idade = $diferenca->y;
+
+    if($idade >= 18 && $idade <= 100){
+      echo "Você tem a idade suficiente para realizar o cadastro";
+      return true;
+    }else{
+      echo "Idade acima ou abaixo do permitido para cadastrar";
+      return false;
+    }
+  }
   if (cpfExiste($cpf)) {
     echo "CPF já cadastrado como motorista ou responsável";
     header("Location: ../php/cadastro.php");
@@ -41,6 +56,7 @@ if ($btnCadMoto) {
       }
     }
     if (!$erro) {
+      if (verificaIdade($dataUsuario)){
       $dados['senha'] = password_hash($dados['senha'], PASSWORD_DEFAULT);
       $_SESSION['moto_cpf'] = $cpf;
       $_SESSION['nome'] = $dados['nome'];
@@ -48,7 +64,7 @@ if ($btnCadMoto) {
       $_SESSION['senha'] = $dados['senha'];
       $_SESSION['genero'] = $dados['genero'];
       $_SESSION['telefone'] = $dados['telefone'];
-      $_SESSION['dtnascimento'] = $dados['dtnascimento'];
+      $_SESSION['dtnascimento'] = $dataUsuario;
 
       $result_motorista = "INSERT INTO motorista (moto_cpf, nome, email, senha, genero, telefone, data_nascimento) VALUES (
           '" . $_SESSION['moto_cpf'] . "',
@@ -70,7 +86,14 @@ if ($btnCadMoto) {
       } else {
         $_SESSION['msg'] = "Erro ao cadastrar o usuário: " . mysqli_error($sql);
       }
+    } else {
+      header("Location: ../php/cadastro.php");
+      exit();
     }
+  } else {
+    header("Location: ../php/cadastro.php");
+    exit();
   }
+}
 }
 ?>
