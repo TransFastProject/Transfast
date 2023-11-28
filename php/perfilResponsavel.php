@@ -8,32 +8,27 @@ if (!isset($_SESSION["res_cpf"])) {
     exit();
 }
 
-// Verifica se foi passado um ID de criança na URL
-if (!isset($_GET['id'])) {
-    echo "ID da criança não especificado.";
-    exit();
-}
-
-$id_crianca = $_GET['id'];
-
-// Recupera informações da criança com base no ID
-$stmt = mysqli_prepare($sql, "SELECT crianca.*, responsavel.nome AS responsavel_nome FROM crianca crianca
-                              JOIN responsavel responsavel ON crianca.res_cpf = responsavel.res_cpf
-                              WHERE crianca.cria_id = ?");
-mysqli_stmt_bind_param($stmt, "i", $id_crianca);
+// Recupera informações do responsável
+$stmt = mysqli_prepare($sql, "SELECT * FROM responsavel WHERE res_cpf = ?");
+mysqli_stmt_bind_param($stmt, "s", $_SESSION['res_cpf']);
 mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt);
 
-if ($row_crianca = mysqli_fetch_assoc($result)) {
-    // Preencha as variáveis com as informações da criança
-    $nome_crianca = $row_crianca['nome'];
-    $genero = $row_crianca['genero'];
-    $escola = $row_crianca['escola'];
-    $data_nascimento = $row_crianca['data_nascimento'];
-    $responsavel = $row_crianca['responsavel_nome'];
-    $deficiencia = $row_crianca['deficiencia'];
+if ($row_responsavel = mysqli_fetch_assoc($result)) {
+    // Preencha as variáveis com as informações do responsável
+    $nome = $row_responsavel['nome'];
+    $email = $row_responsavel['email'];
+    $genero = $row_responsavel['genero'];
+    $telefone = $row_responsavel['telefone'];
+    $rua = $row_responsavel['rua'];
+    $cep = $row_responsavel['cep'];
+    $bairro = $row_responsavel['bairro'];
+    $numero = $row_responsavel['numero'];
+    $complemento = $row_responsavel['complemento'];
+    $nasc = $row_responsavel['data_nascimento'];
+    // Adicione mais campos conforme necessário
 } else {
-    echo "Criança não encontrada.";
+    echo "Responsável não encontrado.";
     exit();
 }
 
@@ -42,6 +37,7 @@ $opcoes_genero = array("Masculino", "Feminino", "Outro", "Prefiro não dizer");
 
 // Lista de opções para o campo de deficiência
 $opcoes_deficiencia = array("Nenhuma", "Visual", "Auditiva", "Física", "Cognitiva");
+
 ?>
 
 <!DOCTYPE html>
@@ -78,8 +74,8 @@ $opcoes_deficiencia = array("Nenhuma", "Visual", "Auditiva", "Física", "Cogniti
             <img src="../img/logo_v2.png" alt="Logo Transfast" class="home-logo">
         </a>
         <span style="display: flex;flex-direction: row; justify-content: center; align-items: center; gap: 2vw;">
-          <a href="perfilResponsavel.php" style="text-decoration: none; color: #fff;">RESPONSÁVEL</a>
-          <a href="perfilCriancaSelecionar.php" style="padding: 1vw 1.5vw; background-color: #3C3577; border-radius: 1vw;text-decoration: none;color: #fff;">CRIANÇA</a>
+          <a href="perfilResponsavel.php" style="padding: 1vw 1.5vw; background-color: #3C3577; border-radius: 1vw;text-decoration: none;color: #fff;">RESPONSÁVEL</a>
+          <a href="perfilCriancaSelecionar.php" style="text-decoration: none; color: #fff;">CRIANÇA</a>
         </span>
       </span>
         
@@ -105,7 +101,7 @@ $opcoes_deficiencia = array("Nenhuma", "Visual", "Auditiva", "Física", "Cogniti
                     </a>
                 </div>
                 <div class="home-menu-item col">
-                    <a href="">
+                    <a href="perfilResponsavelphp">
                         <i class="ph ph-user"></i>
                         <p>Perfil</p>
                     </a>
@@ -115,18 +111,40 @@ $opcoes_deficiencia = array("Nenhuma", "Visual", "Auditiva", "Física", "Cogniti
         </div>
     </header>
 
-    <div class="semTransporte" style="margin-top: 5vw;">
+    <div class="semTransporte">
+        <h3 style="font-weight: 600;">SEU PERFIL</h3>
         <div class="perfil-container" style="width:50vw; display: flex;flex-direction: column; justify-content: center; align-items: start;gap: 3vw;">
-        <form action="salvar_edicao_crianca.php?id=<?php echo $id_crianca; ?>" method="post" style="display: flex;flex-direction: column; justify-content: center; align-items: start;gap: 3vw;">
+        <form action="salvar_edicao_res.php" method="post" style="display: flex;flex-direction: column; justify-content: center; align-items: start;gap: 3vw;">
           <span style="display: flex;flex-direction: row; justify-content: start; align-items: center;gap: 2vw;">
             <img src="https://source.unsplash.com/random/130x130" alt="" class="rounded-circle">
             <div class="perfil-info-usuario">
-              <p style="margin: 0; font-size: 25px;"><input type="text" name="nome" value="<?php echo $nome_crianca; ?>" style="background: none; font-size: 25px; color: #fff; border: none; outline: none;"></p>
+              <p style="margin: 0; font-size: 25px;"><input type="text" name="nome" value="<?php echo $nome; ?>" style="background: none; font-size: 25px; color: #fff; border: none; outline: none;"></p>
+              <p style="margin: 0; font-size: 25px;"><input type="text" name="email" value="<?php echo $email; ?>" style="background: none; font-size: 25px; color: #fff; border: none; outline: none;"></p>
             </div>
           </span>
           <div class="perfil-info" style="width: 100%;display: flex;flex-direction: column; justify-content: center; align-items: center; gap: 1vw;">
             <span style="display: flex;flex-direction: row; justify-content: space-between; align-items: center; width: 100%;">
+              <span style="width: 36vw;">
+                <p class="campo-perfil" style="display: flex;flex-direction: row; justify-content: start; align-items: center; height: 2vw;">Rua: <input type="text" name="rua" value="<?php echo $rua; ?>" style="background: none; color: #fff; border: none; outline: none;"></p>
+                <p></p>
+              </span>
+              <span style="width: 10vw;">
+                <p class="campo-perfil"style="display: flex;flex-direction: row; justify-content: start; align-items: center; white-space: nowrap; height: 2vw;">Nº: <input type="text" name="numero" value="<?php echo $numero; ?>" style="background: none; color: #fff; border: none; outline: none;"></p>
+                <p></p>
+              </span>
+            </span>
+            <span style="display: flex;flex-direction: row; justify-content: space-between; align-items: center; width: 100%;">
+            <span style="width: 23vw;">
+                <p class="campo-perfil"style="display: flex;flex-direction: row; justify-content: start; align-items: center; white-space: nowrap; height: 2vw;">Bairroº: <input type="text" name="bairro" value="<?php echo $bairro; ?>" style="background: none; color: #fff; border: none; outline: none;"></p>
+                <p></p>
+              </span>
               <span style="width: 23vw;">
+                <p class="campo-perfil" style="display: flex;flex-direction: row; justify-content: start; align-items: center; height: 2vw;">CEP: <input type="text" name="cep" value="<?php echo $cep; ?>" style="background: none; color: #fff; border: none; outline: none;"></p>
+                <p></p>
+              </span>
+            </span>
+            <span style="display: flex;flex-direction: row; justify-content: space-between; align-items: center; width: 100%;">
+            <span style="width: 23vw;">
               <p style="border-style: solid; color: #fff; padding: 0; border-bottom-width: 1px; border-top-width: 0; border-right-width: 0; border-left-width: 0; height: 2vw; display: flex;flex-direction: row; justify-content: start; align-items: center; gap: 10px">Gênero:
                 <!-- Campo de Seleção para Gênero -->
               <select name="genero" class="campo-perfil" style="background: none; width: 23vw; border: none; outline: none; -moz-appearance: none; -webkit-appearance: none;">
@@ -140,39 +158,23 @@ $opcoes_deficiencia = array("Nenhuma", "Visual", "Auditiva", "Física", "Cogniti
               </p>
               </span>
               <span style="width: 23vw;">
-                <p class="campo-perfil" style="display: flex;flex-direction: row; justify-content: start; align-items: center; height: 2vw;">Escola: <input type="text" name="escola" value="<?php echo $escola; ?>" style="background: none; color: #fff; border: none; outline: none;"></p>
+                <p class="campo-perfil" style="display: flex;flex-direction: row; justify-content: start; align-items: center; height: 2vw;">Complemento: <input type="text" name="complemento" value="<?php echo $complemento; ?>" style="background: none; color: #fff; border: none; outline: none;"></p>
                 <p></p>
               </span>
             </span>
-            <span style="display: flex;flex-direction: row; justify-content: space-between; align-items: center; width: 100%;">
-              <span style="width: 23vw;">
-                <p class="campo-perfil"style="display: flex;flex-direction: row; justify-content: start; align-items: center; white-space: nowrap; height: 2vw;">Data de nascimento: <input type="text" name="data_nascimento" value="<?php echo $data_nascimento; ?>" style="background: none; color: #fff; border: none; outline: none;"></p>
+            <span style="display: flex;flex-direction: row; justify-content: space-between; align-items: center; width: 100%; gap: 3vw;">
+            <span style="width: 23vw;">
+                <p class="campo-perfil" style="display: flex;flex-direction: row; justify-content: start; align-items: center; height: 2vw; white-space: nowrap;">Data de nascimento: <input type="text" name="data_nascimento" value="<?php echo $nasc; ?>" style="background: none; color: #fff; border: none; outline: none;"></p>
                 <p></p>
               </span>
               <span style="width: 23vw;">
-                <p class="campo-perfil" style="display: flex;flex-direction: row; justify-content: start; align-items: center; height: 2vw;">Responsável: <input type="text" name="responsavel" value="<?php echo $responsavel; ?>" style="background: none; color: #fff; border: none; outline: none;" readonly></p>
+                <p class="campo-perfil" style="display: flex;flex-direction: row; justify-content: start; align-items: center; height: 2vw;">Contato: <input type="text" name="telefone" value="<?php echo $telefone; ?>" style="background: none; color: #fff; border: none; outline: none;"></p>
                 <p></p>
-              </span>
-            </span>
-            <span style="display: flex;flex-direction: row; justify-content: space-between; align-items: center; width: 100%;">
-              <span style="width:50vw;">
-              <p style="border-style: solid; color: #fff; padding: 0; border-bottom-width: 1px; border-top-width: 0; border-right-width: 0; border-left-width: 0; height: 2vw; display: flex;flex-direction: row; justify-content: start; align-items: center; gap: 10px">Deficiência: 
-                <!-- Campo de Seleção para Deficiência -->
-          <select name="deficiencia" class="campo-perfil" style="background: none; width: 50vw; border: none; outline: none; -moz-appearance: none; -webkit-appearance: none;">
-              <?php
-              foreach ($opcoes_deficiencia as $opcao) {
-                  $selected = ($deficiencia == $opcao) ? "selected" : "";
-                  echo "<option value=\"$opcao\" style=\"background-color: #1E184C;\" $selected>$opcao</option>";
-              }
-              ?>
-          </select>
-              </p>
               </span>
             </span>
           </div>
 
           <div class="salvar" style="width: 100%; display: flex; flex-direction:column; justify-content: center; align-items:center; gap: 1vw;">
-            <input type="hidden" name="id" value="<?php echo $id_crianca; ?>">
             <input type="submit" style="border: none; width: 12vw; height: 2.5vw;  border-radius: 1vw; text-align: center; display: flex; justify-content: center; align-items: center;" name="submit" value="Salvar">
             <button style="border: none; width: 12vw; height: 2.5vw; border-radius: 1vw;">Voltar</button>
           </div>
