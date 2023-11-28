@@ -116,7 +116,7 @@ if($revi_item01_value === '1' && $revi_item02_value === '1' && $revi_item03_valu
 			<div class="gere_links"><a href="gere_criancas_escolas.php">Crianças</a></div><br />
 			<div class="gere_links"><a href="gere_lucro.php">Lucro</a></div><br />
 			<div class="gere_links"><a href="gere_perfil.php">Perfil</a></div><br />
-			<div class="gere_links"><a href="">Chamada</a></div><br /> <!--chamada -->
+			<div class="gere_links"><a href="gere_chamada_escolas.php">Chamada</a></div><br />
 			<div class="gere_links"><a href="">Chat</a></div><br />
 
 		</div>

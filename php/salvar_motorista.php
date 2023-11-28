@@ -19,17 +19,18 @@ if ($btnCadMoto) {
 
     return $verifica_cpf->num_rows > 0;
   }
-  function verificaIdade($dataUsuario){
+  function verificaIdade($dataUsuario)
+  {
     $dataAtual = new DateTime();
     $dataNascimento = new DateTime($dataUsuario);
     $diferenca = $dataAtual->diff($dataNascimento);
 
     $idade = $diferenca->y;
 
-    if($idade >= 18 && $idade <= 100){
+    if ($idade >= 18 && $idade <= 100) {
       echo "Você tem a idade suficiente para realizar o cadastro";
       return true;
-    }else{
+    } else {
       echo "Idade acima ou abaixo do permitido para cadastrar";
       return false;
     }
@@ -56,17 +57,17 @@ if ($btnCadMoto) {
       }
     }
     if (!$erro) {
-      if (verificaIdade($dataUsuario)){
-      $dados['senha'] = password_hash($dados['senha'], PASSWORD_DEFAULT);
-      $_SESSION['moto_cpf'] = $cpf;
-      $_SESSION['nome'] = $dados['nome'];
-      $_SESSION['email'] = $dados['email'];
-      $_SESSION['senha'] = $dados['senha'];
-      $_SESSION['genero'] = $dados['genero'];
-      $_SESSION['telefone'] = $dados['telefone'];
-      $_SESSION['dtnascimento'] = $dataUsuario;
+      if (verificaIdade($dataUsuario)) {
+        $dados['senha'] = password_hash($dados['senha'], PASSWORD_DEFAULT);
+        $_SESSION['moto_cpf'] = $cpf;
+        $_SESSION['nome'] = $dados['nome'];
+        $_SESSION['email'] = $dados['email'];
+        $_SESSION['senha'] = $dados['senha'];
+        $_SESSION['genero'] = $dados['genero'];
+        $_SESSION['telefone'] = $dados['telefone'];
+        $_SESSION['dtnascimento'] = $dataUsuario;
 
-      $result_motorista = "INSERT INTO motorista (moto_cpf, nome, email, senha, genero, telefone, data_nascimento) VALUES (
+        $result_motorista = "INSERT INTO motorista (moto_cpf, nome, email, senha, genero, telefone, data_nascimento) VALUES (
           '" . $_SESSION['moto_cpf'] . "',
           '" . $_SESSION['nome'] . "',
           '" . $_SESSION['email'] . "',
@@ -76,24 +77,24 @@ if ($btnCadMoto) {
           '" . $_SESSION['dtnascimento'] . "'
       )";
 
-      $resultado_motorista = mysqli_query($sql, $result_motorista);
+        $resultado_motorista = mysqli_query($sql, $result_motorista);
 
-      $create_vistoria = $sql->query("INSERT INTO vistoria(moto_cpf, item01, item02, item03, item04, item05, item06, item07, item08, item09, item10) VALUES ('" . $_SESSION['moto_cpf'] . "', '0','0','0','0','0','0','0','0','0','0')");
+        $create_vistoria = $sql->query("INSERT INTO vistoria(moto_cpf, item01, item02, item03, item04, item05, item06, item07, item08, item09, item10) VALUES ('" . $_SESSION['moto_cpf'] . "', '0','0','0','0','0','0','0','0','0','0')");
 
-      if ($resultado_motorista && mysqli_affected_rows($sql) > 0) {
-        header("Location: ../php/cad_endereco.php");
-        exit();
+        if ($resultado_motorista && mysqli_affected_rows($sql) > 0) {
+          header("Location: ../php/cad_endereco.php");
+          exit();
+        } else {
+          $_SESSION['msg'] = "Erro ao cadastrar o usuário: " . mysqli_error($sql);
+        }
       } else {
-        $_SESSION['msg'] = "Erro ao cadastrar o usuário: " . mysqli_error($sql);
+        header("Location: ../php/cadastro.php");
+        exit();
       }
     } else {
       header("Location: ../php/cadastro.php");
       exit();
     }
-  } else {
-    header("Location: ../php/cadastro.php");
-    exit();
   }
-}
 }
 ?>

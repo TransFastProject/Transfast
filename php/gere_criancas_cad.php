@@ -67,7 +67,7 @@ if ($cria_id == "?") {
 			<div id="gere_local"><a href="gere_criancas_escolas.php">Crianças</a></div><br />
 			<div class="gere_links"><a href="gere_lucro.php">Lucro</a></div><br />
 			<div class="gere_links"><a href="gere_perfil.php">Perfil</a></div><br />
-			<div class="gere_links"><a href="">Chamada</a></div><br /> <!--chamada -->
+			<div class="gere_links"><a href="gere_chamada_escolas.php">Chamada</a></div><br />
 			<div class="gere_links"><a href="">Chat</a></div><br />
 			
 		</div>
@@ -117,9 +117,9 @@ if ($cria_id == "?") {
 						<option value="<?php echo $linked_values['genero_crianca']; ?>">
 							<?php echo $linked_values['genero_crianca']; ?>
 						</option>
-						<option value="Masculino">Masculino</option>
-						<option value="Feminino">Feminino</option>
-						<option value="Outro">Outro</option>
+						<option value="masculino">Masculino</option>
+						<option value="feminino">Feminino</option>
+						<option value="outro">Outro</option>
 					</select>
 
 					<label for="escola">Escola:</label>
