@@ -185,7 +185,7 @@ $trans_id = mysqli_fetch_assoc($result_id)["trans_id"];
 
 			</div>
 			<div id="gere_voltar" style="margin-top: 5vh;">
-				<footer><a href="gere_gastos.php">Voltar</a></footer>
+				<footer><a href="gere_chamada_escolas.php">Voltar</a></footer>
 			</div>
 		</div>
 </body>
