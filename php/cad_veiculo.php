@@ -17,27 +17,44 @@ if ($btnCadVeiculo) {
   }
 
   if (!$erro) {
+    function gerarCodigo() {
+      $caracteres = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+      $codigo = '';
+      
+      for ($i = 0; $i < 8; $i++) {
+          $codigo .= $caracteres[rand(0, strlen($caracteres) - 1)];
+      }
+      
+      return $codigo;
+  }
+  
+  // Exemplo de uso
+  $codigo_gerado = gerarCodigo();
     $trans_id = "SELECT trans_id from transporte WHERE moto_cpf='". $_SESSION['moto_cpf'] ."'";
     $link_id = mysqli_query($sql,$trans_id);
     $linked_id = mysqli_fetch_assoc($link_id);
     $_SESSION['trans_id'] = $linked_id;
     $_SESSION['nome_transporte'] = $dados['nome'];
+    $_SESSION['monitor'] = "";
     $_SESSION['placa'] = $dados['placa'];
     $_SESSION['n_assentos'] = $dados['n_assento'];
     $_SESSION['estado_transporte'] = $dados['estado'];
     $_SESSION['cidade_transporte'] = $dados['cidade'];
     $_SESSION['cep_transporte'] = $dados['cep'];
     $_SESSION['bairro_transporte'] = $dados['bairro'];
+    $_SESSION['codigo'] = $codigo_gerado;
 
-    $result_veiculo = "INSERT INTO transporte (moto_cpf, nome, placa, n_assentos, estado, cidade, cep, bairro) VALUES (
+    $result_veiculo = "INSERT INTO transporte (moto_cpf, nome, monitor, placa, n_assentos, estado, cidade, cep, bairro, codigo) VALUES (
           '" . $_SESSION['moto_cpf'] . "',
           '" . $_SESSION['nome_transporte'] . "',
+          '" . $_SESSION['monitor'] . "',
           '" . $_SESSION['placa'] . "',
           '" . $_SESSION['n_assentos'] . "',
           '" . $_SESSION['estado_transporte'] . "',
           '" . $_SESSION['cidade_transporte'] . "',
           '" . $_SESSION['cep_transporte'] . "',
-          '" . $_SESSION['bairro_transporte'] . "'
+          '" . $_SESSION['bairro_transporte'] . "',
+          '" . $_SESSION['codigo'] . "'
       )";
 
     $resultado_veiculo = mysqli_query($sql, $result_veiculo);

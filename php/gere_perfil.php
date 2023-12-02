@@ -156,9 +156,9 @@ if (isset($_SESSION["moto_cpf"])) {
           <div class="form-group">
             <label for="nome"><b>Nome:</b></label>
             <input type="text" id="nome" name="nome" value="<?php echo $row['nome']; ?>">
-
+            <label for="codigo">Codigo:</label>
+            <input type="text" id="codigo" name="codigo" value="<?php echo $row_t['codigo']; ?>" readonly>
             <!--  editar esse input que aparece o nome, editar a fonte também, deixar sem borda e nome grande  -->
-            <div id="avaliacao"></div>
           </div>
           <div class="form-group">
 
@@ -212,7 +212,7 @@ if (isset($_SESSION["moto_cpf"])) {
               value="<?php echo $row['data_nascimento']; ?>">
 
             <label for="cidade">Monitor:</label>
-            <input type="text" id="monitor" name="monitor" value="">
+            <input type="text" id="monitor" name="monitor" value="<?php echo $row_t['monitor'];?>">
           </div>
 
           <div class="responsavel_dados">

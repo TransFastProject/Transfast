@@ -9,9 +9,10 @@ if ($acessar) {
 
     if ((!empty($cpf)) and (!empty($senha))) {
         $result_motorista = $sql->query("SELECT * FROM motorista WHERE moto_cpf= '$cpf' LIMIT 1");
-
+        $result_transporte = $sql ->query("SELECT * FROM transporte WHERE moto_cpf ='$cpf' LIMIT 1");
         if ($result_motorista->num_rows > 0) {
             $row_usuario = mysqli_fetch_assoc($result_motorista);
+            $row_transporte = mysqli_fetch_assoc($result_transporte);
 
             if (password_verify($senha, $row_usuario['senha'])) {
                 $_SESSION['moto_cpf'] = $row_usuario['moto_cpf'];
@@ -25,6 +26,17 @@ if ($acessar) {
                 $_SESSION['bairro'] = $row_usuario['bairro'];
                 $_SESSION['numero'] = $row_usuario['numero'];
                 $_SESSION['complemento'] = $row_usuario['complemento'];
+
+                $_SESSION['trans_id'] = $row_transporte['trans_id'];
+                $_SESSION['nome_transporte'] = $row_transporte['nome'];
+                $_SESSION['monitor'] = $row_transporte['monitor'];
+                $_SESSION['placa'] = $row_transporte['placa'];
+                $_SESSION['n_assentos'] = $row_transporte['n_assentos'];
+                $_SESSION['estado_transporte'] = $row_transporte['estado'];
+                $_SESSION['cidade_transporte'] = $row_transporte['cidade'];
+                $_SESSION['cep_transporte'] = $row_transporte['cep'];
+                $_SESSION['bairro_transporte'] = $row_transporte['bairro'];
+                $_SESSION['codigo'] = $row_transporte['codigo'];
                 header("Location: ../php/gere_inicio.php");
                 exit();
             }else{
