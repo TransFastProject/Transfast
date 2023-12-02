@@ -8,6 +8,7 @@ if (!isset($_SESSION["res_cpf"])) {
 }
 
 if (isset($_POST['submit'])) {
+
     // Recupera os dados do formulário
     $id_crianca = $_POST['id'];
     $nome = $_POST['nome'];
@@ -16,8 +17,29 @@ if (isset($_POST['submit'])) {
     $data_nascimento = $_POST['data_nascimento'];
     $deficiencia = $_POST['deficiencia'];
 
-    // Validação dos dados (adapte conforme necessário)
-    // ...
+    // Inicializa as variáveis para a foto de perfil
+    $caminhoDestino = null;
+
+    // Processar a nova foto de perfil, se fornecida
+    if ($_FILES['novaFotoPerfil']['error'] == UPLOAD_ERR_OK) {
+        $nomeArquivo = $_FILES['novaFotoPerfil']['name'];
+        $caminhoTemporario = $_FILES['novaFotoPerfil']['tmp_name'];
+        $caminhoDestino = '../img_usuarios/' . $nomeArquivo; // Especifique o caminho onde deseja salvar o arquivo
+
+        // Move o arquivo para o destino
+        move_uploaded_file($caminhoTemporario, $caminhoDestino);
+    }
+
+    // Atualiza o caminho da foto de perfil no banco de dados, se fornecido
+    if ($caminhoDestino !== null) {
+        $sqlUpdateFoto = "UPDATE crianca SET foto = ? WHERE cria_id = ? AND res_cpf = ?";
+        $stmtUpdateFoto = $sql->prepare($sqlUpdateFoto);
+        $stmtUpdateFoto->bind_param("sis", $caminhoDestino, $id_crianca, $_SESSION['res_cpf']);
+        if (!$stmtUpdateFoto->execute()) {
+            die('Erro ao atualizar a foto de perfil: ' . $stmtUpdateFoto->error);
+        }
+        $stmtUpdateFoto->close();
+    }
 
     // Atualiza as informações da criança no banco de dados
     $stmt = mysqli_prepare($sql, "UPDATE crianca SET nome=?, genero=?, escola=?, data_nascimento=?, deficiencia=? WHERE cria_id=? AND res_cpf=?");

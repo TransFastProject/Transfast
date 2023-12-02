@@ -3,6 +3,7 @@ include_once "conexao.php";
 session_start();
 
 $res_nome = $_SESSION['nome'];
+
 ?>
 
 <!DOCTYPE html>
@@ -80,9 +81,13 @@ $res_nome = $_SESSION['nome'];
 
     <div class="semTransporte" style="margin-top: 5vw;">
         <div class="perfil-container" style="width:50vw; display: flex;flex-direction: column; justify-content: center; align-items: start;gap: 3vw;">
-        <form action="addCriancaCodigo.php" method="post" style="display: flex;flex-direction: column; justify-content: center; align-items: start;gap: 3vw;">
+        <form action="addCriancaCodigo.php" method="post" enctype="multipart/form-data" style="display: flex;flex-direction: column; justify-content: center; align-items: start;gap: 3vw;">
           <span style="display: flex;flex-direction: row; justify-content: start; align-items: center;gap: 2vw;">
-            <img src="https://source.unsplash.com/random/130x130" alt="" class="rounded-circle">
+          <div class="fotoPerfil-div" style="display: flex; flex-direction: column; justify-content: center; align-items: center">
+                <img id="previewFoto" src="../img/fundo_foto_padrao.png" class="rounded-circle" style="width: 10vw; height: 10vw; object-fit: cover;">
+            <label for="novaFotoPerfil" style="position: absolute; cursor: pointer" id="novaFotoPerfil-label"><i class="ph ph-pencil" style="font-size: 3vw"></i></label>
+            <input type="file" id="novaFotoPerfil" name="novaFotoPerfil" style="display: none;" accept="image/*" onchange="previewImagem(this);">
+          </div>
             <div class="perfil-info-usuario">
               <p style="margin: 0; font-size: 25px;"><input type="text" name="nome" placeholder="Nome da criança" style="background: none; font-size: 25px; color: #fff; border: none; outline: none;"></p>
             </div>
@@ -141,5 +146,23 @@ $res_nome = $_SESSION['nome'];
           </form>
         </div>
     </div>
+
+    <script>
+      function previewImagem(input) {
+          var preview = document.getElementById('previewFoto');
+          var file = input.files[0];
+          var reader = new FileReader();
+
+          reader.onloadend = function () {
+              preview.src = reader.result;
+          };
+
+          if (file) {
+              reader.readAsDataURL(file);
+          } else {
+              preview.src = "../img/fundo_foto_padrao.png";
+          }
+      }
+    </script>
 </body>
 </html>

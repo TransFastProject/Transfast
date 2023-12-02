@@ -113,7 +113,7 @@ $trans_id = mysqli_fetch_assoc($result_id)["trans_id"];
 				</div>';
 
 			} else {
-				$stmt = $sql->prepare("SELECT crianca.cria_id as id_crianca, crianca.res_cpf, crianca.nome as nome_crianca, crianca.data_nascimento, responsavel.nome as nome_responsavel, responsavel.rua FROM crianca INNER JOIN responsavel ON crianca.res_cpf = responsavel.res_cpf WHERE crianca.escola = ? AND crianca.trans_id = ?");
+				$stmt = $sql->prepare("SELECT crianca.cria_id as id_crianca, crianca.res_cpf, crianca.nome as nome_crianca, crianca.data_nascimento, crianca.foto, responsavel.nome as nome_responsavel, responsavel.rua FROM crianca INNER JOIN responsavel ON crianca.res_cpf = responsavel.res_cpf WHERE crianca.escola = ? AND crianca.trans_id = ?");
 				$stmt->bind_param("si", $nome_escola, $trans_id);
 				$stmt->execute();
 				$result3 = $stmt->get_result();
@@ -126,8 +126,13 @@ $trans_id = mysqli_fetch_assoc($result_id)["trans_id"];
 						<a href="../php/gere_criancas_cad.php?cria_id=' . urlencode($row['id_crianca']) . '"><img src="../img/icone_edicao.png"></a>
 					</div>
 	
-					<div class="criancas_foto">
-						<img src="../img/fundo_foto_padrao.png">
+					<div class="criancas_foto">';
+					if (!empty($row['foto'])) {
+						echo'<img id="previewFoto" src="'.$row['foto'].'" style="width: 10vw; height: 10vw; object-fit: cover; border-radius: 100%">';
+					}else{
+						echo'<img id="previewFoto" src="../img/fundo_foto_padrao.png" style="width: 10vw; height: 10vw; object-fit: cover; border-radius: 100%">';
+					}
+					echo '
 					</div>
 	
 					<div class="criancas_dados">

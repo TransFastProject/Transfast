@@ -20,6 +20,7 @@ if ($row_responsavel = mysqli_fetch_assoc($result)) {
     $email = $row_responsavel['email'];
     $genero = $row_responsavel['genero'];
     $telefone = $row_responsavel['telefone'];
+    $foto = $row_responsavel['foto'];
     $rua = $row_responsavel['rua'];
     $cep = $row_responsavel['cep'];
     $bairro = $row_responsavel['bairro'];
@@ -114,9 +115,18 @@ $opcoes_deficiencia = array("Nenhuma", "Visual", "Auditiva", "Física", "Cogniti
     <div class="semTransporte">
         <h3 style="font-weight: 600;">SEU PERFIL</h3>
         <div class="perfil-container" style="width:50vw; display: flex;flex-direction: column; justify-content: center; align-items: start;gap: 3vw;">
-        <form action="salvar_edicao_res.php" method="post" style="display: flex;flex-direction: column; justify-content: center; align-items: start;gap: 3vw;">
+        <form action="salvar_edicao_res.php" method="post" enctype="multipart/form-data" style="display: flex;flex-direction: column; justify-content: center; align-items: start;gap: 3vw;">
           <span style="display: flex;flex-direction: row; justify-content: start; align-items: center;gap: 2vw;">
-            <img src="https://source.unsplash.com/random/130x130" alt="" class="rounded-circle">
+          <div class="fotoPerfil-div" style="display: flex; flex-direction: column; justify-content: center; align-items: center">
+            <?php if (!empty($foto)): ?>
+              <img id="previewFoto" src="<?php echo $foto; ?>" class="rounded-circle" style="width: 8vw; height: 8vw; object-fit: cover;">
+            <?php else: ?>
+                <img id="previewFoto" src="../img/fundo_foto_padrao.png" class="rounded-circle" style="width: 8vw; height: 8vw; object-fit: cover;">
+            <?php endif; ?>
+            <label for="novaFotoPerfil" style="position: absolute; cursor: pointer;" id="novaFotoPerfil-label"><i class="ph ph-pencil" style="font-size: 3vw"></i></label>
+            <input type="file" id="novaFotoPerfil" name="novaFotoPerfil" style="display: none;" accept="image/*" onchange="previewImagem(this);">
+          </div>
+
             <div class="perfil-info-usuario">
               <p style="margin: 0; font-size: 25px;"><input type="text" name="nome" value="<?php echo $nome; ?>" style="background: none; font-size: 25px; color: #fff; border: none; outline: none;"></p>
               <p style="margin: 0; font-size: 25px;"><input type="text" name="email" value="<?php echo $email; ?>" style="background: none; font-size: 25px; color: #fff; border: none; outline: none;"></p>
@@ -182,5 +192,24 @@ $opcoes_deficiencia = array("Nenhuma", "Visual", "Auditiva", "Física", "Cogniti
         </form>
         </div>
     </div>
+
+    <script>
+      function previewImagem(input) {
+          var preview = document.getElementById('previewFoto');
+          var file = input.files[0];
+          var reader = new FileReader();
+
+          reader.onloadend = function () {
+              preview.src = reader.result;
+          };
+
+          if (file) {
+              reader.readAsDataURL(file);
+          } else {
+              preview.src = "../img/fundo_foto_padrao.png";
+          }
+      }
+    </script>
+
 </body>
 </html>
