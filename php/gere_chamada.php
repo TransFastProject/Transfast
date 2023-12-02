@@ -89,12 +89,12 @@ $trans_id = mysqli_fetch_assoc($result_id)["trans_id"];
 							$foto = $row['foto'];
 							if ($foto) {
 								echo '<div class="lista_criancas">
-									<div class="crianca"><img src="data:image/jpeg;base64,' . base64_encode($foto) . '" style="border-radius: 50%; width: 6.5vw; height: 6.5vw; object-fit: cover;"><label for="">' . $row['nome'] . '</label></div>
+									<div class="crianca"><img src="'.$row['foto'].'" style="border-radius: 100%; width: 6.5vw; height: 6.5vw; object-fit: cover;"><label for="">' . $row['nome'] . '</label></div>
 								</div> 
 								<br/>';
 							} else {
 								echo '<div class="lista_criancas">
-									<div class="crianca"><img src="../img/fundo_foto_padrao.png" style="border-radius: 50%; width: 6.5vw; height: 6.5vw; object-fit: cover;"><label for="">' . $row['nome'] . '</label></div>
+									<div class="crianca"><img src="../img/fundo_foto_padrao.png" style="border-radius: 100%; width: 6.5vw; height: 6.5vw; object-fit: cover;"><label for="">' . $row['nome'] . '</label></div>
 								</div> 
 								<br>';
 							}
@@ -109,7 +109,7 @@ $trans_id = mysqli_fetch_assoc($result_id)["trans_id"];
 							$foto = $row['foto'];
 							if ($foto) {
 								echo '<div class="lista_criancas">
-									<div class="crianca"><img src="data:image/jpeg;base64,' . base64_encode($foto) . '" style="border-radius: 50%; width: 6.5vw; height: 6.5vw; object-fit: cover;"><label for="">' . $row['nome'] . '</label></div>
+									<div class="crianca"><img src="'.$row['foto'].'" style="border-radius: 50%; width: 6.5vw; height: 6.5vw; object-fit: cover;"><label for="">' . $row['nome'] . '</label></div>
 							</div> 
 							<br>';
 							} else {
@@ -142,12 +142,12 @@ $trans_id = mysqli_fetch_assoc($result_id)["trans_id"];
 								$foto = $row['foto'];
 								if ($foto) {
 									echo '<div class="lista_criancas">
-										<div class="crianca"><img src="data:image/jpeg;base64,' . base64_encode($foto) . '" style="border-radius: 50%; width: 6.5vw; height: 6.5vw; object-fit: cover;"><label for="">' . $row['nome'] . '</label></div>
+										<div class="crianca"><img src="'.$row['foto'].'" style="border-radius: 100%; width: 6.5vw; height: 6.5vw; object-fit: cover;"><label for="">' . $row['nome'] . '</label></div>
 								</div> 
 								<br/>';
 								} else {
 									echo '<div class="lista_criancas">
-										<div class="crianca"><img src="../img/fundo_foto_padrao.png" style="border-radius: 50%; width: 6.5vw; height: 6.5vw; object-fit: cover;"><label for="">' . $row['nome'] . '</label></div>
+										<div class="crianca"><img src="../img/fundo_foto_padrao.png" style="border-radius: 100%; width: 6.5vw; height: 6.5vw; object-fit: cover;"><label for="">' . $row['nome'] . '</label></div>
 								</div> 
 								<br/>';
 								}
@@ -161,12 +161,12 @@ $trans_id = mysqli_fetch_assoc($result_id)["trans_id"];
 								$foto = $row['foto'];
 								if ($foto) {
 									echo '<div class="lista_criancas">
-										<div class="crianca"><img src="data:image/jpeg;base64,' . base64_encode($foto) . '" style="border-radius: 50%; width: 6.5vw; height: 6.5vw; object-fit: cover;"><label for="">' . $row['nome'] . '</label></div>
+										<div class="crianca"><img src="'.$row['foto'].'" style="border-radius: 100%; width: 6.5vw; height: 6.5vw; object-fit: cover;"><label for="">' . $row['nome'] . '</label></div>
 								</div> 
 								<br/>';
 								} else {
 									echo '<div class="lista_criancas">
-										<div class="crianca"><img src="../img/fundo_foto_padrao.png" style="border-radius: 50%; width: 6.5vw; height: 6.5vw; object-fit: cover;"><label for="">' . $row['nome'] . '</label></div>
+										<div class="crianca"><img src="../img/fundo_foto_padrao.png" style="border-radius: 100%; width: 6.5vw; height: 6.5vw; object-fit: cover;"><label for="">' . $row['nome'] . '</label></div>
 								</div> 
 								<br/>';
 								}

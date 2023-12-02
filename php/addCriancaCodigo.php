@@ -17,10 +17,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
     $data_nascimento = $_POST['data_nascimento'];
     $deficiencia = $_POST['deficiencia'];
 
+    // Inicializa as variáveis para a foto de perfil
+    $caminhoDestino = null;
+
+    // Processar a nova foto de perfil, se fornecida
+    if ($_FILES['novaFotoPerfil']['error'] == UPLOAD_ERR_OK) {
+        $nomeArquivo = $_FILES['novaFotoPerfil']['name'];
+        $caminhoTemporario = $_FILES['novaFotoPerfil']['tmp_name'];
+        $caminhoDestino = '../img_usuarios/' . $nomeArquivo; // Especifique o caminho onde deseja salvar o arquivo
+
+        // Move o arquivo para o destino
+        if (!move_uploaded_file($caminhoTemporario, $caminhoDestino)) {
+            die('Erro ao mover o arquivo para o destino.');
+        }
+    }
+
     // Insere a nova criança no banco de dados
-    $stmt = mysqli_prepare($sql, "INSERT INTO crianca (res_cpf, nome, genero, escola, data_nascimento, deficiencia) VALUES (?, ?, ?, ?, ?, ?)");
-    mysqli_stmt_bind_param($stmt, "ssssss", $_SESSION['res_cpf'], $nome, $genero, $escola, $data_nascimento, $deficiencia);
-    mysqli_stmt_execute($stmt);
+    $sqlInsertCrianca = "INSERT INTO crianca (res_cpf, nome, genero, escola, data_nascimento, deficiencia, foto) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    $stmtInsertCrianca = $sql->prepare($sqlInsertCrianca);
+    $stmtInsertCrianca->bind_param("sssssss", $_SESSION['res_cpf'], $nome, $genero, $escola, $data_nascimento, $deficiencia, $caminhoDestino);
+    
+    if (!$stmtInsertCrianca->execute()) {
+        die('Erro ao inserir a nova criança: ' . $stmtInsertCrianca->error);
+    }
+    
+    $stmtInsertCrianca->close();
 
     // Redireciona de volta à página principal do responsável
     header("Location: perfilCriancaSelecionar.php");

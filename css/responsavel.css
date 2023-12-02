@@ -131,7 +131,7 @@ body {
     flex-direction: row;
     justify-content: start;
     align-items: center;
-    gap: 4vw;
+    gap: 2vw;
     margin-top: 2vw;
 }
 
@@ -151,7 +151,7 @@ body {
 
 
 .transportes-item .img-transporte {
-    width: 22vw;
+    width: 20vw;
     height: 8vw;
     object-fit: cover;
     border-radius: 20px 20px 0 0;
@@ -199,6 +199,7 @@ dialog {
     border-radius: 20px;
     box-shadow: 0 0 1em rgb(0 0 0 / .3);
     height: 70%;
+    padding: 0 2vw;
 }
 
 dialog #fechar-modal {
@@ -236,8 +237,11 @@ dialog #fechar-modal {
 }
 
 .motorista img{
-    border-radius: 180px;
+    border-radius: 100%;
     width: 8vw;
+    height: 8vw;
+    object-fit: cover;
+    background-color: #1E184C;
 }
 
 .avaliacao{
