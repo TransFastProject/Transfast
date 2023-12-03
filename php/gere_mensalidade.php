@@ -70,7 +70,7 @@ $trans_id = mysqli_fetch_assoc($result_id)["trans_id"];
 		<div id="pagamentos" style="text-align: center;">
 
 			<div id="filtro"><a></a><input type="text" id="barra_busca" style="font-size:20px;" placeholder="Pesquise aqui">
-			<button style="width:3.3vw; height:3.3vw;background-image: url(../img/icone_lupa_v2.png);background-size:2.8vw 2.8vw;background-repeat: no-repeat;" onclick="searchData()"></button>
+			<button id="btn_filtro" onclick="searchData()"></button>
 			</div>
 			<?php
 
@@ -126,7 +126,7 @@ $trans_id = mysqli_fetch_assoc($result_id)["trans_id"];
 								 </div>
 								 <div>
 								 <a href="../php/gere_pagamento_historico.php?cria_id=1">
-								 <input id="cad_pagamento" type="submit" style="background-image: url(../img/icone_arquivos_v2.png);background-repeat: no-repeat; background-size:4.5vw 4.5vw;align-items:center;text-align:center;width:5vw; height: 5vw;" value=" ">
+								 <input id="cad_pagamento" type="submit" style="background-image: url(../img/icone_arquivos_v2.png);background-repeat: no-repeat; background-size:4.5vw 4.5vw;align-items:center;text-align:center;width:5vw; height: 5vw; border:0;" value=" ">
 								 </input>
 							   </a>
 							   </div>
