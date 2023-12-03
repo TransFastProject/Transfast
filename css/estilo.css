@@ -71,7 +71,7 @@
         color: white;
     }
 
-    .carrossel {
+    /* .carrossel {
         width: 90%;
         margin-left: 2vw;
         margin-top: 2vw;
@@ -84,7 +84,7 @@
     .card {
         display: flex;
         height: 28vh;
-        width: 22vw;
+        width: 25vw;
         background-color: #ffffff;
         border-radius: 10px;
         box-shadow: 5px 4px 10px #000;
@@ -141,13 +141,12 @@
         margin-top: 10vh;
         position: absolute;
         color: rgb(0, 0, 0);
-        margin-left: 20px;
+        margin-left: 10px;
     }
 
     .texto p {
-        font-size: 1.3vw;
-        margin-left: 10px;
-    }
+        font-size: 1vw;
+    } */
 
     /*rodape*/
 
@@ -578,13 +577,22 @@
         border: 0;
         background: #ECECEC;
     }
-
+    #btn_filtro{
+        border: 0; 
+        margin-left: 5px;
+        width:10%; 
+        height:6.75vh;
+        background-image: url(../img/icone_lupa_v2.png);
+        background-size:6.7vh 6.7vh;
+        background-repeat: no-repeat;
+        background-color: rgba(255, 255, 255, 1);
+    }
+/* 
     #filtro img {
         width: 5vh;
         padding: 1vh 0.5vw;
-        height: 5vh;
-        background: #ECECEC;
-    }
+        height: 6.7vh;
+    } */
 
     #lista_pagamentos {
         width: 70%;
@@ -713,6 +721,88 @@
 
     #foto {
         width: 12vw;
+    }
+    
+    #btn_add_gastos{
+        text-decoration: none;
+        text-align: center;
+        
+        margin-bottom: 0;
+    }
+    #btn_add_gastos{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    #btn_add_gastos a{
+        background-color: #1E184C;
+        color: #fff;
+        margin-top: 10px;
+        padding: 5px 10px;
+        text-decoration: none;
+        border-radius: 10px;
+    }
+
+    #tela_add_gastos{
+        position: absolute;
+        width: 60vw;
+        height: 50vh;
+        margin: 10vw 10vh;
+        text-align: center;
+        background-color: rgba(30, 24, 76, 0.85);
+        border: 0;
+        border-radius: 20px;
+        color: #fff;
+        z-index: 1;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+    }
+    /* #tela_add_gastos form{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+    } */
+    #tela_add_gastos form div{
+        margin-bottom: 5px;
+    }
+
+    #tela_add_gastos form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+
+    #tela_add_gastos input{
+        height: 4vh;
+        text-align: center;
+        border-radius: 15px;
+        border: 0;
+    }
+
+    #input_add_valor, #input_add_data{
+        width: 100%;
+    }
+
+    #input_add_itens{
+        width: 100%;
+        text-align: left;
+        text-indent: 3px;
+    }
+
+    #tela_add_gastos form input[type='submit']{
+        width: 100px;
+        color: #fff;
+        margin: 10px;
+        margin-bottom: 0;
+        background-color: #1E184C;
+        border-radius: 10px;
+        border: 0;
+        font-size: 1vw;
     }
 
 

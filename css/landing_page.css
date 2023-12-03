@@ -202,7 +202,7 @@ p {
   
     .card {
         display: flex;
-        height: 25vh;
+        height: 35vh;
         width: 38vw;
         background-color: #ffffff;
         border-radius: 10px;
