@@ -32,7 +32,7 @@ $n_escola = mysqli_query($sql, $escolas);
 $row = $n_escola->fetch_assoc();
 $total_escolas = $row["total_escolas"];
 
-if (!$_SESSION['nome'] == "" && !$_SESSION['dtnascimento'] == "" && !$_SESSION['telefone'] == "" && !$_SESSION['cep'] == "" && !$_SESSION['bairro'] == "") {
+if (!$_SESSION['nome'] == "" && !$_SESSION['dtnascimento'] == "" && !$_SESSION['telefone'] == "" && !$_SESSION['cep_transporte'] == "" && !$_SESSION['bairro_transporte'] == "" && !$_SESSION['estado_transporte'] == "" && !$_SESSION['genero'] == "" && !$_SESSION['cidade_transporte'] == "" && !$_SESSION['monitor'] == "" && !$_SESSION['codigo'] == "") {
 	$msg_perfil = "Completo";
 } else {
 	$msg_perfil = "Imcompleto";

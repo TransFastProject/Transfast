@@ -39,8 +39,10 @@ if ($result && $result->num_rows > 0) {
 
             if (mysqli_query($sql, $update_query)) {
                 echo "Registro atualizado com sucesso.";
+                header('Location:gere_pagamento_historico.php?cria_id='.$cria_id);
             } else {
                 echo "Erro ao atualizar o registro: " . mysqli_error($sql);
+                header('Location:gere_pagamento_historico.php?cria_id='.$cria_id);
             }
         } 
     }
@@ -57,8 +59,10 @@ if ($result && $result->num_rows > 0) {
             
             if (mysqli_query($sql, $insert_query)) {
                 echo "Registro inserido com sucesso.";
+                header('Location:gere_pagamento_historico.php?cria_id='.$cria_id);
             } else {
                 echo "Erro ao inserir o registro: " . mysqli_error($sql);
+                header('Location:gere_pagamento_historico.php?cria_id='.$cria_id);
             }
     }
 

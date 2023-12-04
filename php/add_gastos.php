@@ -5,6 +5,8 @@ $moto_nome = "SELECT nome FROM motorista WHERE moto_cpf = '" . $_SESSION['moto_c
 $link_moto = mysqli_query($sql, $moto_nome);
 $linked_moto = mysqli_fetch_assoc($link_moto);
 
+
+$mes = $_SESSION['mes'];
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -16,7 +18,6 @@ $linked_moto = mysqli_fetch_assoc($link_moto);
 	<link rel="stylesheet" href="../css/gerenciamento.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 	<link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon">
-	<script src="../js/add_gasto.js"></script>
 </head>
 
 <body>
@@ -70,21 +71,21 @@ $linked_moto = mysqli_fetch_assoc($link_moto);
 
 		<div id="tela_add_gastos">
 
-			<form action="">
+			<form action="salvar_gastos_produtos.php" method="POST">
 
 				<div>
-					<label for="">Itens:</label>
-					<input type="text" id="input_add_itens">
+					<label for="input_add_itens">Itens:</label>
+					<input type="text" name="itens" id="input_add_itens" required>
 				</div>
 
 				<div>
-					<label for="">Valor:</label><br>
-					<input type="text" id="input_add_valor">
+					<label for="input_add_valor">Valor:</label><br>
+					<input type="number" name="valor" id="input_add_valor" step=".01" required>
 				</div>
 
 				<div>
 					<label for="">data:</label><br>
-					<input type="date" id="input_add_data">
+					<input type="date" name="data" id="input_add_data" required>
 				</div>
 
                 <div>
@@ -99,7 +100,7 @@ $linked_moto = mysqli_fetch_assoc($link_moto);
 		</div>
 
 	<div id="gere_voltar" style="margin-top: 5vh;">
-		<footer><a href="gere_gastos.php">Voltar</a></footer>
+		<footer><a href="gere_gastos_historico.php">Voltar</a></footer>
 	</div>
 
 	</div>
@@ -107,17 +108,4 @@ $linked_moto = mysqli_fetch_assoc($link_moto);
     
 
 </body>
-<script type="text/JavaScript">
-var search = document.getElementById('barra_busca');
-
-search.addEventListener("keydown",function(event) {
-if (event.key === "Enter"){
-	searchData();
-}
-});
-
-function searchData(){
-	window.location = "gere_gastos_historico.php?search="+ search.value;
-}
-</script>
 </html>
