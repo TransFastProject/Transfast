@@ -126,6 +126,18 @@
         font-size: 1.5vw;
     }
 
+    #gere_conteudo_chat {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 75vw;
+        height: 100vh;
+        margin-left: 21vw;
+        font-size: 1.5vw;
+    }
+    
+
     #gere_inicio {
         position: absolute;
         width: 75vw;
