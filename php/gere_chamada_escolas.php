@@ -75,7 +75,7 @@ $trans_id = mysqli_fetch_assoc($result_id)["trans_id"];
 					echo '<div class="escola">
 
 					<div class="escola_icones">
-						<a href="../php/gere_chamada.php?escola=' . urlencode($row['nome_escola']) . '"><img src="../img/icone_lapis.png"></a>
+						<a href="../php/gere_salvar_escola.php?escola=' . urlencode($row['nome_escola']) . '"><img src="../img/icone_lapis.png"></a>
 						<a href="../php/excluir_escola.php?escola=' . urlencode($row['nome_escola']) . '""><img src="../img/icone_fechar.png"></a>	
 					</div>
 	
