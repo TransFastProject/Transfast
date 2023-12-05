@@ -121,7 +121,7 @@ $escola = $_SESSION['escola'];
 						}
 					} else {
 						echo '<div class="lista_criancas">
-							<div class="crianca"><img src="../img/fundo_foto_padrao.png" style="border-radius: 50%; width: 6.5vw; height: 6.5vw; object-fit: cover;"><label for="">Sem Dados</label></div>
+							<p>Não existem criancas presentes</p>
 						</div> 
 						<br>';
 					}
@@ -173,7 +173,7 @@ $escola = $_SESSION['escola'];
 							}
 						} else {
 							echo '<div class="lista_criancas">
-								<div class="crianca"><img src="../img/fundo_foto_padrao.png" style="border-radius: 50%; width: 6.5vw; height: 6.5vw; object-fit: cover;"><label for="">Sem Dados</label></div>
+								<p>Não existem criancas ausentes</p>
 						</div> 
 						<br/>';
 						}

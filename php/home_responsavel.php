@@ -1,8 +1,9 @@
 <?php
+session_start();
 include_once "conexao.php";
 
 // Consulta para obter os transportes e informações do motorista associado
-$sqlConsultaTransportes = "SELECT t.*, m.nome AS nome_motorista, m.telefone AS telefone_motorista FROM transporte t
+$sqlConsultaTransportes = "SELECT t.*, m.nome AS nome_motorista, m.telefone AS telefone_motorista, m.foto AS foto_moto FROM transporte t
                            JOIN motorista m ON t.moto_cpf = m.moto_cpf"; // Ajuste este valor conforme necessário
 $resultTransportes = mysqli_query($sql, $sqlConsultaTransportes);
 
@@ -10,6 +11,25 @@ $resultTransportes = mysqli_query($sql, $sqlConsultaTransportes);
 $transportes = [];
 while ($row = mysqli_fetch_assoc($resultTransportes)) {
     $transportes[] = $row;
+}
+
+// Consulta para verificar se pelo menos uma criança associada ao responsável possui o campo trans_id preenchido
+$sql_verificar_transporte = "SELECT COUNT(*) AS count_transporte, GROUP_CONCAT(trans_id) AS trans_ids FROM crianca WHERE res_cpf = ? AND trans_id IS NOT NULL AND trans_id NOT IN ('0', '1')";
+$stmt_verificar_transporte = mysqli_prepare($sql, $sql_verificar_transporte);
+mysqli_stmt_bind_param($stmt_verificar_transporte, "s", $_SESSION['res_cpf']);
+mysqli_stmt_execute($stmt_verificar_transporte);
+$result_verificar_transporte = mysqli_stmt_get_result($stmt_verificar_transporte);
+$row_verificar_transporte = mysqli_fetch_assoc($result_verificar_transporte);
+$count_transporte = $row_verificar_transporte['count_transporte'];
+$trans_ids_crianca = $row_verificar_transporte['trans_ids'];
+
+// Inicializa $trans_id_crianca como vazio
+$trans_id_crianca = "";
+
+// Verifica se pelo menos uma criança associada ao responsável possui o campo trans_id preenchido
+if ($count_transporte > 0) {
+    // Se há pelo menos uma criança com trans_id, obtenha o primeiro trans_id (considerando que todas têm o mesmo trans_id)
+    $trans_id_crianca = explode(",", $trans_ids_crianca)[0];
 }
 ?>
 
@@ -116,7 +136,7 @@ while ($row = mysqli_fetch_assoc($resultTransportes)) {
                     </a>
                 </div>
                 <div class="home-menu-item col">
-                    <a href="seu_transporte_sem.html">
+                    <a href="<?php echo ($count_transporte > 0) ? 'seu_transporte_com.php?trans_id='.$trans_id_crianca.'' : '../html/seu_transporte_sem.html'; ?>">
                         <i class="ph ph-van"></i>
                         <p>Seu transporte</p>
                     </a>
@@ -142,7 +162,7 @@ while ($row = mysqli_fetch_assoc($resultTransportes)) {
                     data-estado="<?php echo $transporte['estado']; ?>"
                     data-cidade="<?php echo $transporte['cidade']; ?>"
                     data-monitor="<?php echo $transporte['monitor']; ?>"
-                    data-foto="<?php echo base64_encode($transporte['foto']); ?>"
+                    data-foto="<?php echo base64_encode($transporte['foto_moto']); ?>"
                     data-telefone="<?php echo $transporte['telefone_motorista']; ?>">
                             <div class="transportes-item">
                                 <img src="../img/image 5.png" alt="" class="img-transporte" style="width: 20vw">
@@ -179,7 +199,6 @@ while ($row = mysqli_fetch_assoc($resultTransportes)) {
 
     <dialog id="home-dialog">
         <button id="fechar-modal"><i class="ph ph-x"></i></button>
-        <img src="/img/image 5.png" alt="" class="img-transporte-modal">
         <div class="modal-informacao">
             <div class="motorista">
                 <img src="/img/foto_motorista.png" alt="foto do motorista" class="foto" style="border-radius: 100%; width: 8vw; height: 8vw;object-fit: cover">

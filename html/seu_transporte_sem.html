@@ -53,8 +53,10 @@
     <div class="semTransporte">
         <h3 style="font-weight: 600;">Você ainda não está em um transporte</h3>
         <p>Caso já tenha um, insira o código do transporte logo abaixo</p>
-        <input type="text" name="" id="" placeholder="Digite o código">
-        <a href="home_responsavel.html">Buscar um transporte</a>
+        <form action="../php/processar_codigo_motorista.php" method="post" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1vw;">
+            <input type="text" name="codigo_motorista" placeholder="Digite o código">
+            <button type="submit" class="btn text-warning">Buscar um transporte</button>
+        </form>
     </div>
 </body>
 </html>

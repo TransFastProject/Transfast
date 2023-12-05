@@ -202,7 +202,7 @@ dialog {
     padding: 0 2vw;
 }
 
-dialog #fechar-modal {
+#fechar-modal {
     position: absolute;
     right: 10px;
     top: 10px;
