@@ -64,9 +64,7 @@ $linked_moto = mysqli_fetch_assoc($link_moto);
 
 
 	<div id="gere_conteudo">
-
 		<div id="registro_pagamento">
-			
 		<div id="filtro"><a></a><input type="text" id="barra_busca" style="font-size:20px;" placeholder="Pesquise aqui">
 			<button id="btn_filtro" style="border: 0; width:3.3vw; height:3.3vw;background-image: url(../img/icone_lupa_v2.png);background-size:2.8vw 2.8vw;background-repeat: no-repeat;" onclick="searchData()"></button>
 		</div>
