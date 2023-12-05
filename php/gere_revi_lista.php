@@ -106,10 +106,14 @@ $linked_moto = mysqli_fetch_assoc($link_moto);
 					<label for="revi_item10">Lanternas de luz (branca, fosca ou amarela)</label><br>
 				</div>
 			</div>
-			<input type="submit" value="Salvar" id="btn_revi_lista">
+			<div class="btn_revi_salvar">
+				<input type="submit" value="Salvar" id="btn_revi_listar">
+			</div>
+		</div>
+			
 	</form>
 	<div id="gere_voltar">
-		<footer><a href="gere_revisão.php">Voltar</a></footer>
+		<footer><a href="gere_revisao.php">Voltar</a></footer>
 	</div>
 
 	</div>

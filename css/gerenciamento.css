@@ -1,6 +1,6 @@
 @import url(estilo.css);
 
-@media (min-width: 721px){
+@media (min-width: 721px) {
     /* Telas de gerenciamento*/
 
     #testes {
@@ -35,13 +35,15 @@
         color: #fff;
         font-weight: bold;
     }
-    .btn_expandir{
+
+    .btn_expandir {
         width: 50px;
         color: #fff;
         text-align: left;
         visibility: hidden;
     }
-    .btn_expandir i{
+
+    .btn_expandir i {
         visibility: hidden;
     }
 
@@ -136,7 +138,7 @@
         margin-left: 21vw;
         font-size: 1.5vw;
     }
-    
+
 
     #gere_inicio {
         position: absolute;
@@ -185,33 +187,47 @@
     .gere_card b {
         font-size: 1em;
     }
+
     /***** Tela de revisão *****/
-    #rev_btn{
+    #rev_btn {
         text-align: center;
-        padding-bottom:100px;
+        padding-bottom: 100px;
     }
 
-    #rev_btn a{
+    #rev_btn a {
         background-color: #FEC849;
         color: black;
         text-decoration: none;
-        padding:0 10px ;
+        padding: 0 10px;
         border-radius: 10px;
         font-size: 2vw;
     }
-    
-    #revisao_lista{
+
+    #revisao_lista {
         margin-top: 2vw;
         font-size: 2vw;
     }
-    #revisao_lista div{
+
+    #revisao_lista div {
         margin-top: 1vw;
         display: flex;
         align-items: center;
     }
-    #revisao_lista input[type='checkbox']{
+
+    #revisao_lista input[type='checkbox'] {
         width: 1.5vw;
         height: 1.5vw;
+    }
+
+    #btn_revi_listar {
+        margin-top: 1vw;
+        width: 8vw;
+        height: 2vw;
+        text-align: center;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        background: #1E184C;
     }
 
     /* Perfil */
@@ -235,6 +251,7 @@
         justify-content: center;
         text-align: center;
     }
+
     #foto_perfil {
         margin-left: 5vw;
         margin-top: 5vh;
@@ -289,10 +306,11 @@
         text-align: center;
     }
 
-    .form-group input[type="date"]{
+    .form-group input[type="date"] {
         width: 20%;
     }
-    .form-group label[for="data_nascimento"]{
+
+    .form-group label[for="data_nascimento"] {
         width: 30%;
     }
 
@@ -319,11 +337,12 @@
 
 
 
-    .fotos_veiculo{
+    .fotos_veiculo {
         width: 100%;
         height: 20vw;
     }
-    .btn_add_foto{
+
+    .btn_add_foto {
         width: 20vw;
         height: 15vw;
         text-align: center;
@@ -333,10 +352,12 @@
         flex-direction: column;
         flex-wrap: wrap;
     }
-    .btn_add_foto img{
+
+    .btn_add_foto img {
         width: 5vw;
     }
-    .btn_add_foto a{
+
+    .btn_add_foto a {
         font-size: 1.5vw;
         font-weight: bold;
         text-decoration: none;
@@ -348,20 +369,22 @@
 
     /* Chamada */
 
-    .lista_chamada{
+    .lista_chamada {
         width: 100%;
         display: flex;
         text-align: center;
     }
 
-    #lista_chamada_presentes, #lista_chamada_ausentes{
+    #lista_chamada_presentes,
+    #lista_chamada_ausentes {
         width: 50%;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-    }   
-    .lista_criancas{
+    }
+
+    .lista_criancas {
         display: flex;
         width: 80%;
         height: 8vw;
@@ -369,20 +392,22 @@
         color: #fff;
         border-radius: 20px;
     }
-    .crianca{
+
+    .crianca {
         display: flex;
         align-items: center;
     }
-    .crianca img{
+
+    .crianca img {
         width: 20%;
         margin-left: 5%;
         margin-right: 5%;
     }
-    
-    
+
+
 }
 
-@media (max-width: 720px){
+@media (max-width: 720px) {
 
     #gere_menu {
         position: absolute;
@@ -396,14 +421,17 @@
         font-weight: bold;
         z-index: 1;
     }
-    #gere_menu:hover{
+
+    #gere_menu:hover {
         margin-left: 0;
         transition: 1.5s;
     }
-    #gere_menu{
+
+    #gere_menu {
         transition: 1.5s;
     }
-    .btn_expandir{
+
+    .btn_expandir {
         width: 60px;
         margin-top: 1vw;
         position: absolute;
@@ -412,8 +440,9 @@
         background-color: #1E184C;
         border-radius: 10px;
     }
-    .btn_expandir i{
-        font-size: 5vw; 
+
+    .btn_expandir i {
+        font-size: 5vw;
         font-weight: bolder;
         padding-left: 10px;
         cursor: pointer;
@@ -500,7 +529,7 @@
         position: absolute;
         width: 90vw;
         height: 100vh;
-        margin-left:5vw;
+        margin-left: 5vw;
     }
 
     #gere_inicio {
@@ -549,37 +578,50 @@
     .gere_card b {
         font-size: 4vw;
     }
+
     /***** Tela de revisão *****/
-    #rev_btn{
+    #rev_btn {
         text-align: center;
-        padding-bottom:100px;
+        padding-bottom: 100px;
     }
 
-    #rev_btn a{
+    #rev_btn a {
         background-color: #FEC849;
         color: black;
         text-decoration: none;
-        padding:0 10px ;
+        padding: 0 10px;
         border-radius: 10px;
         font-size: 4vw;
     }
 
-    #gere_revi{
+    #gere_revi {
         text-align: center;
     }
-        
-    #revisao_lista{
+
+    #revisao_lista {
         margin-top: 10vw;
         font-size: 3vw;
     }
-    #revisao_lista div{
+
+    #revisao_lista div {
         margin-top: 5vw;
         display: flex;
         align-items: center;
     }
-    #revisao_lista input[type='checkbox']{
+
+    #revisao_lista input[type='checkbox'] {
         width: 4vw;
         height: 4vw;
+    }
+
+    #btn_revi_listar {
+        width: 9vw;
+        height: 4vw;
+        text-align: center;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        background: #1E184C;
     }
 
     /* Perfil */
@@ -603,6 +645,7 @@
         justify-content: center;
         text-align: center;
     }
+
     #foto_perfil {
         margin-left: 5vw;
         margin-top: 5vh;
@@ -643,7 +686,8 @@
         font-weight: bold;
 
     }
-    .form-group label[for="data_nascimento"]{
+
+    .form-group label[for="data_nascimento"] {
         width: 100%;
     }
 
@@ -660,6 +704,7 @@
     .form-group select {
         text-align: center;
     }
+
     .form-group textarea {
         width: 100%;
         padding: 8px;
@@ -691,11 +736,12 @@
 
 
 
-    .fotos_veiculo{
+    .fotos_veiculo {
         width: 100%;
         height: 20vw;
     }
-    .btn_add_foto{
+
+    .btn_add_foto {
         width: 20vw;
         height: 15vw;
         text-align: center;
@@ -705,10 +751,12 @@
         flex-direction: column;
         flex-wrap: wrap;
     }
-    .btn_add_foto img{
+
+    .btn_add_foto img {
         width: 5vw;
     }
-    .btn_add_foto a{
+
+    .btn_add_foto a {
         font-size: 1.5vw;
         font-weight: bold;
         text-decoration: none;
@@ -716,22 +764,25 @@
         text-indent: 0;
         color: #000;
     }
+
     /* Chamada */
 
-    .lista_chamada{
+    .lista_chamada {
         width: 100%;
         display: flex;
         text-align: center;
     }
 
-    #lista_chamada_presentes, #lista_chamada_ausentes{
+    #lista_chamada_presentes,
+    #lista_chamada_ausentes {
         width: 50%;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-    }   
-    .lista_criancas{
+    }
+
+    .lista_criancas {
         display: flex;
         width: 80%;
         height: 8vw;
@@ -739,11 +790,13 @@
         color: #fff;
         border-radius: 20px;
     }
-    .crianca{
+
+    .crianca {
         display: flex;
         align-items: center;
     }
-    .crianca img{
+
+    .crianca img {
         width: 20%;
         margin-left: 5%;
         margin-right: 5%;
