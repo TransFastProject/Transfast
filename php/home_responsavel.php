@@ -9,7 +9,7 @@ $resultTransportes = mysqli_query($sql, $sqlConsultaTransportes);
 
 // Transforma os resultados em um array associativo
 $transportes = [];
-while ($row = mysqli_fetch_assoc($resultTransportes)) {
+while($row = mysqli_fetch_assoc($resultTransportes)) {
     $transportes[] = $row;
 }
 
@@ -27,7 +27,7 @@ $trans_ids_crianca = $row_verificar_transporte['trans_ids'];
 $trans_id_crianca = "";
 
 // Verifica se pelo menos uma criança associada ao responsável possui o campo trans_id preenchido
-if ($count_transporte > 0) {
+if($count_transporte > 0) {
     // Se há pelo menos uma criança com trans_id, obtenha o primeiro trans_id (considerando que todas têm o mesmo trans_id)
     $trans_id_crianca = explode(",", $trans_ids_crianca)[0];
 }
@@ -46,15 +46,17 @@ if ($count_transporte > 0) {
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <!-- Importe o Swiper CSS -->
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
-<!-- Importe o Swiper JS -->
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- Importe o Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
     <title>Busque seu transporte</title>
 
     <style>
-        .transportes-item, .card-transporte, .swiper-slide {
+        .transportes-item,
+        .card-transporte,
+        .swiper-slide {
             width: 20vw;
         }
 
@@ -64,15 +66,20 @@ if ($count_transporte > 0) {
 
         body {
             overflow-x: hidden;
-            margin: 0; /* Remova a margem padrão do corpo */
-            padding: 0; /* Remova o preenchimento padrão do corpo */
+            margin: 0;
+            /* Remova a margem padrão do corpo */
+            padding: 0;
+            /* Remova o preenchimento padrão do corpo */
         }
 
         .transportes-container {
-            width: 90%; /* Defina a largura desejada para o container, pode ser em porcentagem, pixels, ou outra unidade */
+            width: 90%;
+            /* Defina a largura desejada para o container, pode ser em porcentagem, pixels, ou outra unidade */
             max-width: 90%;
-            margin: 0 auto; /* Centralize o container horizontalmente */
-            position: relative; /* Torna possível posicionar as setas em relação a este contêiner */
+            margin: 0 auto;
+            /* Centralize o container horizontalmente */
+            position: relative;
+            /* Torna possível posicionar as setas em relação a este contêiner */
             overflow: hidden;
             display: flex;
             justify-content: start;
@@ -88,18 +95,21 @@ if ($count_transporte > 0) {
         .swiper-button-next,
         .swiper-button-prev {
             cursor: pointer;
-            position: absolute; /* Posiciona as setas de forma absoluta em relação ao contêiner pai */
+            position: absolute;
+            /* Posiciona as setas de forma absoluta em relação ao contêiner pai */
             height: 100%;
             top: 0;
             color: #fff;
         }
 
         .swiper-button-next {
-            right: 0; /* Posiciona a seta 'próximo' à direita do contêiner pai */
+            right: 0;
+            /* Posiciona a seta 'próximo' à direita do contêiner pai */
         }
 
         .swiper-button-prev {
-            left: 0; /* Posiciona a seta 'anterior' à esquerda do contêiner pai */
+            left: 0;
+            /* Posiciona a seta 'anterior' à esquerda do contêiner pai */
         }
     </style>
 </head>
@@ -136,7 +146,8 @@ if ($count_transporte > 0) {
                     </a>
                 </div>
                 <div class="home-menu-item col">
-                    <a href="<?php echo ($count_transporte > 0) ? 'seu_transporte_com.php?trans_id='.$trans_id_crianca.'' : '../html/seu_transporte_sem.html'; ?>">
+                    <a
+                        href="<?php echo ($count_transporte > 0) ? 'seu_transporte_com.php?trans_id='.$trans_id_crianca.'' : '../html/seu_transporte_sem.html'; ?>">
                         <i class="ph ph-van"></i>
                         <p>Seu transporte</p>
                     </a>
@@ -154,24 +165,30 @@ if ($count_transporte > 0) {
     <div class="transporte">
         <div class="swiper-container transportes-container">
             <div class="swiper-wrapper" id="carrossel-container" style="position: relative;">
-                <?php foreach ($transportes as $index => $transporte): ?>
+                <?php foreach($transportes as $index => $transporte): ?>
                     <div class="swiper-slide">
-                    <a href="#" class="card-transporte card-<?php echo $index + 1; ?>"
-                    data-nome="<?php echo $transporte['nome_motorista']; ?>"
-                    data-bairro="<?php echo $transporte['bairro']; ?>"
-                    data-estado="<?php echo $transporte['estado']; ?>"
-                    data-cidade="<?php echo $transporte['cidade']; ?>"
-                    data-monitor="<?php echo $transporte['monitor']; ?>"
-                    data-foto="<?php echo base64_encode($transporte['foto_moto']); ?>"
-                    data-telefone="<?php echo $transporte['telefone_motorista']; ?>">
+                        <a href="#" class="card-transporte card-<?php echo $index + 1; ?>"
+                            data-nome="Nome: <?php echo $transporte['nome_motorista']; ?>"
+                            data-bairro="Bairro: <?php echo $transporte['bairro']; ?>"
+                            data-estado="Estado: <?php echo $transporte['estado']; ?>"
+                            data-cidade="Cidade: <?php echo $transporte['cidade']; ?>"
+                            data-monitor="Monitor: <?php echo $transporte['monitor']; ?>"
+                            data-foto="<?php echo base64_encode($transporte['foto_moto']); ?>"
+                            data-telefone="Telefone: <?php echo $transporte['telefone_motorista']; ?>">
                             <div class="transportes-item">
                                 <img src="../img/image 5.png" alt="" class="img-transporte" style="width: 20vw">
                                 <div class="transporte-info">
                                     <div class="transporte-info-i">
-                                        <p><?php echo $transporte['nome_motorista']; ?></p>
+                                        <p>
+                                            <?php echo $transporte['nome_motorista']; ?>
+                                        </p>
                                         <ul>
-                                            <li><?php echo $transporte['bairro']; ?></li>
-                                            <li><?php echo $transporte['telefone_motorista']; ?></li>
+                                            <li>
+                                                <?php echo $transporte['bairro']; ?>
+                                            </li>
+                                            <li>
+                                                <?php echo $transporte['telefone_motorista']; ?>
+                                            </li>
                                         </ul>
                                     </div>
                                     <div class="transporte-info-i">
@@ -182,7 +199,7 @@ if ($count_transporte > 0) {
                         </a>
                     </div>
                 <?php endforeach; ?>
-                
+
             </div>
         </div>
         <div class="swiper-button-next"></div>
@@ -197,35 +214,49 @@ if ($count_transporte > 0) {
         </div>
     </div>
 
-    <dialog id="home-dialog">
+    <dialog id="home-dialog" class="">
         <button id="fechar-modal"><i class="ph ph-x"></i></button>
-        <div class="modal-informacao">
-            <div class="motorista">
-                <img src="/img/foto_motorista.png" alt="foto do motorista" class="foto" style="border-radius: 100%; width: 8vw; height: 8vw;object-fit: cover">
-                <div class="avaliacao">
-                    <i class="ph ph-star"></i>
-                    <i class="ph ph-star"></i>
-                    <i class="ph ph-star"></i>
-                    <i class="ph ph-star"></i>
-                    <i class="ph ph-star"></i>
+        <div class="informacoes-modal">
+            <div class="modal-informacao">
+                <div class="motorista">
+                    <img src="/img/foto_motorista.png" alt="foto do motorista" class="foto"
+                        style="border-radius: 100%; width: 8vw; height: 8vw;object-fit: cover">
+                    <div class="avaliacao">
+                        <i class="ph ph-star"></i>
+                        <i class="ph ph-star"></i>
+                        <i class="ph ph-star"></i>
+                        <i class="ph ph-star"></i>
+                        <i class="ph ph-star"></i>
+                    </div>
+                    <p>Status da vistoria:</p>
+                    <p class="vistoria">
+                        <?php
+                        $consulta_transporte = $sql->query("SELECT * FROM vistoria WHERE moto_cpf = '".$transporte['moto_cpf']."' ");
+                        $consulta_vistoria = mysqli_fetch_assoc($consulta_transporte);
+
+                        if($consulta_vistoria['item01'] == '1' && $consulta_vistoria['item02'] == '1' && $consulta_vistoria['item03'] == '1' && $consulta_vistoria['item04'] == '1' && $consulta_vistoria['item05'] == '1' && $consulta_vistoria['item06'] == '1' && $consulta_vistoria['item07'] == '1' && $consulta_vistoria['item08'] == '1' && $consulta_vistoria['item09'] == '1' && $consulta_vistoria['item10'] == '1') {
+                            echo 'Completa';
+                        } else {
+                            echo 'Incompleta';
+                        }
+                        ?>
+                    </p>
                 </div>
-                <p>Status da vistoria:</p>
-                <p class="vistoria">Completa</p>
+                <div class="motorista-informacoes">
+                    <p class="nome"></p>
+                    <p class="telefone"></p>
+                    <p class="bairro"></p>
+                    <p class="estado"></p>
+                    <p class="cidade"></p>
+                    <p class="monitor"></p>
+                </div>
             </div>
-            <div class="motorista-informacoes">
-                <p class="nome"></p>
-                <p class="telefone"></p>
-                <p class="bairro"></p>
-                <p class="estado"></p>
-                <p class="cidade"></p>
-                <p class="monitor"></p>
+            <div class="contato" style="width: 100%; display: flex; justify-content: center;">
+                <a href="" class="btn-contato">
+                    Entrar em contato
+                    <i class="ph ph-chat-circle-dots"></i>
+                </a>
             </div>
-        </div>
-        <div class="contato" style="width: 100%; display: flex; justify-content: center;">
-        <a href="" class="btn-contato">
-            Entrar em contato
-            <i class="ph ph-chat-circle-dots"></i>
-        </a>
         </div>
     </dialog>
 
@@ -241,11 +272,11 @@ if ($count_transporte > 0) {
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
             },
-            
+
         });
     </script>
 
-    
+
 </body>
 
 </html>

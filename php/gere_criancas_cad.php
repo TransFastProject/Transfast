@@ -164,8 +164,7 @@ if ($cria_id == "?") {
 				</div>
 			</form>
 
-
-			<div id="gere_voltar" style="margin-top: 5vh; margin-right: -10vw;">
+			<div id="gere_voltar" style="margin-top: 5vh;">
 				<footer><a href="gere_criancas.php?escola=<?php echo $linked_values['escola_crianca']; ?>">Voltar</a>
 				</footer>
 			</div>

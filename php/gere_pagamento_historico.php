@@ -298,7 +298,7 @@ if ($result_info) {
 
 
 		</div>
-		<div id="gere_voltar" style="margin-top: 5vh;">
+		<div id="gere_voltar" style="margin-top: 7vh; position:fixed;">
 			<footer><a href="gere_mensalidade.php">Voltar</a></footer>
 		</div>
 

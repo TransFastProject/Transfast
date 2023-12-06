@@ -90,7 +90,7 @@ $trans_id = mysqli_fetch_assoc($result_id)["trans_id"];
 								 <a href="../php/gere_pagamento_historico.php?cria_id='. urlencode($row['id_crianca']).'">
 								 <img src="../img/icone_arquivos_v2.png" id="cad_pagamento" style="background-repeat: no-repeat; background-size:4.5vw 4.5vw;align-items:center;text-align:center;width:4vw; height: 4vw;" value=" "></a>
 								 <a href="../php/salvar_valor_crianca.php?cria_id='. urlencode($row['id_crianca']).'">
-								 <input id="cad_salvar" type="submit" style="background-image: url(../img/icone_salvar.png);background-repeat: no-repeat; background-size:3.3vw 3.3vw;align-items:center;text-align:center;width:3.3vw; height:3.3vw; box-shadow: 0 0 0 0; border: 0 none; outline: 0;" value=" ">
+								 <input id="cad_salvar" type="submit" style="background-image: url(../img/icone_salvar.png);background-repeat: no-repeat; background-size:3.3vw 3.3vw;align-items:center;text-align:center;width:3.3vw; height:3.3vw; box-shadow: 0 0 0 0; border: 0 none; outline: 0; cursor:pointer;" value=" "">
 								 </input>
 							   </a>
 							   </div>
@@ -109,11 +109,11 @@ $trans_id = mysqli_fetch_assoc($result_id)["trans_id"];
 								 <label>Escola: </label><input type="text" class="pagamento_escola" style="font-size:20px;" value="' . $row['escola'] . '" readonly><br>
 								 <label>Valor: </label><input type="text" class="pagamento_valor" name="valor" style="font-size:20px;" value="' . $row['valor'] . '"><br>
 							 </div>
-							 <div>
+							 <div style="display:flex;flex-direction:row;gap:1vw;">
 								 <a href="../php/gere_pagamento_historico.php?cria_id='. urlencode($row['id_crianca']).'">
 								 <img src="../img/icone_arquivos_v2.png" id="cad_pagamento" style="background-repeat: no-repeat; background-size:4.5vw 4.5vw;align-items:center;text-align:center;width:4vw; height: 4vw;" value=" "></a>
 								 <a href="../php/salvar_valor_crianca.php?cria_id='. urlencode($row['id_crianca']).'">
-								 <input id="cad_salvar" type="submit" style="background-image: url(../img/icone_salvar.png);background-repeat: no-repeat; background-size:3.3vw 3.3vw;align-items:center;text-align:center;width:3.3vw; height:3.3vw; box-shadow: 0 0 0 0; border: 0 none; outline: 0;" value=" ">
+								 <input id="cad_salvar" type="submit" style="background-image: url(../img/icone_salvar.png);background-repeat: no-repeat; background-size:3.5vw 3.5vw;align-items:center;text-align:center;width:3.5vw; height:3.5vw; box-shadow: 0 0 0 0; border: 0 none; outline: 0; cursor:pointer;" value=" ">
 								 </input>
 							   </a>
 							   </div>
@@ -130,7 +130,7 @@ $trans_id = mysqli_fetch_assoc($result_id)["trans_id"];
 								 </div>
 								 <div>
 								 <a href="../php/gere_pagamento_historico.php?cria_id=1">
-								 <img src="../img/icone_arquivos_v2.png" id="cad_pagamento" style="background-repeat: no-repeat; background-size:4.5vw 4.5vw;align-items:center;text-align:center;width:4vw; height: 4vw;" value=" "></a>
+								 <img src="../img/icone_arquivos_v2.png" id="cad_pagamento" style="background-repeat: no-repeat; background-size:4.5vw 4.5vw;align-items:center;text-align:center;width:4vw; height: 4vw;cursor:pointer;" value=" "></a>
 							   </div>
 							 </div>';
 			}

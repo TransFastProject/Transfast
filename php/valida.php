@@ -66,7 +66,7 @@ if ($acessar) {
                     $_SESSION['bairro'] = $row_usuario['bairro'];
                     $_SESSION['numero'] = $row_usuario['numero'];
                     $_SESSION['complemento'] = $row_usuario['complemento'];
-                    header('Location: ../html/home_responsavel.html');
+                    header('Location: ../php/home_responsavel.php');
                     exit();
                 }else{
                     $_SESSION['msg'] = "<texto>Senha Incorreta </texto>";

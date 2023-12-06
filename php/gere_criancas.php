@@ -2,11 +2,11 @@
 include_once 'conexao.php';
 session_start();
 
-$moto_nome = "SELECT nome FROM motorista WHERE moto_cpf ='" . $_SESSION['moto_cpf'] . "'";
+$moto_nome = "SELECT nome FROM motorista WHERE moto_cpf ='".$_SESSION['moto_cpf']."'";
 $link_moto = mysqli_query($sql, $moto_nome);
 $linked_moto = mysqli_fetch_assoc($link_moto);
 
-$checa_id = "SELECT trans_id FROM transporte WHERE moto_cpf ='" . $_SESSION['moto_cpf'] . "'";
+$checa_id = "SELECT trans_id FROM transporte WHERE moto_cpf ='".$_SESSION['moto_cpf']."'";
 $result_id = mysqli_query($sql, $checa_id);
 $trans_id = mysqli_fetch_assoc($result_id)["trans_id"];
 
@@ -28,31 +28,31 @@ $trans_id = mysqli_fetch_assoc($result_id)["trans_id"];
 
 <body>
 	<div id="gere_menu">
-	<div class="btn_expandir">
-		<i class="bi bi-caret-right-square"></i>
+		<div class="btn_expandir">
+			<i class="bi bi-caret-right-square"></i>
 		</div>
 		<div>
 			<?php
 			include "conexao.php";
-			if ($sql === false) {
-				die("Erro na conexão com o banco de dados: " . mysqli_connect_error());
+			if($sql === false) {
+				die("Erro na conexão com o banco de dados: ".mysqli_connect_error());
 			}
 			$moto_cpf = $_SESSION['moto_cpf'];
 			$result = mysqli_query($sql, "SELECT foto FROM motorista WHERE moto_cpf = '$moto_cpf'");
-			if ($result) {
+			if($result) {
 				$rowft = mysqli_fetch_assoc($result);
 				$imagem = $rowft['foto'];
-				if ($imagem) {
-					echo '<img src="data:image/jpeg;base64,' . base64_encode($imagem) . '" style="border-radius: 50%; width: 11vw; height: 11vw; object-fit: cover;">';
+				if($imagem) {
+					echo '<img src="data:image/jpeg;base64,'.base64_encode($imagem).'" style="border-radius: 50%; width: 11vw; height: 11vw; object-fit: cover;">';
 				} else {
 					echo '<img src="../img/fundo_foto_padrao.png" alt="Foto do Perfil" style="width:11vw;height:11vw;">';
 				}
 			} else {
-				echo "Erro ao obter a foto do banco de dados: " . mysqli_error($sql);
+				echo "Erro ao obter a foto do banco de dados: ".mysqli_error($sql);
 			}
 			?>
 			<p>Bem Vindo<br>
-				<?php echo $linked_moto['nome'] . PHP_EOL ?>
+				<?php echo $linked_moto['nome'].PHP_EOL ?>
 			</p>
 		</div>
 		<div>
@@ -71,14 +71,12 @@ $trans_id = mysqli_fetch_assoc($result_id)["trans_id"];
 	</div>
 	<div id="gere_conteudo">
 		<div id="conteudo_criancas">
-
 			<?php
 			$nome_escola = $_GET['escola'];
-			if ($nome_escola == "?" || $nome_escola == "Sem Dados") {
+			if($nome_escola == "?" || $nome_escola == "Sem Dados") {
 				echo '<div class="criancas">
 
 					<div class="criancas_icones">
-						<a><img src="../img/icone_aviso.png"></a>
 						<a href="../php/gere_criancas_cad.php?cria_id=?"><img src="../img/icone_edicao.png"></a>
 					</div>
 	
@@ -117,44 +115,44 @@ $trans_id = mysqli_fetch_assoc($result_id)["trans_id"];
 				$stmt->bind_param("si", $nome_escola, $trans_id);
 				$stmt->execute();
 				$result3 = $stmt->get_result();
-				if ($result3 !== false && $result3->num_rows > 0) {
-					while ($row = $result3->fetch_assoc()) {
+				if($result3 !== false && $result3->num_rows > 0) {
+					while($row = $result3->fetch_assoc()) {
 						echo '<div class="criancas">
 
 					<div class="criancas_icones">
-						<a href="../php/excluir_escola.php?cria_id=' . urlencode($row['id_crianca']) . '"><img src="../img/icone_aviso.png"></a>
-						<a href="../php/gere_criancas_cad.php?cria_id=' . urlencode($row['id_crianca']) . '"><img src="../img/icone_edicao.png"></a>
+						
+						<a href="../php/gere_criancas_cad.php?cria_id='.urlencode($row['id_crianca']).'"><img src="../img/icone_edicao.png"></a>
 					</div>
 	
 					<div class="criancas_foto">';
-					if (!empty($row['foto'])) {
-						echo'<img src="'.$row['foto'].'" style="width: 10vw; height: 10vw; object-fit: cover; border-radius: 100%"></div>';
-					}else{
-						echo'<img src="../img/fundo_foto_padrao.png" style="width: 10vw; height: 10vw; object-fit: cover; border-radius: 100%"></div>';
-					}
+						if(!empty($row['foto'])) {
+							echo '<img src="'.$row['foto'].'" style="width: 10vw; height: 10vw; object-fit: cover; border-radius: 100%"></div>';
+						} else {
+							echo '<img src="../img/fundo_foto_padrao.png" style="width: 10vw; height: 10vw; object-fit: cover; border-radius: 100%"></div>';
+						}
 
-					echo '
+						echo '
 	
 					<div class="criancas_dados">
 						<table>
 							<tr>
 								<td>Nome:
-								<td>' . $row['nome_crianca'] . '
+								<td>'.$row['nome_crianca'].'
 								
 							</tr>
 							<tr>
 								<td>Data de Nascimento:
-								<td> ' . $row['data_nascimento'] . '
+								<td> '.$row['data_nascimento'].'
 								
 							</tr>
 							<tr>
 								<td>Responsavel:
-								<td>' . $row['nome_responsavel'] . '
+								<td>'.$row['nome_responsavel'].'
 								
 							</tr>
 							<tr>
 								<td>Endereço:
-								<td>' . $row['rua'] . '
+								<td>'.$row['rua'].'
 								
 							</tr>
 						</table>
@@ -171,8 +169,10 @@ $trans_id = mysqli_fetch_assoc($result_id)["trans_id"];
 			</div>
 
 		</div>
-
 	</div>
+	<script>
+
+	</script>
 </body>
 
 </html>

@@ -40,13 +40,6 @@ if (isset($_GET['trans_id'])) {
                     $foto_motorista = '../img/fundo_foto_padrao.png';
                 }
 
-                // Verifica se o transporte tem uma foto
-                $foto_transporte = $row_info_motorista['foto']; // Correção aqui
-                if (empty($foto_transporte) || $foto_transporte === null) {
-                    // Se não tiver, use uma imagem padrão
-                    $foto_transporte = '../img/header_background.png';
-                }
-
                 // Verifica se o motorista tem uma foto
                 if (empty($monitor) || $monitor === null) {
                     $monitor = 'Não informado';
@@ -132,7 +125,7 @@ if (isset($_GET['trans_id'])) {
         style="position: absolute;top: 0;padding: 0 2vw; display: relative;">
         <span class="col-6"
             style="display: flex;flex-direction: row; justify-content: start; align-items: center; gap: 4vw;">
-            <a href="home_responsavel.html">
+            <a href="home_responsavel.php">
                 <img src="../img/logo_v2.png" alt="Logo Transfast" class="home-logo">
             </a>
             <span style="display: flex;flex-direction: row; justify-content: center; align-items: center; gap: 2vw;">
@@ -175,10 +168,23 @@ if (isset($_GET['trans_id'])) {
 
     <div class="comTransporte">
         <div class="banner-motorista">
-            <img src="<?php echo $foto_transporte; ?>" alt="foto transporte">
+          <img src="../img/header_background.png" alt="Foto do Perfil">
         </div>
         <div class="foto-perfil">
-            <img src="<?php echo $foto_motorista; ?>" alt="foto-motorista">
+        <?php
+        $result = mysqli_query($sql, "SELECT foto FROM motorista WHERE moto_cpf = '$moto_cpf'");
+      if ($result) {
+        $rowft = mysqli_fetch_assoc($result);
+        $foto_transporte = $rowft['foto'];
+        if (!empty($foto_transporte)) {
+          echo '<img src="data:image/jpeg;base64,' . base64_encode($foto_transporte) . '"style="border-radius: 50%; width: 11vw; height: 11vw; object-fit: cover;"';
+        } else {
+          echo '<img src="../img/fundo_foto_padrao.png" alt="Foto do Perfil">';
+        }
+      } else {
+        echo "Erro ao obter a foto do banco de dados: " . mysqli_error($sql);
+      }
+      ?>
             <span>
                 <a href="">
                     <i class="ph ph-chat-circle-dots"></i>
