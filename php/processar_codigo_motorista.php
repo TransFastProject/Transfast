@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         mysqli_stmt_execute($stmt_atualizar_transporte);
 
         // Redireciona o responsável para a página do motorista
-        header("Location: pagina_do_motorista.php?id=$id_motorista");
+        header("Location: seu_transporte_com.php?id=$id_motorista");
         exit();
     } else {
         // Código do motorista incorreto
