@@ -1,0 +1,97 @@
+body{
+    margin:0;
+    padding:0;
+    align-items:center;
+    text-align: center;
+}
+#listagem_titulo{
+    font-size:2.5vh;
+    align-items: center;
+    text-align: center;
+    margin-top:10vh;
+}
+.links_listagem img {
+    width: 10vh;
+    margin-right:5px;
+}
+.links_listagem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4vh;
+    transition:0.5s;
+    border-radius: 20px;
+}
+.links_listagem :hover{
+    background-color: #FEC849;
+    color: black;
+    border-radius: 20px;
+}
+
+.links_listagem a {
+    text-decoration: none;
+}
+
+.links_listagem div {
+    width: 50vh;
+    height: 8vh;
+    border-radius: 20px;
+    background: #1E184C;
+    color: #fff;
+    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.50);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 2.5vh;
+}
+table{
+    align-items:center;
+    text-align: center;
+    margin-left:5vh;
+    margin-right:5vh;
+}
+#tableMotorista{
+    position: absolute;
+    width: 12vw;
+    height: 10vw;
+    top: 30%;
+    color:#ffffff;
+    background:#1E184C;
+    align-items: center;
+    text-align:center;
+    font-size:1.339vh;
+}
+#tableResponsavel{
+    position: absolute;
+    width: 12vw;
+    height: 10vw;
+    top: 30%;
+    color:#ffffff;
+    background:#1E184C;
+    align-items: center;
+    text-align:center;
+    font-size:1.339vh;
+}
+#tableCrianca{
+    position: absolute;
+    width: 12vw;
+    height: 10vw;
+    top: 30%;
+    color:#ffffff;
+    background:#1E184C;
+    align-items: center;
+    text-align:center;
+    font-size:2.7vh;
+}
+#tableTransporte{
+    position: absolute;
+    width: 12vw;
+    height: 10vw;
+    top: 30%;
+    color:#ffffff;
+    background:#1E184C;
+    align-items: center;
+    text-align:center;
+    font-size:2.5vh;
+}
