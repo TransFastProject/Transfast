@@ -1,4 +1,24 @@
 <?php
+include 'conexao.php';
+
+$motorista = $sql -> query("SELECT COUNT(*) AS total_motorista FROM motorista");
+$row_motorista = $motorista->fetch_assoc();
+$total_motorista = $row_motorista["total_motorista"];
+
+$responsavel = $sql -> query("SELECT COUNT(*) AS total_responsavel FROM responsavel");
+$row_responsavel = $responsavel->fetch_assoc();
+$total_responsavel = $row_responsavel["total_responsavel"];
+
+$crianca = $sql -> query("SELECT COUNT(*) AS total_crianca FROM crianca");
+$row_crianca = $crianca->fetch_assoc();
+$total_crianca = $row_crianca["total_crianca"];
+
+$transporte = $sql -> query("SELECT COUNT(*) AS total_transporte FROM transporte");
+$row_transporte = $transporte->fetch_assoc();
+$total_transporte = $row_transporte["total_transporte"];
+
+$total_perfis_cadastrados = $total_motorista + $total_responsavel;
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -35,27 +55,54 @@
 
         <footer id="gere_sair"><a href="sair.php">Sair</a></footer>
     </div>
-    <div id="gere_conteudo">
-        <div id="listagem_titulo">
-            <h1>Listagem De Usuários</h1>
-        </div>
-        <div style="margin-top: 10vh;">
+    <div id="gere_inicio">
+    <div class="gere_conteudo_2">
+			<div class="gere_card">
+            <img src="../img/listagem_motorista.png">
+				<p><b>
+						<?php echo $total_motorista; ?>
+					</b></p>
+				<p>Motoristas Cadastrados</p>
+			</div>
 
-            <div class="links_listagem"><img src="../img/listagem_motorista.png"><a href="admin_motoristas.php">
-                    <div>Motorista</div>
-                </a></div>
-            <div class="links_listagem"><img src="../img/listagem_responsavel.png"><a href="admin_responsaveis.php">
-                    <div>Responsável</div>
-                </a></div>
-                <div class="links_listagem"><img src="../img/listagem_crianca.png"><a href="admin_criancas.php">
-                    <div>Crianca</div>
-                </a></div>
-            <div class="links_listagem"><img src="../img/listagem_transporte.png"><a href="admin_transporte.php">
-                    <div>Transporte</div>
-                </a></div>
-        </div>
+			<div class="gere_card">
+            <img src="../img/listagem_responsavel.png">
 
-    </div>
+<p><b>
+        <?php echo $total_responsavel;?>
+    </b></p>
+<p>Responsáves Cadastrados</p>
+			</div>
+
+			<div class="gere_card">
+			<img src="../img/listagem_crianca.png">
+                <p><b><?php echo $total_crianca; ?>
+					</b></p>
+				<p>Criancas Cadastrados</p>
+			</div>
+
+		</div>
+
+		<div class="gere_conteudo_2">
+			<div class="gere_card">
+            <img src="../img/listagem_transporte.png">
+				<p><b><?php echo $total_transporte; ?>
+					</b></p>
+				<p>Transportes Cadastrados</p>
+			</div>
+
+			<div class="gere_card">
+				<img src="../img/icone_pessoa.png" />
+
+				<p><b>
+						<?php echo $total_perfis_cadastrados; ?>
+					</b></p>
+				<p>Perfis Cadastrados</p>
+			</div>
+
+
+		</div>
+</div>
 </body>
 
 </html>

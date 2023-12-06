@@ -133,8 +133,6 @@ if($revi_item01_value === '1' && $revi_item02_value === '1' && $revi_item03_valu
 				<p><b>
 						<?php echo $total_crianca; ?>
 					</b></p>
-				<!--Aqui vai ter que fazer um jeito de pegar todas as crianças cadastradas no trans_id especifico-->
-
 				<p>Crianças em seu Transporte</p>
 			</div>
 
@@ -144,18 +142,13 @@ if($revi_item01_value === '1' && $revi_item02_value === '1' && $revi_item03_valu
 				<p><b>
 						<?php echo "R$$valor_total" ?>
 					</b></p>
-				<!-- Assim que a criança estiver cadastrada terão os valores que precisam pagar para continuar usando o app, aqui tem que juntar todas essas crianças cadastradas no trans_id especifico e juntar todos os valores que ela paga, dá pra fazer com javascript ou php -->
-
 				<p>Valor Mensal Estimado</p>
 			</div>
 
 			<div class="gere_card">
 			<img src="../img/icone_arquivos.png" />
-
 				<p><b><?php echo $resposta_vistoria; ?></b></p>
 				<p>Situação da vistoria</p>
-				
-				<!-- verificar se está ou não checkado na tela de revisão, provavelmente será em javascript, como? vai ter que buscar na outra tela uma variavel que seria universal no proprio site ou somente nessa tela, ou armazenar no banco de dados e quando chegar determinada data alterar para não chekado, vai ser um rolê, mas talvez dê pra fazer-->
 			</div>
 
 		</div>
@@ -166,8 +159,7 @@ if($revi_item01_value === '1' && $revi_item02_value === '1' && $revi_item03_valu
 
 				<p><b>
 						<?php echo $total_escolas; ?>
-					</b></p><!--Aqui foda-se, procurar outra coisa para mudar e colocar no lugar-->
-
+					</b></p>
 				<p>Escolas Que Passa</p>
 			</div>
 
@@ -177,8 +169,6 @@ if($revi_item01_value === '1' && $revi_item02_value === '1' && $revi_item03_valu
 				<p><b>
 						<?php echo $msg_perfil; ?>
 					</b></p>
-				<!-- verificar na tela de perfil se todas as informações estão em seus devidos lugares-->
-
 				<p>Perfil</p>
 			</div>
 

@@ -36,7 +36,7 @@ foreach ($meses as $mes) {
 }
 
 // Consulta para obter as informações da criança e do responsável
-$select_info_query = "SELECT crianca.nome AS nome_crianca, responsavel.telefone AS telefone_responsavel, responsavel.rua AS endereco_responsavel FROM crianca INNER JOIN responsavel ON crianca.res_cpf = responsavel.res_cpf WHERE crianca.cria_id = '$cria_id'";
+$select_info_query = "SELECT crianca.nome AS nome_crianca, crianca.foto, responsavel.telefone AS telefone_responsavel, responsavel.rua AS endereco_responsavel FROM crianca INNER JOIN responsavel ON crianca.res_cpf = responsavel.res_cpf WHERE crianca.cria_id = '$cria_id'";
 
 $result_info = mysqli_query($sql, $select_info_query);
 
@@ -109,8 +109,14 @@ if ($result_info) {
 
 			<div id="dados_pagamento">
 
-				<div><img src="../img/fundo_foto_padrao.png" id="foto" alt=""></div>
-
+			<div class="criancas_foto">
+				<?php
+						if(!empty($row_info['foto'])) {
+							echo '<img src="'.$row_info['foto'].'" style="width: 12vw; height: 12vw; object-fit: cover; border-radius: 100%"></div>';
+						} else {
+							echo '<img src="../img/fundo_foto_padrao.png" style="width: 12vw; height: 12vw; object-fit: cover; border-radius: 100%"></div>';
+						}
+				?>
 				<div id="informacoes">
 					<p>Nome: <strong>
 							<?php echo $row_info['nome_crianca']; ?>
