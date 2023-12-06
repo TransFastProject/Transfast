@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `motorista` (
 
 -- Copiando dados para a tabela transfast.motorista: ~2 rows (aproximadamente)
 INSERT INTO `motorista` (`moto_cpf`, `nome`, `email`, `senha`, `genero`, `telefone`, `data_nascimento`, `cep`, `rua`, `bairro`, `numero`, `complemento`, `foto`) VALUES
-	('inexistente', 'semdados', 'semdados', '1234', 'semdados', 'semdados', '2000-02-02', '0', 'semdados', 'semdados', '00', NULL, NULL);
+	('inexistente', 'semdados', 'semdados', '$2y$10$oSeTKbMZ/TDehJ.7rvjJvOjKHoNTzHSn91bmTHdhbYZnchpqeBB9C', 'semdados', 'semdados', '2000-02-02', '0', 'semdados', 'semdados', '00', NULL, NULL);
 
 -- Copiando estrutura para tabela transfast.responsavel
 -- Copiando estrutura para tabela transfast.responsavel
