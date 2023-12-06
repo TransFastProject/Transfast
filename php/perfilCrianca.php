@@ -43,6 +43,36 @@ $opcoes_genero = array("Masculino", "Feminino", "Outro", "Prefiro não dizer");
 
 // Lista de opções para o campo de deficiência
 $opcoes_deficiencia = array("Nenhuma", "Visual", "Auditiva", "Física", "Cognitiva");
+
+// Consulta para obter os transportes e informações do motorista associado
+$sqlConsultaTransportes = "SELECT t.*, m.nome AS nome_motorista, m.telefone AS telefone_motorista, m.foto AS foto_moto FROM transporte t
+                           JOIN motorista m ON t.moto_cpf = m.moto_cpf"; // Ajuste este valor conforme necessário
+$resultTransportes = mysqli_query($sql, $sqlConsultaTransportes);
+
+// Transforma os resultados em um array associativo
+$transportes = [];
+while ($row = mysqli_fetch_assoc($resultTransportes)) {
+    $transportes[] = $row;
+}
+
+// Consulta para verificar se pelo menos uma criança associada ao responsável possui o campo trans_id preenchido
+$sql_verificar_transporte = "SELECT COUNT(*) AS count_transporte, GROUP_CONCAT(trans_id) AS trans_ids FROM crianca WHERE res_cpf = ? AND trans_id IS NOT NULL AND trans_id NOT IN ('0', '1')";
+$stmt_verificar_transporte = mysqli_prepare($sql, $sql_verificar_transporte);
+mysqli_stmt_bind_param($stmt_verificar_transporte, "s", $_SESSION['res_cpf']);
+mysqli_stmt_execute($stmt_verificar_transporte);
+$result_verificar_transporte = mysqli_stmt_get_result($stmt_verificar_transporte);
+$row_verificar_transporte = mysqli_fetch_assoc($result_verificar_transporte);
+$count_transporte = $row_verificar_transporte['count_transporte'];
+$trans_ids_crianca = $row_verificar_transporte['trans_ids'];
+
+// Inicializa $trans_id_crianca como vazio
+$trans_id_crianca = "";
+
+// Verifica se pelo menos uma criança associada ao responsável possui o campo trans_id preenchido
+if ($count_transporte > 0) {
+    // Se há pelo menos uma criança com trans_id, obtenha o primeiro trans_id (considerando que todas têm o mesmo trans_id)
+    $trans_id_crianca = explode(",", $trans_ids_crianca)[0];
+}
 ?>
 
 <!DOCTYPE html>
@@ -88,7 +118,7 @@ $opcoes_deficiencia = array("Nenhuma", "Visual", "Auditiva", "Física", "Cogniti
         <div class="home-menu col-6">
             <div class="home-menu-container row justify-content-center align-items-center">
                 <div class="home-menu-item col">
-                    <a href="home_responsavel.html">
+                    <a href="home_responsavel.php">
                         <i class="ph ph-house"></i>
                         <p>Início</p>
                     </a>
@@ -100,13 +130,13 @@ $opcoes_deficiencia = array("Nenhuma", "Visual", "Auditiva", "Física", "Cogniti
                     </a>
                 </div>
                 <div class="home-menu-item col">
-                    <a href="">
+                    <a href="<?php echo ($count_transporte > 0) ? 'seu_transporte_com.php?trans_id='.$trans_id_crianca.'' : '../html/seu_transporte_sem.html'; ?>">
                         <i class="ph ph-van"></i>
                         <p>Seu transporte</p>
                     </a>
                 </div>
                 <div class="home-menu-item col">
-                    <a href="">
+                    <a href="perfilResponsavel.php">
                         <i class="ph ph-user"></i>
                         <p>Perfil</p>
                     </a>

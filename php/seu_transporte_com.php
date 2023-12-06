@@ -102,7 +102,7 @@ if (isset($_GET['trans_id'])) {
     }
 } else {
     // Se não houver trans_id na URL, redirecione ou tome alguma ação padrão
-    header("Location: ../html/home_responsavel.php");
+    header("Location: ../php/home_responsavel.php");
     exit();
 }
 ?>
@@ -145,7 +145,7 @@ if (isset($_GET['trans_id'])) {
         <div class="home-menu col-6">
             <div class="home-menu-container row justify-content-center align-items-center">
                 <div class="home-menu-item col">
-                    <a href="home_responsavel.html">
+                    <a href="home_responsavel.php">
                         <i class="ph ph-house"></i>
                         <p>Início</p>
                     </a>
@@ -163,7 +163,7 @@ if (isset($_GET['trans_id'])) {
                     </a>
                 </div>
                 <div class="home-menu-item col">
-                    <a href="perfilResponsavel.html">
+                    <a href="perfilResponsavel.php">
                         <i class="ph ph-user"></i>
                         <p>Perfil</p>
                     </a>
