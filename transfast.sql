@@ -118,11 +118,11 @@ CREATE TABLE IF NOT EXISTS `crianca` (
 /*!40000 ALTER TABLE `crianca` DISABLE KEYS */;
 INSERT INTO `crianca` (`cria_id`, `res_cpf`, `trans_id`, `nome`, `idade`, `genero`, `data_nascimento`, `escola`, `deficiencia`, `presenca`, `valor`, `foto`) VALUES
 	(1, '000.000.000-00', 1, 'Sem Dados', 0, 'Sem Dados', '0000-00-00', 'Sem Dados', 'visual', 'ausente', 0.00, NULL),
-	(2, '989.676.454-12', 3, 'Luiz Felipe', 6, 'feminino', '2005-02-05', 'ETEC', 'cognitiva', 'presente', 100.00, NULL),
-	(3, '989.676.454-12', 3, 'Karolina Pereira', 6, 'feminino', '2005-02-05', 'Josefina Pereira', 'tetraplegico', 'ausente', 150.00, NULL),
+	(2, '989.676.454-12', 3, 'Luiz Felipe', 6, 'Masculino', '2005-02-05', 'ETEC', 'cognitiva', 'presente', 100.00, NULL),
+	(3, '989.676.454-12', 3, 'Karolina Pereira', 6, 'Feminino', '2005-02-05', 'Josefina Pereira', 'tetraplegico', 'ausente', 150.00, NULL),
 	(4, '989.676.454-12', 3, 'Ygor Izaac', 8, 'Masculino', '2016-03-30', 'Josefina Pereira', 'Visual', 'presente', 140.00, '../img_usuarios/blu-disc.png'),
 	(5, '989.676.454-12', 3, 'Nathan Ferreira', NULL, 'Masculino', '13/05/2005', 'ETEC', 'Nenhuma', 'ausente', 150.00, '../img_usuarios/image 5.png'),
-	(6, '12345', 3, 'Sofia', 6, 'Masculino', '2017-03-12', 'Josefina', 'Nenhuma', 'ausente', NULL, NULL);
+	(6, '12345', 3, 'Sofia', 6, 'Feminino', '2017-03-12', 'Josefina', 'Nenhuma', 'ausente', NULL, NULL);
 /*!40000 ALTER TABLE `crianca` ENABLE KEYS */;
 
 CREATE TABLE IF NOT EXISTS `gastos` (
