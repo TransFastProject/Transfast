@@ -35,7 +35,7 @@ $total_escolas = $row["total_escolas"];
 if (!$_SESSION['nome'] == "" && !$_SESSION['dtnascimento'] == "" && !$_SESSION['telefone'] == "" && !$_SESSION['cep_transporte'] == "" && !$_SESSION['bairro_transporte'] == "" && !$_SESSION['estado_transporte'] == "" && !$_SESSION['genero'] == "" && !$_SESSION['cidade_transporte'] == "" && !$_SESSION['monitor'] == "" && !$_SESSION['codigo'] == "") {
 	$msg_perfil = "Completo";
 } else {
-	$msg_perfil = "Imcompleto";
+	$msg_perfil = "Incompleto";
 }
 
 $revi_item01 = $sql->query("SELECT item01 FROM vistoria WHERE moto_cpf = '$moto_cpf'");

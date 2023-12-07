@@ -147,7 +147,7 @@ if($count_transporte > 0) {
     </div>
   </header>
 
-  <div class="semTransporte">
+  <div class="semTransporte" style="margin-top:18vh;">
     <h3 style="font-weight: 600;">SEU PERFIL</h3>
     <div class="perfil-container"
       style="width:50vw; display: flex;flex-direction: column; justify-content: center; align-items: start;gap: 3vw;">
@@ -270,6 +270,11 @@ if($count_transporte > 0) {
       style="width: 100%; display: flex; flex-direction:column; justify-content: center; align-items:center; gap: 1vw;">
       <button onclick="location.href='home_responsavel.php'"
         style="border: none; width: 12vw; height: 2.5vw;  border-radius: 1vw; text-align: center; display: flex; justify-content: center; align-items: center; margin-top:1vw; margin-left:-1vw">Voltar</button>
+    </div>
+    <div class="salvar"
+      style="width: 100%; display: flex; flex-direction:column; justify-content: center; align-items:center; gap: 1vw;">
+      <button onclick="location.href='sair.php'"
+        style="border: none; width: 12vw; height: 2.5vw;  border-radius: 1vw; text-align: center; display: flex; justify-content: center; align-items: center; margin-top:1vw; margin-left:-1vw">Sair</button>
     </div>
   </div>
   <div class="home-menu-mobile col-4">

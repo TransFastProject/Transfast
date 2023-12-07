@@ -8,7 +8,7 @@ $linked_moto = mysqli_fetch_assoc($link_moto);
 $cria_id = $_GET['cria_id'];
 
 if ($cria_id == "?") {
-	$select_values = "SELECT crianca.nome as nome_crianca, crianca.data_nascimento as dt_crianca, crianca.genero as genero_crianca, crianca.escola as escola_crianca, crianca.deficiencia as deficiencia_crianca, responsavel.nome as nome_responsavel, responsavel.rua as rua_responsavel, responsavel.bairro as bairro_responsavel, responsavel.cep as cep_responsavel, responsavel.telefone as telefone_responsavel, responsavel.numero as numero_responsavel,, crianca.foto as foto  FROM crianca INNER JOIN responsavel ON crianca.res_cpf = responsavel.res_cpf WHERE crianca.cria_id=1";
+	$select_values = "SELECT crianca.nome as nome_crianca, crianca.data_nascimento as dt_crianca, crianca.genero as genero_crianca, crianca.escola as escola_crianca, crianca.deficiencia as deficiencia_crianca, responsavel.nome as nome_responsavel, responsavel.rua as rua_responsavel, responsavel.bairro as bairro_responsavel, responsavel.cep as cep_responsavel, responsavel.telefone as telefone_responsavel, responsavel.numero as numero_responsavel FROM crianca INNER JOIN responsavel ON crianca.res_cpf = responsavel.res_cpf WHERE crianca.cria_id=1";
 	$link_values = mysqli_query($sql, $select_values);
 	$linked_values = mysqli_fetch_assoc($link_values);
 }else {

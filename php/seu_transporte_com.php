@@ -232,11 +232,11 @@ if (isset($_GET['trans_id'])) {
         <p>Avalie este condutor <button id="avaliar-close" style="position: absolute; right: 2vw; height: 2vw; width: 2vw; padding: 0; display: flex; align-items: center; justify-content: center;"><i class="ph ph-x" style="margin:0"></i></button></p>
         <div class="modal-avaliacao">
             <span class="avaliacao">
-                <img src="../img/yellow_star.png" alt="" class="star">
-                <img src="../img/yellow_star.png" alt="" class="star">
-                <img src="../img/yellow_star.png" alt="" class="star">
-                <img src="../img/yellow_star.png" alt="" class="star">
-                <img src="../img/purple_star.png" alt="" class="star">
+                <input type="radio" value="1" class="radio_button"> 1</input>
+                <input type="radio" value="2" class="radio_button"> 2</input>
+                <input type="radio" value="3" class="radio_button"> 3</input>
+                <input type="radio" value="4" class="radio_button"> 4</input>
+                <input type="radio" value="5" class="radio_button"> 5</input>
             </span>
             <button id="avaliar-close">Avaliar</button>
         </div>
