@@ -1,12 +1,7 @@
 @import url(estilo.css);
 
-@media (min-width: 721px) {
+@media (min-width: 721px){
     /* Telas de gerenciamento*/
-
-
-    #barra_busca{
-        border-radius: 20px;
-    }
 
     #testes {
         width: 20vw;
@@ -40,15 +35,13 @@
         color: #fff;
         font-weight: bold;
     }
-
-    .btn_expandir {
+    .btn_expandir{
         width: 50px;
         color: #fff;
         text-align: left;
         visibility: hidden;
     }
-
-    .btn_expandir i {
+    .btn_expandir i{
         visibility: hidden;
     }
 
@@ -103,7 +96,7 @@
     }
 
     #gere_voltar {
-        position: absolute;
+        position: fixed;
         bottom: 0;
         right: 0;
         color: #fff;
@@ -114,9 +107,14 @@
 
     #gere_voltar footer {
         width: 8vw;
+        position: fixed;
+        bottom: 0;
+        right: 0;
         text-align: center;
         border-radius: 10px;
         background: #1E184C;
+        margin-right: 20px;
+        margin-bottom: 10px;
 
     }
 
@@ -132,18 +130,6 @@
         margin-left: 21vw;
         font-size: 1.5vw;
     }
-
-    #gere_conteudo_chat {
-        position: absolute;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 75vw;
-        height: 100vh;
-        margin-left: 21vw;
-        font-size: 1.5vw;
-    }
-
 
     #gere_inicio {
         position: absolute;
@@ -192,52 +178,44 @@
     .gere_card b {
         font-size: 1em;
     }
-
     /***** Tela de revisão *****/
-    #rev_btn {
+    #rev_btn{
         text-align: center;
-        padding-bottom: 100px;
+        padding-bottom:100px;
     }
 
-    #rev_btn a {
+    #rev_btn a{
         background-color: #FEC849;
         color: black;
         text-decoration: none;
-        padding: 0 10px;
+        padding:0 10px ;
         border-radius: 10px;
         font-size: 2vw;
     }
 
-    #revisao_lista {
-        margin-top: 2vw;
-        font-size: 2vw;
+    #btn_revi_lista{
+        background-color: #FEC849;
+        color: black;
+        text-decoration: none;
+        padding:0 10px ;
+        border-radius: 10px;
+        border: 0;
+        font-size: 1.5vw;
     }
 
-    #revisao_lista div {
+    #revisao_lista{
+        margin-top: 2vw;
+        margin-bottom: 20px;
+        font-size: 2vw;
+    }
+    #revisao_lista div{
         margin-top: 1vw;
         display: flex;
         align-items: center;
     }
-
-    #revisao_lista input[type='checkbox'] {
+    #revisao_lista input[type='checkbox']{
         width: 1.5vw;
         height: 1.5vw;
-    }
-
-    #btn_revi_listar {
-        width: 20vh;
-        height: 5vh;
-        font-size:3vh;
-        text-align: center;
-        color: white;
-        border: none;
-        border-radius: 10px;
-        background: #1E184C;
-        align-items: center;
-        left: 33vw;
-        position: absolute;
-        margin-top: 4.5vh;
-        cursor:pointer;
     }
 
     /* Perfil */
@@ -261,7 +239,6 @@
         justify-content: center;
         text-align: center;
     }
-
     #foto_perfil {
         margin-left: 5vw;
         margin-top: 5vh;
@@ -310,17 +287,17 @@
         border-radius: 4px;
         margin-right: 5px;
         border: 0;
+        
     }
 
     .form-group select {
         text-align: center;
     }
 
-    .form-group input[type="date"] {
+    .form-group input[type="date"]{
         width: 20%;
     }
-
-    .form-group label[for="data_nascimento"] {
+    .form-group label[for="data_nascimento"]{
         width: 30%;
     }
 
@@ -347,12 +324,11 @@
 
 
 
-    .fotos_veiculo {
+    .fotos_veiculo{
         width: 100%;
         height: 20vw;
     }
-
-    .btn_add_foto {
+    .btn_add_foto{
         width: 20vw;
         height: 15vw;
         text-align: center;
@@ -362,12 +338,10 @@
         flex-direction: column;
         flex-wrap: wrap;
     }
-
-    .btn_add_foto img {
+    .btn_add_foto img{
         width: 5vw;
     }
-
-    .btn_add_foto a {
+    .btn_add_foto a{
         font-size: 1.5vw;
         font-weight: bold;
         text-decoration: none;
@@ -379,29 +353,20 @@
 
     /* Chamada */
 
-    .lista_chamada {
+    .lista_chamada{
         width: 100%;
         display: flex;
-        flex-direction: row;
         text-align: center;
     }
 
-    #lista_chamada_presentes{
+    #lista_chamada_presentes, #lista_chamada_ausentes{
         width: 50%;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-    }
-    #lista_chamada_ausentes {
-        width: 50%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .lista_criancas {
+    }   
+    .lista_criancas{
         display: flex;
         width: 80%;
         height: 8vw;
@@ -409,21 +374,20 @@
         color: #fff;
         border-radius: 20px;
     }
-
-    .crianca {
+    .crianca{
         display: flex;
         align-items: center;
     }
-
-    .crianca img {
+    .crianca img{
         width: 20%;
         margin-left: 5%;
         margin-right: 5%;
     }
-
+    
+    
 }
 
-@media (max-width: 720px) {
+@media (max-width: 720px){
 
     #gere_menu {
         position: absolute;
@@ -437,17 +401,14 @@
         font-weight: bold;
         z-index: 1;
     }
-
-    #gere_menu:hover {
+    #gere_menu:hover{
         margin-left: 0;
         transition: 1.5s;
     }
-
-    #gere_menu {
+    #gere_menu{
         transition: 1.5s;
     }
-
-    .btn_expandir {
+    .btn_expandir{
         width: 60px;
         margin-top: 1vw;
         position: absolute;
@@ -456,9 +417,8 @@
         background-color: #1E184C;
         border-radius: 10px;
     }
-
-    .btn_expandir i {
-        font-size: 5vw;
+    .btn_expandir i{
+        font-size: 5vw; 
         font-weight: bolder;
         padding-left: 10px;
         cursor: pointer;
@@ -529,7 +489,7 @@
     }
 
     #gere_voltar footer {
-        width: 10vw;
+        width: 15vw;
         text-align: center;
         border-radius: 10px;
         background: #1E184C;
@@ -545,7 +505,7 @@
         position: absolute;
         width: 90vw;
         height: 100vh;
-        margin-left: 5vw;
+        margin-left:5vw;
     }
 
     #gere_inicio {
@@ -594,55 +554,48 @@
     .gere_card b {
         font-size: 4vw;
     }
-
     /***** Tela de revisão *****/
-    #rev_btn {
+    #rev_btn{
         text-align: center;
-        padding-bottom: 100px;
+        padding-bottom:100px;
     }
 
-    #rev_btn a {
+    #rev_btn a{
         background-color: #FEC849;
         color: black;
         text-decoration: none;
-        padding: 0 10px;
+        padding:0 10px ;
         border-radius: 10px;
         font-size: 4vw;
     }
+    #btn_revi_lista{
+        background-color: #FEC849;
+        color: black;
+        text-decoration: none;
+        padding:0 10px ;
+        border-radius: 10px;
+        border: 0;
+        font-size: 3vw;
+        margin-bottom: 30px;
+    }
 
-    #gere_revi {
+    #gere_revi{
         text-align: center;
     }
-
-    #revisao_lista {
+        
+    #revisao_lista{
         margin-top: 10vw;
         font-size: 3vw;
+        margin-bottom: 20px;
     }
-
-    #revisao_lista div {
+    #revisao_lista div{
         margin-top: 5vw;
         display: flex;
         align-items: center;
     }
-
-    #revisao_lista input[type='checkbox'] {
+    #revisao_lista input[type='checkbox']{
         width: 4vw;
         height: 4vw;
-    }
-
-    #btn_revi_listar {
-        width: 12vh;
-        height: 3vh;
-        text-align: center;
-        color: white;
-        border: none;
-        border-radius: 10px;
-        background: #1E184C;
-        align-items: center;
-        left: 33.5vw;
-        position: absolute;
-        margin-top: 3.5vh;
-        cursor:pointer;
     }
 
     /* Perfil */
@@ -666,7 +619,6 @@
         justify-content: center;
         text-align: center;
     }
-
     #foto_perfil {
         margin-left: 5vw;
         margin-top: 5vh;
@@ -690,13 +642,8 @@
         margin-bottom: 3vh;
         display: flex;
         flex-direction: column;
-        /* align-items: end; */
-
-        border-style: solid;
-        border-bottom-width: 1px;
-        border-top-width: 0;
-        border-right-width: 0;
-        border-left-width: 0;
+        align-items: start;
+        border: 0;
     }
 
     .form-group label {
@@ -707,25 +654,26 @@
         font-weight: bold;
 
     }
-
-    .form-group label[for="data_nascimento"] {
+    .form-group label[for="data_nascimento"]{
         width: 100%;
     }
 
     .form-group input,
     .form-group select {
-        width: 50%;
+        width: 70%;
         padding: 8px;
-        border: 1px solid #ccc;
+        border: 1px solid #000;
         border-radius: 4px;
         margin-right: 5px;
-        border: 0;
-    }
+        margin-bottom: 20px;
+        border-bottom-width: 1.5px;
+        border-top-width: 0;
+        border-right-width: 0;
+        border-left-width: 0;    }
 
     .form-group select {
         text-align: center;
     }
-
     .form-group textarea {
         width: 100%;
         padding: 8px;
@@ -735,7 +683,7 @@
     }
 
     .form-group input[type="submit"] {
-        width: 10%;
+        width: 15%;
         margin-left: 45%;
         background-color: #1E184C;
         color: #fff;
@@ -757,12 +705,11 @@
 
 
 
-    .fotos_veiculo {
+    .fotos_veiculo{
         width: 100%;
         height: 20vw;
     }
-
-    .btn_add_foto {
+    .btn_add_foto{
         width: 20vw;
         height: 15vw;
         text-align: center;
@@ -772,12 +719,10 @@
         flex-direction: column;
         flex-wrap: wrap;
     }
-
-    .btn_add_foto img {
+    .btn_add_foto img{
         width: 5vw;
     }
-
-    .btn_add_foto a {
+    .btn_add_foto a{
         font-size: 1.5vw;
         font-weight: bold;
         text-decoration: none;
@@ -785,25 +730,22 @@
         text-indent: 0;
         color: #000;
     }
-
     /* Chamada */
 
-    .lista_chamada {
+    .lista_chamada{
         width: 100%;
         display: flex;
         text-align: center;
     }
 
-    #lista_chamada_presentes,
-    #lista_chamada_ausentes {
+    #lista_chamada_presentes, #lista_chamada_ausentes{
         width: 50%;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-    }
-
-    .lista_criancas {
+    }   
+    .lista_criancas{
         display: flex;
         width: 80%;
         height: 8vw;
@@ -811,13 +753,11 @@
         color: #fff;
         border-radius: 20px;
     }
-
-    .crianca {
+    .crianca{
         display: flex;
         align-items: center;
     }
-
-    .crianca img {
+    .crianca img{
         width: 20%;
         margin-left: 5%;
         margin-right: 5%;
