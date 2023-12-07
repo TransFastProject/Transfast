@@ -298,12 +298,12 @@ if ($result_info) {
 					</tr>
 
 				</table>
-				<input type="submit" value="Atualizar">
+				<input type="submit" value="Atualizar" id="button_mensalidade">
 
 			</form>
 
 
-		</div>
+		</div><br/><br/>
 		<div id="gere_voltar" style="margin-top: 7vh; position:fixed;">
 			<footer><a href="gere_mensalidade.php">Voltar</a></footer>
 		</div>

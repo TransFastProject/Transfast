@@ -4,7 +4,7 @@ session_start();
 
 // Verifica se o responsável está logado
 if(!isset($_SESSION["res_cpf"])) {
-  header("Location: login_responsavel.php");
+  header("Location: ../html/login.html");
   exit();
 }
 

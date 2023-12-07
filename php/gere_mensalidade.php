@@ -86,7 +86,7 @@ $trans_id = mysqli_fetch_assoc($result_id)["trans_id"];
 								 <label>Escola: </label><input type="text" class="pagamento_escola" style="font-size:20px;" value="' . $row['escola'] . '" readonly><br>
 								 <label>Valor: </label><input type="text" class="pagamento_valor" name="valor" style="font-size:20px;" value="' . $row['valor'] . '"><br>
 							 </div>
-							 <div>
+							 <div style="display:flex;flex-direction:row;gap:1vw;">
 								 <a href="../php/gere_pagamento_historico.php?cria_id='. urlencode($row['id_crianca']).'">
 								 <img src="../img/icone_arquivos_v2.png" id="cad_pagamento" style="background-repeat: no-repeat; background-size:4.5vw 4.5vw;align-items:center;text-align:center;width:4vw; height: 4vw;" value=" "></a>
 								 <a href="../php/salvar_valor_crianca.php?cria_id='. urlencode($row['id_crianca']).'">

@@ -133,7 +133,11 @@ if ($count_transporte > 0) {
 
                     echo "<a href='../php/perfilCrianca.php?id=$id_crianca'>"; // Adicione o id da criança à URL
                     echo "<span style='display: flex;flex-direction: row; justify-content: start; align-items: center;gap: 1vw; background-color: #3C3577; color: white;padding: 0.5vw 1vw; width: 30vw' class='rounded-4'>";
+                    if(!empty($foto)){
                     echo "<img src='$foto' alt='' class='rounded-4' style='width: 5vw; height: 5vw; object-fit: cover'>";
+                    }else{
+                    echo "<img src='../img/fundo_foto_padrao.png' alt='' class='rounded-4' style='width: 5vw; height: 5vw; object-fit: cover'>";
+                    }
                     echo "<div class='perfil-info-usuario'>";
                     echo "<p style='margin: 0; font-size: 18px; color=white;'>$nome_crianca</p>";
                     echo "</div>";

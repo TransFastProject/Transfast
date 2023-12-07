@@ -59,8 +59,8 @@ $linked_moto = mysqli_fetch_assoc($link_moto);
 			<div class="gere_links"><a href="gere_criancas_escolas.php">Crianças</a></div><br />
 			<div class="gere_links"><a href="gere_lucro.php">Lucro</a></div><br />
 			<div class="gere_links"><a href="gere_perfil.php">Perfil</a></div><br />
-			<div id="gere_local"><a href="gere_chamada_escolas.php">Chamada</a></div><br />
-			<div class="gere_links"><a href="">Chat</a></div><br />
+			<div class="gere_links"><a href="gere_chamada_escolas.php">Chamada</a></div><br />
+			<div id="gere_local"><a href="">Chat</a></div><br />
 		</div>
 
 		<footer id="gere_sair"><a href="sair.php">Sair</a></footer>

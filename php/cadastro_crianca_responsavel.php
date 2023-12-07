@@ -1,4 +1,4 @@
-<?php
+<?php 
 $btnCadCrianca = filter_input(INPUT_POST, 'btnCad', FILTER_DEFAULT);
 if ($btnCadCrianca) {
   include_once 'conexao.php';
@@ -17,8 +17,8 @@ if ($btnCadCrianca) {
   }
 
   if (!$erro) {
-    $cria_id = "SELECT cria_id from crianca WHERE res_cpf='" . $_SESSION['res_cpf'] . "'";
-    $link_id = mysqli_query($sql, $cria_id);
+    $cria_id = "SELECT cria_id from crianca WHERE res_cpf='". $_SESSION['res_cpf'] ."'";
+    $link_id = mysqli_query($sql,$cria_id);
     $linked_id = mysqli_fetch_assoc($link_id);
     $_SESSION['cria_id'] = $linked_id;
     $_SESSION['nome_crianca'] = $dados['nome'];

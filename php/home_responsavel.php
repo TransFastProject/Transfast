@@ -3,13 +3,12 @@ session_start();
 include_once "conexao.php";
 
 // Consulta para obter os transportes e informações do motorista associado
-$sqlConsultaTransportes = "SELECT t.*, m.nome AS nome_motorista, m.telefone AS telefone_motorista, m.foto AS foto_moto FROM transporte t
-                           JOIN motorista m ON t.moto_cpf = m.moto_cpf"; // Ajuste este valor conforme necessário
+$sqlConsultaTransportes = "SELECT t.*, m.nome AS nome_motorista, m.telefone AS telefone_motorista, m.foto AS foto_moto FROM transporte t INNER JOIN motorista m ON t.moto_cpf = m.moto_cpf WHERE t.trans_id <> 1"; // Ajuste este valor conforme necessário
 $resultTransportes = mysqli_query($sql, $sqlConsultaTransportes);
 
 // Transforma os resultados em um array associativo
 $transportes = [];
-while ($row = mysqli_fetch_assoc($resultTransportes)) {
+while($row = mysqli_fetch_assoc($resultTransportes)) {
     $transportes[] = $row;
 }
 
@@ -27,7 +26,7 @@ $trans_ids_crianca = $row_verificar_transporte['trans_ids'];
 $trans_id_crianca = "";
 
 // Verifica se pelo menos uma criança associada ao responsável possui o campo trans_id preenchido
-if ($count_transporte > 0) {
+if($count_transporte > 0) {
     // Se há pelo menos uma criança com trans_id, obtenha o primeiro trans_id (considerando que todas têm o mesmo trans_id)
     $trans_id_crianca = explode(",", $trans_ids_crianca)[0];
 }
@@ -39,7 +38,8 @@ if ($count_transporte > 0) {
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/responsavel.css">
     <link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
@@ -124,16 +124,17 @@ if ($count_transporte > 0) {
 
         <div class="home-searchbar col-4">
             <form action="" method="post">
-                <input type="text" name="" id="" placeholder="Procure seu transporte..." class="searchbar">
+                <input type="text" name="barra_busca" id="barra_busca" placeholder="Procure seu transporte..."
+                    class="searchbar">
                 <label for="pesquisar"><i class="ph ph-magnifying-glass"></i></label>
-                <input type="submit" id="pesquisar" name="pesquisar" style="display: none;">
+                <input type="submit" id="pesquisar" name="pesquisar" style="display: none;" onclick="searchData()">
             </form>
         </div>
 
         <div class="home-menu col-4">
             <div class="home-menu-container row justify-content-center align-items-center">
                 <div class="home-menu-item col">
-                    <a href="home_responsavel.html">
+                    <a href="home_responsavel.php">
                         <i class="ph ph-house"></i>
                         <p>Início</p>
                     </a>
@@ -145,7 +146,8 @@ if ($count_transporte > 0) {
                     </a>
                 </div>
                 <div class="home-menu-item col">
-                    <a href="<?php echo ($count_transporte > 0) ? 'seu_transporte_com.php?trans_id=' . $trans_id_crianca . '' : '../html/seu_transporte_sem.html'; ?>">
+                    <a
+                        href="<?php echo ($count_transporte > 0) ? 'seu_transporte_com.php?trans_id='.$trans_id_crianca.'' : '../html/seu_transporte_sem.html'; ?>">
                         <i class="ph ph-van"></i>
                         <p>Seu transporte</p>
                     </a>
@@ -164,9 +166,16 @@ if ($count_transporte > 0) {
         <h3>Transportes</h3>
         <div class="swiper-container transportes-container">
             <div class="swiper-wrapper" id="carrossel-container" style="position: relative;">
-                <?php foreach ($transportes as $index => $transporte) : ?>
+                <?php foreach($transportes as $index => $transporte): ?>
                     <div class="swiper-slide">
-                        <a href="#" class="card-transporte card-<?php echo $index + 1; ?>" data-nome="Nome: <?php echo $transporte['nome_motorista']; ?>" data-bairro="Bairro: <?php echo $transporte['bairro']; ?>" data-estado="Estado: <?php echo $transporte['estado']; ?>" data-cidade="Cidade: <?php echo $transporte['cidade']; ?>" data-monitor="Monitor: <?php echo $transporte['monitor']; ?>" data-foto="<?php echo base64_encode($transporte['foto_moto']); ?>" data-telefone="Telefone: <?php echo $transporte['telefone_motorista']; ?>">
+                        <a href="#" class="card-transporte card-<?php echo $index + 1; ?>"
+                            data-nome="Nome: <?php echo $transporte['nome_motorista']; ?>"
+                            data-bairro="Bairro: <?php echo $transporte['bairro']; ?>"
+                            data-estado="Estado: <?php echo $transporte['estado']; ?>"
+                            data-cidade="Cidade: <?php echo $transporte['cidade']; ?>"
+                            data-monitor="Monitor: <?php echo $transporte['monitor']; ?>"
+                            data-foto="<?php echo base64_encode($transporte['foto_moto']); ?>"
+                            data-telefone="Telefone: <?php echo $transporte['telefone_motorista']; ?>">
                             <div class="transportes-item">
                                 <img src="../img/image 5.png" alt="" class="img-transporte" style="width: 20vw">
                                 <div class="transporte-info">
@@ -211,7 +220,8 @@ if ($count_transporte > 0) {
         <div class="informacoes-modal">
             <div class="modal-informacao">
                 <div class="motorista">
-                    <img src="/img/foto_motorista.png" alt="foto do motorista" class="foto" style="border-radius: 100%; width: 8vw; height: 8vw;object-fit: cover">
+                    <img src="/img/foto_motorista.png" alt="foto do motorista" class="foto"
+                        style="border-radius: 100%; width: 8vw; height: 8vw;object-fit: cover">
                     <div class="avaliacao">
                         <i class="ph ph-star"></i>
                         <i class="ph ph-star"></i>
@@ -222,10 +232,10 @@ if ($count_transporte > 0) {
                     <p>Status da vistoria:</p>
                     <p class="vistoria">
                         <?php
-                        $consulta_transporte = $sql->query("SELECT * FROM vistoria WHERE moto_cpf = '" . $transporte['moto_cpf'] . "' ");
+                        $consulta_transporte = $sql->query("SELECT * FROM vistoria WHERE moto_cpf = '".$transporte['moto_cpf']."' ");
                         $consulta_vistoria = mysqli_fetch_assoc($consulta_transporte);
 
-                        if ($consulta_vistoria['item01'] == '1' && $consulta_vistoria['item02'] == '1' && $consulta_vistoria['item03'] == '1' && $consulta_vistoria['item04'] == '1' && $consulta_vistoria['item05'] == '1' && $consulta_vistoria['item06'] == '1' && $consulta_vistoria['item07'] == '1' && $consulta_vistoria['item08'] == '1' && $consulta_vistoria['item09'] == '1' && $consulta_vistoria['item10'] == '1') {
+                        if($consulta_vistoria['item01'] == '1' && $consulta_vistoria['item02'] == '1' && $consulta_vistoria['item03'] == '1' && $consulta_vistoria['item04'] == '1' && $consulta_vistoria['item05'] == '1' && $consulta_vistoria['item06'] == '1' && $consulta_vistoria['item07'] == '1' && $consulta_vistoria['item08'] == '1' && $consulta_vistoria['item09'] == '1' && $consulta_vistoria['item10'] == '1') {
                             echo 'Completa';
                         } else {
                             echo 'Incompleta';
@@ -266,7 +276,19 @@ if ($count_transporte > 0) {
 
         });
     </script>
+    <script>
+        var search = document.getElementById('barra_busca');
 
+        search.addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                searchData();
+            }
+        });
+
+        function searchData() {
+            window.location = "gere_home_responsavel.php?search=" + search.value;
+        }
+    </script>
 
 </body>
 

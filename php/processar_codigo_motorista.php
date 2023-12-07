@@ -35,6 +35,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         // Código do motorista incorreto
         echo "Código do motorista incorreto. Tente novamente.";
+        header("Location: seu_transporte_com.php");
+        
     }
 }
 ?>

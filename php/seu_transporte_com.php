@@ -276,9 +276,13 @@ if (isset($_GET['trans_id'])) {
                             <div class="chamada-item"
                                 style="display: flex; flex-direction: row; justify-content: center; align-items: center; gap: 2vw;">
                                 <div class="chamada-crianca"
-                                    style="display: flex; flex-direction: row; align-items: center; padding: 10px 10px; background-color: #1E184C; border-radius: 10px; color: #fff; gap: 10px; width: 25vw;">
-                                    <img src="' . $foto_crianca . '" alt="" style="width: 4vw; height: 4vw; object-fit: cover; justify-content: start; border-radius: 10px;">
-                                    <p style="margin: 0;">' . $nome_crianca . '</p>
+                                    style="display: flex; flex-direction: row; align-items: center; padding: 10px 10px; background-color: #1E184C; border-radius: 10px; color: #fff; gap: 10px; width: 25vw;">';
+                                    if(!empty($foto_crianca)){
+                                        echo '<img src="' . $foto_crianca . '" alt="" style="width: 4vw; height: 4vw; object-fit: cover; justify-content: start; border-radius: 10px;">';
+                                    }else{
+                                        echo '<img src="../img/fundo_foto_padrao.png" alt="" style="width: 4vw; height: 4vw; object-fit: cover; justify-content: start; border-radius: 10px;">';
+                                    }
+                                    echo '<p style="margin: 0;">' . $nome_crianca . '</p>
                                 </div>
                                 <div style="display: flex; gap: 1vw;">
                                     <span
