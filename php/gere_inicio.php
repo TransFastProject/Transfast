@@ -160,7 +160,7 @@ if($revi_item01_value === '1' && $revi_item02_value === '1' && $revi_item03_valu
 				<p><b>
 						<?php echo $total_escolas; ?>
 					</b></p>
-				<p>Escolas Que Passa</p>
+				<p>Escolas</p>
 			</div>
 
 			<div class="gere_card">

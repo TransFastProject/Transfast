@@ -311,6 +311,35 @@ if (isset($_GET['trans_id'])) {
             <button onclick="salvarPresenca()">SALVAR</button>
         </div>
     </dialog>
+    <div class="home-menu-mobile col-4">
+        <div class="home-menu-container-mobile row justify-content-center align-items-center">
+            <div class="home-menu-item col">
+                <a href="home_responsavel.php">
+                    <i class="ph ph-house"></i>
+                    <p>Início</p>
+                </a>
+            </div>
+            <div class="home-menu-item col">
+                <a href="chat.html">
+                    <i class="ph ph-chat-circle-dots"></i>
+                    <p>Mensagens</p>
+                </a>
+            </div>
+            <div class="home-menu-item col">
+                <a href="">
+                    <i class="ph ph-van"></i>
+                    <p>Seu transporte</p>
+                </a>
+            </div>
+            <div class="home-menu-item col">
+                <a href="perfilResponsavel.php">
+                    <i class="ph ph-user"></i>
+                    <p>Perfil</p>
+                </a>
+            </div>
+        </div>
+
+    </div>
 
     <script>
         const avaliar = document.getElementById("avaliar")

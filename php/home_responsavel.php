@@ -3,13 +3,25 @@ session_start();
 include_once "conexao.php";
 
 // Consulta para obter os transportes e informações do motorista associado
-$sqlConsultaTransportes = "SELECT t.*, m.nome AS nome_motorista, m.telefone AS telefone_motorista, m.foto AS foto_moto FROM transporte t INNER JOIN motorista m ON t.moto_cpf = m.moto_cpf WHERE t.trans_id <> 1"; // Ajuste este valor conforme necessário
-$resultTransportes = mysqli_query($sql, $sqlConsultaTransportes);
+if (!empty($_GET['search'])) {
+    $data = $_GET['search'];
+    $sqlConsultaTransportes = "SELECT t.*, m.nome AS nome_motorista, m.telefone AS telefone_motorista, m.foto AS foto_moto FROM transporte t INNER JOIN motorista m ON t.moto_cpf = m.moto_cpf WHERE t.trans_id <> 1 AND m.nome LIKE '%$data%'"; // Ajuste este valor conforme necessário
+    $resultTransportes = mysqli_query($sql, $sqlConsultaTransportes);
 
-// Transforma os resultados em um array associativo
-$transportes = [];
-while ($row = mysqli_fetch_assoc($resultTransportes)) {
-    $transportes[] = $row;
+    // Transforma os resultados em um array associativo
+    $transportes = [];
+    while ($row = mysqli_fetch_assoc($resultTransportes)) {
+        $transportes[] = $row;
+    }
+} else if (empty($_GET['search'])) {
+    $sqlConsultaTransportes = "SELECT t.*, m.nome AS nome_motorista, m.telefone AS telefone_motorista, m.foto AS foto_moto FROM transporte t INNER JOIN motorista m ON t.moto_cpf = m.moto_cpf WHERE t.trans_id <> 1"; // Ajuste este valor conforme necessário
+    $resultTransportes = mysqli_query($sql, $sqlConsultaTransportes);
+
+    // Transforma os resultados em um array associativo
+    $transportes = [];
+    while ($row = mysqli_fetch_assoc($resultTransportes)) {
+        $transportes[] = $row;
+    }
 }
 
 // Consulta para verificar se pelo menos uma criança associada ao responsável possui o campo trans_id preenchido
@@ -38,7 +50,8 @@ if ($count_transporte > 0) {
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/responsavel.css">
     <link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
@@ -177,7 +190,7 @@ if ($count_transporte > 0) {
 
 <body class="home-body">
     <header class="home-header row justify-content-center align-items-center g-2 col-12">
-        <div class="col-3" style="left: 10vw;">
+        <div class="col-3">
             <a href="">
                 <img src="../img/logo_v2.png" alt="Logo Transfast" class="home-logo">
             </a>
@@ -185,11 +198,12 @@ if ($count_transporte > 0) {
 
 
         <div class="home-searchbar col-4">
-            <form action="" method="post">
-                <input type="text" name="barra_busca" id="barra_busca" placeholder="Procure seu transporte..." class="searchbar">
-                <label for="pesquisar"><i class="ph ph-magnifying-glass"></i></label>
-                <input type="submit" id="pesquisar" name="pesquisar" style="display: none;" onclick="searchData()">
-            </form>
+
+            <input type="text" name="barra_busca" id="barra_busca" placeholder="Procure seu transporte..."
+                class="searchbar">
+            <button class="ph ph-magnifying-glass" id="pesquisar" name="pesquisar" style="display: none;"
+                onclick="searchData()">
+            </button>
         </div>
 
         <div class="home-menu col-4">
@@ -207,7 +221,8 @@ if ($count_transporte > 0) {
                     </a>
                 </div>
                 <div class="home-menu-item col">
-                    <a href="<?php echo ($count_transporte > 0) ? 'seu_transporte_com.php?trans_id=' . $trans_id_crianca . '' : '../html/seu_transporte_sem.html'; ?>">
+                    <a
+                        href="<?php echo ($count_transporte > 0) ? 'seu_transporte_com.php?trans_id=' . $trans_id_crianca . '' : '../html/seu_transporte_sem.html'; ?>">
                         <i class="ph ph-van"></i>
                         <p>Seu transporte</p>
                     </a>
@@ -222,13 +237,20 @@ if ($count_transporte > 0) {
 
         </div>
     </header>
-    <div class="transportes" style="padding: 0 2vw;">
+    <div class="transportes">
         <h3>Transportes</h3>
         <div class="swiper-container transportes-container">
             <div class="swiper-wrapper" id="carrossel-container" style="position: relative;">
-                <?php foreach ($transportes as $index => $transporte) : ?>
+                <?php foreach ($transportes as $index => $transporte): ?>
                     <div class="swiper-slide">
-                        <a href="#" class="card-transporte card-<?php echo $index + 1; ?>" data-nome="Nome: <?php echo $transporte['nome_motorista']; ?>" data-bairro="Bairro: <?php echo $transporte['bairro']; ?>" data-estado="Estado: <?php echo $transporte['estado']; ?>" data-cidade="Cidade: <?php echo $transporte['cidade']; ?>" data-monitor="Monitor: <?php echo $transporte['monitor']; ?>" data-foto="<?php echo base64_encode($transporte['foto_moto']); ?>" data-telefone="Telefone: <?php echo $transporte['telefone_motorista']; ?>">
+                        <a href="#" class="card-transporte card-<?php echo $index + 1; ?>"
+                            data-nome="Nome: <?php echo $transporte['nome_motorista']; ?>"
+                            data-bairro="Bairro: <?php echo $transporte['bairro']; ?>"
+                            data-estado="Estado: <?php echo $transporte['estado']; ?>"
+                            data-cidade="Cidade: <?php echo $transporte['cidade']; ?>"
+                            data-monitor="Monitor: <?php echo $transporte['monitor']; ?>"
+                            data-foto="<?php echo base64_encode($transporte['foto_moto']); ?>"
+                            data-telefone="Telefone: <?php echo $transporte['telefone_motorista']; ?>">
                             <div class="transportes-item">
                                 <img src="../img/image 5.png" alt="" class="img-transporte">
                                 <div class="transporte-info">
@@ -262,7 +284,7 @@ if ($count_transporte > 0) {
 
 
 
-    <div class="transportes" style="margin-top: 3vw; padding: 0 2vw;">
+    <div class="transportes" style="margin-top: 3vw;">
         <h3>Melhores avaliações</h3>
         <div class="transportes-container">
         </div>
@@ -273,7 +295,8 @@ if ($count_transporte > 0) {
         <div class="informacoes-modal">
             <div class="modal-informacao">
                 <div class="motorista">
-                    <img src="/img/foto_motorista.png" alt="foto do motorista" class="foto" style="border-radius: 100%; width: 8vw; height: 8vw;object-fit: cover">
+                    <img src="/img/foto_motorista.png" alt="foto do motorista" class="foto"
+                        style="border-radius: 100%; width: 8vw; height: 8vw;object-fit: cover">
                     <div class="avaliacao">
                         <i class="ph ph-star"></i>
                         <i class="ph ph-star"></i>
@@ -360,14 +383,14 @@ if ($count_transporte > 0) {
     <script>
         var search = document.getElementById('barra_busca');
 
-        search.addEventListener("keydown", function(event) {
+        search.addEventListener("keydown", function (event) {
             if (event.key === "Enter") {
                 searchData();
             }
         });
 
         function searchData() {
-            window.location = "gere_home_responsavel.php?search=" + search.value;
+            window.location = "home_responsavel.php?search=" + search.value;
         }
     </script>
 

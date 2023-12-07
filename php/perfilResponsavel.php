@@ -272,6 +272,35 @@ if($count_transporte > 0) {
         style="border: none; width: 12vw; height: 2.5vw;  border-radius: 1vw; text-align: center; display: flex; justify-content: center; align-items: center; margin-top:1vw; margin-left:-1vw">Voltar</button>
     </div>
   </div>
+  <div class="home-menu-mobile col-4">
+        <div class="home-menu-container-mobile row justify-content-center align-items-center">
+            <div class="home-menu-item col">
+                <a href="home_responsavel.php">
+                    <i class="ph ph-house"></i>
+                    <p>Início</p>
+                </a>
+            </div>
+            <div class="home-menu-item col">
+                <a href="chat.html">
+                    <i class="ph ph-chat-circle-dots"></i>
+                    <p>Mensagens</p>
+                </a>
+            </div>
+            <div class="home-menu-item col">
+                <a href="<?php echo ($count_transporte > 0) ? 'seu_transporte_com.php?trans_id='.$trans_id_crianca.'' : '../html/seu_transporte_sem.html'; ?>">
+                    <i class="ph ph-van"></i>
+                    <p>Seu transporte</p>
+                </a>
+            </div>
+            <div class="home-menu-item col">
+                <a href="../php/perfilResponsavel.php">
+                    <i class="ph ph-user"></i>
+                    <p>Perfil</p>
+                </a>
+            </div>
+        </div>
+
+    </div>
 
   <script>
     function previewImagem(input) {

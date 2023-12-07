@@ -154,6 +154,35 @@ if ($count_transporte > 0) {
             </span>
         </div>
     </div>
+    <div class="home-menu-mobile col-4">
+        <div class="home-menu-container-mobile row justify-content-center align-items-center">
+            <div class="home-menu-item col">
+                <a href="home_responsavel.php">
+                    <i class="ph ph-house"></i>
+                    <p>Início</p>
+                </a>
+            </div>
+            <div class="home-menu-item col">
+                <a href="chat.html">
+                    <i class="ph ph-chat-circle-dots"></i>
+                    <p>Mensagens</p>
+                </a>
+            </div>
+            <div class="home-menu-item col">
+                <a href="<?php echo ($count_transporte > 0) ? 'seu_transporte_com.php?trans_id='.$trans_id_crianca.'' : '../html/seu_transporte_sem.html'; ?>">
+                    <i class="ph ph-van"></i>
+                    <p>Seu transporte</p>
+                </a>
+            </div>
+            <div class="home-menu-item col">
+                <a href="perfilResponsavel.php">
+                    <i class="ph ph-user"></i>
+                    <p>Perfil</p>
+                </a>
+            </div>
+        </div>
+
+    </div>
 </body>
 
 </html>
