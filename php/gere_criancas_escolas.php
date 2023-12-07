@@ -60,7 +60,7 @@ $trans_id = mysqli_fetch_assoc($result_id)["trans_id"];
 			<div class="gere_links"><a href="gere_lucro.php">Lucro</a></div><br />
 			<div class="gere_links"><a href="gere_perfil.php">Perfil</a></div><br />
 			<div class="gere_links"><a href="gere_chamada_escolas.php">Chamada</a></div><br />
-			<div class="gere_links"><a href="">Chat</a></div><br />
+			<div class="gere_links"><a href="chat_motorista.php">Chat</a></div><br />
 
 		</div>
 

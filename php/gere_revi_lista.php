@@ -57,7 +57,7 @@ $linked_moto = mysqli_fetch_assoc($link_moto);
 			<div class="gere_links"><a href="gere_lucro.php">Lucro</a></div><br />
 			<div class="gere_links"><a href="gere_perfil.php">Perfil</a></div><br />
 			<div class="gere_links"><a href="gere_chamada_escolas.php">Chamada</a></div><br />
-			<div class="gere_links"><a href="">Chat</a></div><br />
+			<div class="gere_links"><a href="chat_motorista.php">Chat</a></div><br />
 		</div>
 
 		<footer id="gere_sair"><a href="sair.php">Sair</a></footer>
@@ -106,14 +106,10 @@ $linked_moto = mysqli_fetch_assoc($link_moto);
 					<label for="revi_item10">Lanternas de luz (branca, fosca ou amarela)</label><br>
 				</div>
 			</div>
-			<div class="btn_revi_salvar">
-				<input type="submit" value="Salvar" id="btn_revi_listar">
-			</div>
-		</div>
-			
+			<input type="submit" value="Salvar" id="btn_revi_lista">
 	</form>
 	<div id="gere_voltar">
-		<footer><a href="gere_revisao.php">Voltar</a></footer>
+		<footer><a href="gere_revisão.php">Voltar</a></footer>
 	</div>
 
 	</div>

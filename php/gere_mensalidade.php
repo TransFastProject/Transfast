@@ -60,7 +60,7 @@ $trans_id = mysqli_fetch_assoc($result_id)["trans_id"];
 			<div id="gere_local"><a href="gere_lucro.php">Lucro</a></div><br />
 			<div class="gere_links"><a href="gere_perfil.php">Perfil</a></div><br />
 			<div class="gere_links"><a href="gere_chamada_escolas.php">Chamada</a></div><br />
-			<div class="gere_links"><a href="">Chat</a></div><br />
+			<div class="gere_links"><a href="chat_motorista.php">Chat</a></div><br />
 		</div>
 		<footer id="gere_sair"><a href="sair.php">Sair</a></footer>
 	</div>
@@ -76,25 +76,23 @@ $trans_id = mysqli_fetch_assoc($result_id)["trans_id"];
 
 			if(!empty($_GET['search'])){
 				$data = $_GET['search'];
-				$select_search = $sql->query("SELECT crianca.cria_id as id_crianca, crianca.nome as nome_crianca, responsavel.nome as nome_responsavel, crianca.escola, crianca.valor FROM crianca INNER JOIN responsavel ON crianca.res_cpf = responsavel.res_cpf WHERE crianca.trans_id = $trans_id AND crianca.nome LIKE '%$data%'");
+				$select_search = $sql->query("SELECT crianca.cria_id as id_crianca, crianca.nome, responsavel.nome as nome_responsavel, crianca.escola, crianca.valor FROM crianca INNER JOIN responsavel ON crianca.res_cpf = responsavel.res_cpf WHERE crianca.trans_id = $trans_id AND crianca.nome LIKE '%$data%'");
 				if ($select_search !== false && $select_search->num_rows > 0) {
 					while ($row = $select_search->fetch_assoc()) {
-						echo '<form method="post" id="forms_mensalidade" action="salvar_valor_crianca.php?cria_id='. urlencode($row['id_crianca']).'">
-							 <div>
-								 <label>Criança: </label><input type="text" class="pagamento_crianca" style="font-size:20px;" value="' . $row['nome_crianca'] . '" readonly><br>
-								 <label>Pagante: </label><input type="text" class="pagemento_pagante" style="font-size:20px;" value="' . $row['nome_responsavel'] . '" readonly><br>
-								 <label>Escola: </label><input type="text" class="pagamento_escola" style="font-size:20px;" value="' . $row['escola'] . '" readonly><br>
-								 <label>Valor: </label><input type="text" class="pagamento_valor" name="valor" style="font-size:20px;" value="' . $row['valor'] . '"><br>
-							 </div>
-							 <div style="display:flex;flex-direction:row;gap:1vw;">
+						echo '<div id="forms_mensalidade">
+								 <div>
+									 <label>Criança: </label><input type="text" class="pagamento_crianca" style="font-size:20px;" value="' . $row['nome'] . '"><br>
+									 <label>Pagante: </label><input type="text" class="pagemento_pagante" style="font-size:20px;" value="' . $row['nome_responsavel'] . '"><br>
+									 <label>Escola: </label><input type="text" class="pagamento_escola" style="font-size:20px;" value="' . $row['escola'] . '"><br>
+									 <label>Valor: </label><input type="text" class="pagamento_valor" style="font-size:20px;" value="' . $row['valor'] . '"><br>
+								 </div>
+								 <div>
 								 <a href="../php/gere_pagamento_historico.php?cria_id='. urlencode($row['id_crianca']).'">
-								 <img src="../img/icone_arquivos_v2.png" id="cad_pagamento" style="background-repeat: no-repeat; background-size:4.5vw 4.5vw;align-items:center;text-align:center;width:4vw; height: 4vw;" value=" "></a>
-								 <a href="../php/salvar_valor_crianca.php?cria_id='. urlencode($row['id_crianca']).'">
-								 <input id="cad_salvar" type="submit" style="background-image: url(../img/icone_salvar.png);background-repeat: no-repeat; background-size:3.3vw 3.3vw;align-items:center;text-align:center;width:3.3vw; height:3.3vw; box-shadow: 0 0 0 0; border: 0 none; outline: 0; cursor:pointer;" value=" "">
+								 <input id="cad_pagamento" type="submit" style="background-image: url(../img/icone_arquivos_v2.png);background-repeat: no-repeat; background-size:4.5vw 4.5vw;align-items:center;text-align:center;width:5vw; height: 5vw;" value=" ">
 								 </input>
 							   </a>
 							   </div>
-						 </form>';;
+							 </div>';
 							
 					}
 				}
@@ -102,35 +100,35 @@ $trans_id = mysqli_fetch_assoc($result_id)["trans_id"];
 				$result3 = $sql->query("SELECT crianca.cria_id as id_crianca, crianca.nome as nome_crianca, responsavel.nome as nome_responsavel, crianca.escola, crianca.valor FROM crianca INNER JOIN responsavel ON crianca.res_cpf = responsavel.res_cpf WHERE crianca.trans_id = $trans_id");
 			if ($result3 !== false && $result3->num_rows > 0) {
 				while ($row = $result3->fetch_assoc()) {
-					echo '<form method="post" id="forms_mensalidade" action="salvar_valor_crianca.php?cria_id='. urlencode($row['id_crianca']).'">
+					echo '<div id="forms_mensalidade">
 							 <div>
-								 <label>Criança: </label><input type="text" class="pagamento_crianca" style="font-size:20px;" value="' . $row['nome_crianca'] . '" readonly><br>
-								 <label>Pagante: </label><input type="text" class="pagemento_pagante" style="font-size:20px;" value="' . $row['nome_responsavel'] . '" readonly><br>
-								 <label>Escola: </label><input type="text" class="pagamento_escola" style="font-size:20px;" value="' . $row['escola'] . '" readonly><br>
-								 <label>Valor: </label><input type="text" class="pagamento_valor" name="valor" style="font-size:20px;" value="' . $row['valor'] . '"><br>
+								 <label>Criança: </label><input type="text" class="pagamento_crianca" style="font-size:20px;" value="' . $row['nome_crianca'] . '"><br>
+								 <label>Pagante: </label><input type="text" class="pagemento_pagante" style="font-size:20px;" value="' . $row['nome_responsavel'] . '"><br>
+								 <label>Escola: </label><input type="text" class="pagamento_escola" style="font-size:20px;" value="' . $row['escola'] . '"><br>
+								 <label>Valor: </label><input type="text" class="pagamento_valor" style="font-size:20px;" value="' . $row['valor'] . '"><br>
 							 </div>
-							 <div style="display:flex;flex-direction:row;gap:1vw;">
-								 <a href="../php/gere_pagamento_historico.php?cria_id='. urlencode($row['id_crianca']).'">
-								 <img src="../img/icone_arquivos_v2.png" id="cad_pagamento" style="background-repeat: no-repeat; background-size:4.5vw 4.5vw;align-items:center;text-align:center;width:4vw; height: 4vw;" value=" "></a>
-								 <a href="../php/salvar_valor_crianca.php?cria_id='. urlencode($row['id_crianca']).'">
-								 <input id="cad_salvar" type="submit" style="background-image: url(../img/icone_salvar.png);background-repeat: no-repeat; background-size:3.7vw 3.7vw;align-items:center;text-align:center;width:3.7vw; height:3.7vw; box-shadow: 0 0 0 0; border: 0 none; outline: 0; cursor:pointer;" value=" ">
-								 </input>
-							   </a>
-							   </div>
-						 </form>';
+							 <div>
+							 <a href="../php/gere_pagamento_historico.php?cria_id='. urlencode($row['id_crianca']).'">
+							 <input id="cad_pagamento" type="submit" style="background-image: url(../img/icone_arquivos_v2.png);background-repeat: no-repeat; background-size:4.5vw 4.5vw;align-items:center;text-align:center;width:5vw; height: 5vw;" value=" ">
+							 </input>
+						   </a>
+						   </div>
+						 </div>';
 				}
 			}else{
 				
 				echo '<div id="forms_mensalidade">
 								 <div>
-									 <label>Criança: </label><input type="text" class="pagamento_crianca" style="font-size:20px;" value="Sem Dados" readonly><br>
-									 <label>Pagante: </label><input type="text" class="pagemento_pagante" style="font-size:20px;" value="Sem Dados" readonly><br>
-									 <label>Escola: </label><input type="text" class="pagamento_escola" style="font-size:20px;" value="Sem Dados"readonly><br>
-									 <label>Valor: </label><input type="text" class="pagamento_valor" style="font-size:20px;" value="Sem Dados"readonly><br>
+									 <label>Criança: </label><input type="text" class="pagamento_crianca" style="font-size:20px;" value="Sem Dados"><br>
+									 <label>Pagante: </label><input type="text" class="pagemento_pagante" style="font-size:20px;" value="Sem Dados"><br>
+									 <label>Escola: </label><input type="text" class="pagamento_escola" style="font-size:20px;" value="Sem Dados"><br>
+									 <label>Valor: </label><input type="text" class="pagamento_valor" style="font-size:20px;" value="Sem Dados"><br>
 								 </div>
 								 <div>
 								 <a href="../php/gere_pagamento_historico.php?cria_id=1">
-								 <img src="../img/icone_arquivos_v2.png" id="cad_pagamento" style="background-repeat: no-repeat; background-size:4.5vw 4.5vw;align-items:center;text-align:center;width:4vw; height: 4vw;cursor:pointer;" value=" "></a>
+								 <input id="cad_pagamento" type="submit" style="background-image: url(../img/icone_arquivos_v2.png);background-repeat: no-repeat; background-size:4.5vw 4.5vw;align-items:center;text-align:center;width:5vw; height: 5vw; border:0;" value=" ">
+								 </input>
+							   </a>
 							   </div>
 							 </div>';
 			}

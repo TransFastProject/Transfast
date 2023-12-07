@@ -54,16 +54,16 @@ if (isset($_SESSION["moto_cpf"])) {
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="../css/estilo.css">
   <link rel="stylesheet" href="../css/gerenciamento.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   <link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon">
   <script type="text/JavaScript"></script>
 </head>
 
 <body>
   <div id="gere_menu">
-    <div class="btn_expandir">
-      <i class="bi bi-caret-right-square"></i>
-    </div>
+  <div class="btn_expandir">
+		<i class="bi bi-caret-right-square"></i>
+		</div>
     <div>
 
       <?php
@@ -98,7 +98,7 @@ if (isset($_SESSION["moto_cpf"])) {
       <div class="gere_links"><a href="gere_lucro.php">Lucro</a></div><br />
       <div id="gere_local"><a href="gere_perfil.php">Perfil</a></div><br />
       <div class="gere_links"><a href="gere_chamada_escolas.php">Chamada</a></div><br />
-      <div class="gere_links"><a href="">Chat</a></div><br />
+      <div class="gere_links"><a href="chat_motorista.php">Chat</a></div><br />
     </div>
     <footer id="gere_sair"><a href="sair.php">Sair</a></footer>
   </div>
@@ -117,20 +117,20 @@ if (isset($_SESSION["moto_cpf"])) {
             }
             $moto_cpf = $_SESSION['moto_cpf'];
             $result = mysqli_query($sql, "SELECT foto FROM motorista WHERE moto_cpf = '$moto_cpf'");
-
+          
             if ($result) {
               $rowft = mysqli_fetch_assoc($result);
               $imagem = $rowft['foto'];
 
               if ($imagem) {
                 echo '<div id="foto-container" style="position: relative; display: inline-block; width:12vw;">';
-                echo '<img src="data:image/jpeg;base64,' . base64_encode($imagem) . '" id="foto" style="border-radius: 50%; transition: filter 0.5s; filter: brightness(100%); width: 12vw; height: 12vw; object-fit: cover;" alt="Foto do Perfil">';
+                echo '<img src="data:image/jpeg;base64,' . base64_encode($imagem) . '" id="foto" style="border-radius: 50%; transition: filter 0.5s; filter: brightness(100%); width: 12vw; height: 12vw; object-fit: cover;" alt="Foto do Perfil" onmouseover="aumentarOpacidade(this)" onmouseout="diminuirOpacidade(this)">';
                 echo '<span id="icone-mais" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 70px; color: white; opacity: 0; transition: opacity 0.5s; ">+</span>';
                 echo '</div>';
 
               } else {
                 echo '<div id="foto-container" style="position: relative; display: inline-block; width:12vw;">';
-                echo '<img src="../img/fundo_foto_padrao.png" id="foto" style="border-radius: 50%; transition: filter 0.5s; filter: brightness(100%);" alt="Foto do Perfil">';
+                echo '<img src="../img/fundo_foto_padrao.png" id="foto" style="border-radius: 50%; transition: filter 0.5s; filter: brightness(100%);" alt="Foto do Perfil" onmouseover="aumentarOpacidade()" onmouseout="diminuirOpacidade()">';
                 echo '<span id="icone-mais" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 70px; color: white; opacity: 0; transition: opacity 0.5s; ">+</span>';
                 echo '</div>';
 
@@ -144,22 +144,22 @@ if (isset($_SESSION["moto_cpf"])) {
             ?>
           </label>
           <input type="file" name="foto" id="seletor-foto" style="display:none;" accept="image/*"><br>
+
+          <div id="informacoes">
+            <label for=""><b>Nome:</b></label>
+            <input type="text" id="nome" name="nome" value="<?php echo $row['nome']; ?>">
+              
+            <!--  editar esse input que aparece o nome, editar a fonte também, deixar sem borda e nome grande  -->
+            <div id="avaliacao"></div>
+          </div>
         </form>
-
-
       </div>
 
       <form type="text" name="form" method="post" id="formsperfil" action="salvar_perfil.php">
         <div class="form-container">
 
           <!-- Campos principais -->
-          <div class="form-group">
-            <label for="nome"><b>Nome:</b></label>
-            <input type="text" id="nome" name="nome" value="<?php echo $row['nome']; ?>">
-            <label for="codigo">Codigo:</label>
-            <input type="text" id="codigo" name="codigo" value="<?php echo $row_t['codigo']; ?>" readonly>
-            <!--  editar esse input que aparece o nome, editar a fonte também, deixar sem borda e nome grande  -->
-          </div>
+
           <div class="form-group">
 
             <label for="estado">Estado:</label>
@@ -180,9 +180,7 @@ if (isset($_SESSION["moto_cpf"])) {
           <div class="form-group">
             <label for="genero">Gênero:</label>
             <select id="genero" name="genero">
-              <option value="<?php echo $row['genero']; ?>">
-                <?php echo $row['genero']; ?>
-              </option>
+              <option value="<?php echo $row['genero'];?>"><?php echo $row['genero'];?></option>
               <option value="masculino">Masculino</option>
               <option value="feminino">Feminino</option>
               <option value="outro">Outro</option>
@@ -190,7 +188,7 @@ if (isset($_SESSION["moto_cpf"])) {
 
           </div>
           <div class="form-group">
-            <label for="escola">Escolas:</label>
+            <label for="perfil_escolas">Escolas:</label>
 
             <select id="escola" name="escola">
               <?php
@@ -207,12 +205,11 @@ if (isset($_SESSION["moto_cpf"])) {
 
           </div>
           <div class="form-group">
-            <label for="data_nascimento">Data de Nascimento:</label>
-            <input type="date" id="data_nascimento" name="data_nascimento" style="text-align: center;"
-              value="<?php echo $row['data_nascimento']; ?>">
+          <label for="data_nascimento">Data de Nascimento:</label>
+            <input type="date" id="data_nascimento" name="data_nascimento" style="text-align: center;" value="<?php echo $row['data_nascimento']; ?>">
 
             <label for="cidade">Monitor:</label>
-            <input type="text" id="monitor" name="monitor" value="<?php echo $row_t['monitor'];?>">
+            <input type="text" id="monitor" name="monitor" value="">
           </div>
 
           <div class="responsavel_dados">
@@ -220,57 +217,36 @@ if (isset($_SESSION["moto_cpf"])) {
             <div class="form-group">
               <label for="telefone">Contato:</label>
               <input type="text" id="telefone" name="telefone" value="<?php echo $row['telefone']; ?>">
+                
+            </div>
 
-            </div>
-            <div class="form-group" style=" border-bottom-width: 0;">
-              <input type="submit" value="Salvar" id="gp_btn" style="top:20vw;position:relative;">
-            </div>
           </div>
-      </form>
-      <!-- colocar para mostrar numero de assentos -->
-      <!-- tirar crianças especiais (quando terminar apaga esses comentarios :)  -->
-      <form id="form_transporte" action="processar_transporte.php" method="POST" enctype="multipart/form-data">
-        <div class="fotos_veiculo">
+
+          <!-- colocar para mostrar numero de assentos -->
+          <!-- tirar crianças especiais (quando terminar apaga esses comentarios :)  -->
+
+          <div class="fotos_veiculo">
+
           <div class="btn_add_foto">
-            <p> Adicione uma imagem do veiculo</p>
-            <label for="seletor-transporte">
-              <?php
-              include 'conexao.php';
 
-              if ($sql === false) {
-                die("Erro na conexão com o banco de dados: " . mysqli_connect_error());
-              }
-              $moto_cpf = $_SESSION['moto_cpf'];
-              $result = mysqli_query($sql, "SELECT foto FROM transporte WHERE moto_cpf = '$moto_cpf'");
+              <a href="">
+              <img src="../img/icone_add.png" alt=""><br>
+              Adicione imagens do seu veiculo
+              </a>
 
-              if ($result) {
-                $rowTrans = mysqli_fetch_assoc($result);
-                $foto_transporte = $rowTrans['foto'];
-
-                if ($foto_transporte) {
-                  echo '<div id="foto-containerTrans" style="position: relative; display: inline-block; width:12vw;">';
-                  echo '<img src="data:image/jpeg;base64,' . base64_encode($foto_transporte) . '" id="foto_transporte" style="transition: filter 0.5s; filter: brightness(100%); width: 12vw; height: 12vw; object-fit: cover; top:-2vw;">';
-                  echo '<span id="icone-maist" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 70px; color: white; opacity: 0; transition: opacity 0.5s; ">+</span>';
-                  echo '</div>';
-
-                } else {
-                  echo '<div id="foto-containerTrans" style="position: relative; display: inline-block; width:12vw;">';
-                  echo '<img src="../img/fundo_foto_padrao.png" id="foto_transporte" style="transition: filter 0.5s; filter: brightness(100%);width: 12vw; height: 12vw; object-fit: cover;">';
-                  echo '<span id="icone-maist" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 70px; color: white; opacity: 0; transition: opacity 0.5s; ">+</span>';
-                  echo '</div>';
-                }
-              } else {
-                echo "Erro ao obter a foto do banco de dados: " . mysqli_error($sql);
-              }
-              ?>
-            </label>
-            <input type="file" name="foto_transporte" id="seletor-transporte" style="display:none;"
-              accept="image/*"><br>
           </div>
+
+          </div>
+
+
+
+          <div class="form-group" style=" border-bottom-width: 0;">
+
+            <input type="submit" value="Salvar" id="gp_btn">
+          </div>
+
         </div>
-      </form>
     </div>
-  </div>
   </div>
 
   <script type="text/JavaScript">
@@ -297,7 +273,6 @@ if (isset($_SESSION["moto_cpf"])) {
         var formData = new FormData(document.getElementById('formularioft'));
         document.getElementById('formularioft').submit(); // Enviar o formulário automaticamente
         var xhr = new XMLHttpRequest();
-        
 
         xhr.onreadystatechange = function () {
           if (xhr.readyState === XMLHttpRequest.DONE) {
@@ -315,46 +290,8 @@ if (isset($_SESSION["moto_cpf"])) {
 
     });
     document.getElementById("gp_btn").addEventListener("click", function () {
-    alert("A alteração foi feita com sucesso!");
-  });
-    //meu codigo
-    document.getElementById('foto-containerTrans').addEventListener('mouseover', function () {
-    document.getElementById('foto_transporte').style.filter = 'brightness(40%)';
-    document.getElementById('icone-maist').style.opacity = '1';
-});
-
-document.getElementById('foto-containerTrans').addEventListener('mouseout', function () {
-    document.getElementById('foto_transporte').style.filter = 'brightness(100%)';
-    document.getElementById('icone-maist').style.opacity = '0';
-});
-
-document.getElementById('seletor-transporte').addEventListener('change', function (event) {
-    var fileTransporte = event.target.files[0];
-    var readerTransporte = new FileReader();
-
-    readerTransporte.onload = function () {
-        var fotoExibicaoTransporte = document.getElementById('foto_transporte');
-        fotoExibicaoTransporte.src = readerTransporte.result;
-
-        var formDataTransporte = new FormData(document.getElementById('form_transporte'));
-        document.getElementById('form_transporte').submit(); // Enviar o formulário automaticamente
-        var xhrTransporte = new XMLHttpRequest();
-        xhrTransporte.onreadystatechange = function () {
-            if (xhrTransporte.readyState === XMLHttpRequest.DONE) {
-                if (xhrTransporte.status === 200) {
-                    console.log('Foto do transporte enviada com sucesso.');
-                } else {
-                    console.error('Erro ao enviar a foto do transporte: ' + xhrTransporte.status);
-                }
-            }
-        };
-
-        xhrTransporte.open('POST', 'processar_transporte.php', true);
-        xhrTransporte.send(formDataTransporte);
-    };
-
-        readerTransporte.readAsDataURL(fileTransporte);
-});
+      alert("A alteração foi feita com sucesso!");
+    });
   </script>
 </body>
 

@@ -16,6 +16,7 @@ $linked_moto = mysqli_fetch_assoc($link_moto);
 	<link rel="stylesheet" href="../css/gerenciamento.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 	<link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon">
+	<script src="../js/add_gasto.js"></script>
 </head>
 
 <body>
@@ -55,7 +56,7 @@ $linked_moto = mysqli_fetch_assoc($link_moto);
 			<div id="gere_local"><a href="gere_lucro.php">Lucro</a></div><br />
 			<div class="gere_links"><a href="gere_perfil.php">Perfil</a></div><br />
 			<div class="gere_links"><a href="gere_chamada_escolas.php">Chamada</a></div><br />
-			<div class="gere_links"><a href="">Chat</a></div><br />
+			<div class="gere_links"><a href="chat_motorista.php">Chat</a></div><br />
 
 		</div>
 		<footer id="gere_sair"><a href="sair.php">Sair</a></footer>
@@ -64,9 +65,10 @@ $linked_moto = mysqli_fetch_assoc($link_moto);
 
 
 	<div id="gere_conteudo">
+
 		<div id="registro_pagamento">
-		<div id="filtro">
-			<input type="text" id="barra_busca" style="font-size:20px;" placeholder="Pesquise aqui">
+			
+		<div id="filtro"><a></a><input type="text" id="barra_busca" style="font-size:20px;" placeholder="Pesquise aqui">
 			<button id="btn_filtro" style="border: 0; width:3.3vw; height:3.3vw;background-image: url(../img/icone_lupa_v2.png);background-size:2.8vw 2.8vw;background-repeat: no-repeat;" onclick="searchData()"></button>
 		</div>
 

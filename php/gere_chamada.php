@@ -10,7 +10,6 @@ $checa_id = "SELECT trans_id FROM transporte WHERE moto_cpf ='" . $_SESSION['mot
 $result_id = mysqli_query($sql, $checa_id);
 $trans_id = mysqli_fetch_assoc($result_id)["trans_id"];
 
-$escola = $_SESSION['escola'];
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -62,7 +61,7 @@ $escola = $_SESSION['escola'];
 			<div class="gere_links"><a href="gere_lucro.php">Lucro</a></div><br />
 			<div class="gere_links"><a href="gere_perfil.php">Perfil</a></div><br />
 			<div id="gere_local"><a href="gere_chamada_escolas.php">Chamada</a></div><br />
-			<div class="gere_links"><a href="">Chat</a></div><br />
+			<div class="gere_links"><a href="chat_motorista.php">Chat</a></div><br />
 
 		</div>
 		<footer id="gere_sair"><a href="sair.php">Sair</a></footer>
@@ -82,14 +81,14 @@ $escola = $_SESSION['escola'];
 				<?php
 				if (!empty($_GET['search'])) {
 					$data = $_GET['search'];
-					$select_search = $sql->query("SELECT crianca.cria_id, crianca.nome, crianca.presenca, crianca.foto FROM crianca WHERE crianca.trans_id = $trans_id AND crianca.escola = '$escola' AND crianca.presenca = 'presente' AND crianca.nome LIKE '%$data%'");
+					$select_search = $sql->query("SELECT crianca.cria_id, crianca.nome, crianca.presenca, crianca.foto FROM crianca WHERE crianca.trans_id = $trans_id AND crianca.presenca = 'presente' AND crianca.nome LIKE '%$data%'");
 
 					if ($select_search !== false && $select_search->num_rows > 0) {
 						while ($row = $select_search->fetch_assoc()) {
 							$foto = $row['foto'];
 							if ($foto) {
 								echo '<div class="lista_criancas">
-									<div class="crianca"><img src="' . $row['foto'] . '" style="border-radius: 50%; width: 6.5vw; height: 6.5vw; object-fit: cover;"><label for="">' . $row['nome'] . '</label></div>
+									<div class="crianca"><img src="data:image/jpeg;base64,' . base64_encode($foto) . '" style="border-radius: 50%; width: 6.5vw; height: 6.5vw; object-fit: cover;"><label for="">' . $row['nome'] . '</label></div>
 								</div> 
 								<br/>';
 							} else {
@@ -102,14 +101,14 @@ $escola = $_SESSION['escola'];
 						}
 					} 
 				} else if (empty($_GET['search'])) {
-					$result = $sql->query("SELECT crianca.cria_id, crianca.nome, crianca.presenca, crianca.foto FROM crianca WHERE crianca.trans_id = $trans_id AND crianca.presenca = 'presente' AND crianca.escola = '$escola'");
+					$result = $sql->query("SELECT crianca.cria_id, crianca.nome, crianca.presenca, crianca.foto FROM crianca WHERE crianca.trans_id = $trans_id AND crianca.presenca = 'presente'");
 
 					if ($result !== false && $result->num_rows > 0) {
 						while ($row = $result->fetch_assoc()) {
 							$foto = $row['foto'];
 							if ($foto) {
 								echo '<div class="lista_criancas">
-									<div class="crianca"><img src="' . $row['foto'] . '" style="border-radius: 50%; width: 6.5vw; height: 6.5vw; object-fit: cover;"><label for="">' . $row['nome'] . '</label></div>
+									<div class="crianca"><img src="data:image/jpeg;base64,' . base64_encode($foto) . '" style="border-radius: 50%; width: 6.5vw; height: 6.5vw; object-fit: cover;"><label for="">' . $row['nome'] . '</label></div>
 							</div> 
 							<br>';
 							} else {
@@ -121,7 +120,7 @@ $escola = $_SESSION['escola'];
 						}
 					} else {
 						echo '<div class="lista_criancas">
-							<p>Não existem criancas presentes</p>
+							<div class="crianca"><img src="../img/fundo_foto_padrao.png" style="border-radius: 50%; width: 6.5vw; height: 6.5vw; object-fit: cover;"><label for="">Sem Dados</label></div>
 						</div> 
 						<br>';
 					}
@@ -134,15 +133,15 @@ $escola = $_SESSION['escola'];
 				<h1>Ausente</h1>
 					<?php
 					if (!empty($_GET['search'])) {
-						$data = $_GET['search']; 
-						$select_search = $sql->query("SELECT crianca.cria_id,crianca.nome, crianca.presenca, crianca.foto FROM crianca WHERE crianca.trans_id = $trans_id AND crianca.presenca = 'ausente' AND crianca.escola='$escola' AND crianca.nome LIKE '%$data%'");
+						$data = $_GET['search'];
+						$select_search = $sql->query("SELECT crianca.cria_id,crianca.nome, crianca.presenca, crianca.foto FROM crianca WHERE crianca.trans_id = $trans_id AND crianca.presenca = 'ausente' AND crianca.nome LIKE '%$data%'");
 
 						if ($select_search !== false && $select_search->num_rows > 0) {
 							while ($row = $select_search->fetch_assoc()) {
 								$foto = $row['foto'];
 								if ($foto) {
 									echo '<div class="lista_criancas">
-										<div class="crianca"><img src="' . $row['foto'] . '" style="border-radius: 50%; width: 6.5vw; height: 6.5vw; object-fit: cover;"><label for="">' . $row['nome'] . '</label></div>
+										<div class="crianca"><img src="data:image/jpeg;base64,' . base64_encode($foto) . '" style="border-radius: 50%; width: 6.5vw; height: 6.5vw; object-fit: cover;"><label for="">' . $row['nome'] . '</label></div>
 								</div> 
 								<br/>';
 								} else {
@@ -154,14 +153,14 @@ $escola = $_SESSION['escola'];
 							}
 						}
 					} else if (empty($_GET['search'])) {
-						$result = $sql->query("SELECT crianca.cria_id, crianca.nome, crianca.presenca, crianca.foto FROM crianca WHERE crianca.trans_id = $trans_id AND crianca.presenca = 'ausente' AND crianca.escola = '$escola'");
+						$result = $sql->query("SELECT crianca.cria_id, crianca.nome, crianca.presenca, crianca.foto FROM crianca WHERE crianca.trans_id = $trans_id AND crianca.presenca = 'ausente'");
 
 						if ($result !== false && $result->num_rows > 0) {
 							while ($row = $result->fetch_assoc()) {
 								$foto = $row['foto'];
 								if ($foto) {
 									echo '<div class="lista_criancas">
-										<div class="crianca"><img src="' . $row['foto']. '" style="border-radius: 50%; width: 6.5vw; height: 6.5vw; object-fit: cover;"><label for="">' . $row['nome'] . '</label></div>
+										<div class="crianca"><img src="data:image/jpeg;base64,' . base64_encode($foto) . '" style="border-radius: 50%; width: 6.5vw; height: 6.5vw; object-fit: cover;"><label for="">' . $row['nome'] . '</label></div>
 								</div> 
 								<br/>';
 								} else {
@@ -173,7 +172,7 @@ $escola = $_SESSION['escola'];
 							}
 						} else {
 							echo '<div class="lista_criancas">
-								<p>Não existem criancas ausentes</p>
+								<div class="crianca"><img src="../img/fundo_foto_padrao.png" style="border-radius: 50%; width: 6.5vw; height: 6.5vw; object-fit: cover;"><label for="">Sem Dados</label></div>
 						</div> 
 						<br/>';
 						}
@@ -185,7 +184,7 @@ $escola = $_SESSION['escola'];
 
 			</div>
 			<div id="gere_voltar" style="margin-top: 5vh;">
-				<footer><a href="gere_chamada_escolas.php">Voltar</a></footer>
+				<footer><a href="gere_gastos.php">Voltar</a></footer>
 			</div>
 		</div>
 </body>
