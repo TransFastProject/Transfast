@@ -15,7 +15,6 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
--- Copiando estrutura do banco de dados para transfast
 CREATE DATABASE IF NOT EXISTS `transfast`;
 USE `transfast`;
 
@@ -180,20 +179,21 @@ CREATE TABLE IF NOT EXISTS `vistoria` (
   `item10` varchar(5) DEFAULT NULL,
   FOREIGN KEY (`moto_cpf`) REFERENCES `motorista` (`moto_cpf`) ON DELETE CASCADE ON UPDATE CASCADE
 );
+INSERT INTO vistoria(`moto_cpf`, `item01`, `item02`, `item03`, `item04`, `item05`, `item06`, `item07`, `item08`, `item09`, `item10`) VALUES('12','0','0','0','0','0','0','0','0','0','0'),('123.456.789-12','1','1','1','1','1','1','1','1','1','1');
 
-CREATE TABLE IF NOT EXISTS `chat`(
-  `chat_id` INTEGER NOT NULL AUTO_INCREMENT,
-  `moto_cpf` VARCHAR(14) NOT NULL,
-  `res_cpf` VARCHAR(14) NOT NULL,
-  `nome` VARCHAR(500) NOT NULL,
-  `mensagem` VARCHAR(500) NOT NULL,
-  PRIMARY KEY (`chat_id`),
+
+-- Copiando estrutura para tabela transfast.chat
+CREATE TABLE IF NOT EXISTS `chat` (
+  `chat_id` int NOT NULL AUTO_INCREMENT,
+  `moto_cpf` varchar(14) NOT NULL,
+  `res_cpf` varchar(14) NOT NULL,
+  `mensagem` varchar(5000) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `tipo` varchar(50) DEFAULT NULL,
+  `destinatario_cpf` varchar(14) DEFAULT NULL,
+  `remetente_cpf` varchar(14) DEFAULT NULL,
+  PRIMARY KEY (`chat_id`) USING BTREE,
+  KEY `moto_cpf` (`moto_cpf`),
+  KEY `res_cpf` (`res_cpf`),
   FOREIGN KEY (`moto_cpf`) REFERENCES `motorista` (`moto_cpf`) ON DELETE CASCADE ON UPDATE CASCADE,
   FOREIGN KEY (`res_cpf`) REFERENCES `responsavel` (`res_cpf`) ON DELETE CASCADE ON UPDATE CASCADE
 );
-
-/*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
-/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
-/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
