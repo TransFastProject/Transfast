@@ -144,13 +144,13 @@ if (isset($_GET['trans_id'])) {
                     </a>
                 </div>
                 <div class="home-menu-item col">
-                    <a href="chat.html">
+                    <a href="chatt.php">
                         <i class="ph ph-chat-circle-dots"></i>
                         <p>Mensagens</p>
                     </a>
                 </div>
                 <div class="home-menu-item col">
-                    <a href="">
+                    <a href="seu_transporte_com.php">
                         <i class="ph ph-van"></i>
                         <p>Seu transporte</p>
                     </a>

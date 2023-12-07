@@ -1,7 +1,7 @@
 <?php
 include("bd_conect.php");
-
-$sql = $pdo->query("SELECT * FROM chat ORDER BY chat_id DESC LIMIT 1");
+session_start();
+$sql = $pdo->query("SELECT * FROM chat WHERE moto_cpf ='". $_SESSION['moto_cpf']."' AND res_cpf='". $_SESSION['res_cpf']."' ORDER BY chat_id DESC LIMIT 1");
 
 $ultimaMensagem = "";
 foreach ($sql->fetchAll() as $key) {

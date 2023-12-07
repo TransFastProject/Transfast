@@ -215,7 +215,7 @@ if ($count_transporte > 0) {
                     </a>
                 </div>
                 <div class="home-menu-item col">
-                    <a href="chat.html">
+                    <a href="../php/chatt.php">
                         <i class="ph ph-chat-circle-dots"></i>
                         <p>Mensagens</p>
                     </a>

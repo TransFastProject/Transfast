@@ -68,7 +68,7 @@ if ($cria_id == "?") {
 			<div class="gere_links"><a href="gere_lucro.php">Lucro</a></div><br />
 			<div class="gere_links"><a href="gere_perfil.php">Perfil</a></div><br />
 			<div class="gere_links"><a href="gere_chamada_escolas.php">Chamada</a></div><br />
-			<div class="gere_links"><a href="">Chat</a></div><br />
+			<div class="gere_links"><a href="chat_motorista.php">Chat</a></div><br />
 			
 		</div>
 
@@ -117,14 +117,7 @@ if ($cria_id == "?") {
 
 				<div class="form-group">
 					<label for="genero">Gênero:</label>
-					<select id="genero" name="genero" readonly>
-						<option value="<?php echo $linked_values['genero_crianca']; ?>">
-							<?php echo $linked_values['genero_crianca']; ?>
-						</option>
-						<option value="masculino">Masculino</option>
-						<option value="feminino">Feminino</option>
-						<option value="outro">Outro</option>
-					</select>
+					<input type="text" id="genero" name="genero" value="<?php echo $linked_values['genero_crianca']; ?>" readonly>
 
 					<label for="escola">Escola:</label>
 					<input type="text" id="escola" name="escola" value="<?php echo $linked_values['escola_crianca']; ?>"

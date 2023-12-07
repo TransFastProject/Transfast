@@ -162,7 +162,7 @@ if($count_transporte > 0) {
     style="display: flex; height: 100%; flex-direction: column; justify-content: center; align-items: center;">
     <header class="home-header row justify-content-center align-items-center g-2 col-12"
         style="position: absolute;top: 0;padding: 0 2vw;">
-        <a href="home_responsavel.html" class="col-6">
+        <a href="home_responsavel.php" class="col-6">
             <img src="/img/logo_v2.png" alt="Logo Transfast" class="home-logo">
         </a>
 

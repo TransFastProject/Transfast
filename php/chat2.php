@@ -1,8 +1,8 @@
 <?php
 include("bd_conect.php");
-
+session_start();
 // Consulta ao banco de dados para obter as mensagens
-$sql = $pdo->query("SELECT * FROM chat");
+$sql = $pdo->query("SELECT * FROM chat WHERE moto_cpf='".$_SESSION['moto_cpf']."'");
 
 // Exibir as mensagens do chat
 foreach ($sql->fetchAll() as $key) {
