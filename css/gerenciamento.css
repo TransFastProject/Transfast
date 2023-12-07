@@ -225,14 +225,19 @@
     }
 
     #btn_revi_listar {
-        margin-top: 1vw;
-        width: 8vw;
-        height: 2vw;
+        width: 20vh;
+        height: 5vh;
+        font-size:3vh;
         text-align: center;
         color: white;
         border: none;
         border-radius: 10px;
         background: #1E184C;
+        align-items: center;
+        left: 33vw;
+        position: absolute;
+        margin-top: 4.5vh;
+        cursor:pointer;
     }
 
     /* Perfil */
@@ -626,13 +631,18 @@
     }
 
     #btn_revi_listar {
-        width: 9vw;
-        height: 4vw;
+        width: 12vh;
+        height: 3vh;
         text-align: center;
         color: white;
         border: none;
         border-radius: 10px;
         background: #1E184C;
+        align-items: center;
+        left: 33.5vw;
+        position: absolute;
+        margin-top: 3.5vh;
+        cursor:pointer;
     }
 
     /* Perfil */
