@@ -351,9 +351,10 @@
         font-size: 25px;
     }
 
-    .perfil-info-usuario p input {
+    .perfil-info-usuario-input {
         background: none;
         font-size: 25px;
+        width: 30vw;
         color: #fff;
         border: none;
         outline: none;

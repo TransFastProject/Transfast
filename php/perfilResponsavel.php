@@ -157,8 +157,8 @@ if ($count_transporte > 0) {
           </div>
 
           <div class="perfil-info-usuario">
-            <p><input type="text" name="nome" value="<?php echo $nome; ?>"></p>
-            <p><input type="text" name="email" value="<?php echo $email; ?>"></p>
+            <p><input class="perfil-info-usuario-input" type="text" name="nome" value="<?php echo $nome; ?>"></p>
+            <p><input class="perfil-info-usuario-input" type="text" name="email" value="<?php echo $email; ?>"></p>
           </div>
         </span>
         <div class="perfil-info">
