@@ -230,20 +230,20 @@ if (isset($_GET['trans_id'])) {
 
     <dialog id="modal-avaliar" style="padding: 0;">
         <p>Avalie este condutor <button id="avaliar-close" style="position: absolute; right: 2vw; height: 2vw; width: 2vw; padding: 0; display: flex; align-items: center; justify-content: center;"><i class="ph ph-x" style="margin:0"></i></button></p>
-        <div class="modal-avaliacao">
+        <form class="modal-avaliacao" action="avaliar_motorista.php?trans_id=<?php echo  $trans_id_motorista?>" method="post">
             <span class="avaliacao">
-                <input type="radio" value="1" class="radio_button"> 1</input>
-                <input type="radio" value="2" class="radio_button"> 2</input>
-                <input type="radio" value="3" class="radio_button"> 3</input>
-                <input type="radio" value="4" class="radio_button"> 4</input>
-                <input type="radio" value="5" class="radio_button"> 5</input>
+                <input type="radio" name="radio_button" value="1" class="radio_button" style="margin:0 15px;"> 1  </input>
+                <input type="radio" name="radio_button" value="2" class="radio_button" style="margin:0 15px;"> 2  </input>
+                <input type="radio" name="radio_button" value="3" class="radio_button" style="margin:0 15px;"> 3  </input>
+                <input type="radio" name="radio_button" value="4" class="radio_button" style="margin:0 15px;"> 4  </input>
+                <input type="radio" name="radio_button" value="5" class="radio_button" style="margin:0 15px;"> 5  </input>
             </span>
-            <button id="avaliar-close">Avaliar</button>
-        </div>
+            <input type="submit" id="avaliar-close" value="Avaliar" style="border-radius:10px;background-color:1E184C;color:white;"></input>
+    </form>
     </dialog>
 
-    <dialog id="modal-chamada" class="modal-chamada">
-        <p>CHAMADA <button id="chamada-close" style="position: absolute; right: 2vw; border-radius: 10px;"><i class="ph ph-x"></i></button></p>
+    <dialog id="modal-chamada" style="width: 60vw; height: 40vw; padding: 0;">
+        <p>CHAMADA <button id="chamada-close" style="position: absolute; right: 2vw;"><i class="ph ph-x"></i></button></p>
         <div class="modal-avaliacao" style="padding: 4vw 0;">
             <div class="chamada" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 2vw;">
             <?php
@@ -320,7 +320,7 @@ if (isset($_GET['trans_id'])) {
                 </a>
             </div>
             <div class="home-menu-item col">
-                <a href="chatt.php">
+                <a href="chat.html">
                     <i class="ph ph-chat-circle-dots"></i>
                     <p>Mensagens</p>
                 </a>

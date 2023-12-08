@@ -214,7 +214,7 @@ if ($count_transporte > 0) {
                     </a>
                 </div>
                 <div class="home-menu-item col">
-                    <a href="chatt.php">
+                    <a href="../php/chatt.php">
                         <i class="ph ph-chat-circle-dots"></i>
                         <p>Mensagens</p>
                     </a>
@@ -286,6 +286,52 @@ if ($count_transporte > 0) {
     <div class="transportes" style="margin-top: 3vw;">
         <h3>Melhores avaliações</h3>
         <div class="transportes-container">
+            <?php
+    if (empty($_GET['search'])) {
+    $sqlConsultaTransportes = "SELECT t.*, m.nome AS nome_motorista, m.telefone AS telefone_motorista, m.foto AS foto_moto FROM transporte t INNER JOIN motorista m ON t.moto_cpf = m.moto_cpf WHERE t.trans_id <> 1 AND t.nota >= 4"; // Ajuste este valor conforme necessário
+    $resultTransportes = mysqli_query($sql, $sqlConsultaTransportes);
+
+    // Transforma os resultados em um array associativo
+    $transportes_avaliados = [];
+    while ($row = mysqli_fetch_assoc($resultTransportes)) {
+        $transportes_avaliados[] = $row;
+    }
+}
+?>
+        <?php foreach ($transportes_avaliados as $index => $transporte_avaliados): ?>
+                    <div class="swiper-slide">
+                        <a href="#" class="card-transporte card-<?php echo $index + 1; ?>"
+                            data-nome="Nome: <?php echo $transporte_avaliados['nome_motorista']; ?>"
+                            data-bairro="Bairro: <?php echo $transporte_avaliados['bairro']; ?>"
+                            data-estado="Estado: <?php echo $transporte_avaliados['estado']; ?>"
+                            data-cidade="Cidade: <?php echo $transporte_avaliados['cidade']; ?>"
+                            data-monitor="Monitor: <?php echo $transporte_avaliados['monitor']; ?>"
+                            data-foto="<?php echo base64_encode($transporte_avaliados['foto_moto']); ?>"
+                            data-telefone="Telefone: <?php echo $transporte_avaliados['telefone_motorista']; ?>">
+                            <div class="transportes-item">
+                                <img src="../img/image 5.png" alt="" class="img-transporte">
+                                <div class="transporte-info">
+                                    <div class="transporte-info-i">
+                                        <p>
+                                            <?php echo $transporte_avaliados['nome_motorista']; ?>
+                                        </p>
+                                        <ul>
+                                            <li>
+                                                <?php echo $transporte_avaliados['bairro']; ?>
+                                            </li>
+                                            <li>
+                                                <?php echo $transporte_avaliados['telefone_motorista']; ?>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="transporte-info-i">
+                                        <img src="/img/Group11.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                <?php endforeach; ?>
         </div>
     </div>
 
@@ -297,11 +343,9 @@ if ($count_transporte > 0) {
                     <img src="/img/foto_motorista.png" alt="foto do motorista" class="foto"
                         style="border-radius: 100%; width: 8vw; height: 8vw;object-fit: cover">
                     <div class="avaliacao">
-                        <i class="ph ph-star"></i>
-                        <i class="ph ph-star"></i>
-                        <i class="ph ph-star"></i>
-                        <i class="ph ph-star"></i>
-                        <i class="ph ph-star"></i>
+                    <?php 
+                        echo 'Nota: '.$transporte['nota'];
+                    ?>
                     </div>
                     <p>Status da vistoria:</p>
                     <p class="vistoria">
@@ -343,7 +387,7 @@ if ($count_transporte > 0) {
                 </a>
             </div>
             <div class="home-menu-item col">
-                <a href="chatt.php">
+                <a href="chat.html">
                     <i class="ph ph-chat-circle-dots"></i>
                     <p>Mensagens</p>
                 </a>

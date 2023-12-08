@@ -16,7 +16,6 @@ $linked_moto = mysqli_fetch_assoc($link_moto);
 	<link rel="stylesheet" href="../css/gerenciamento.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 	<link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon">
-	<script src="../js/add_gasto.js"></script>
 </head>
 
 <body>
@@ -65,10 +64,9 @@ $linked_moto = mysqli_fetch_assoc($link_moto);
 
 
 	<div id="gere_conteudo">
-
 		<div id="registro_pagamento">
-			
-		<div id="filtro"><a></a><input type="text" id="barra_busca" style="font-size:20px;" placeholder="Pesquise aqui">
+		<div id="filtro">
+			<input type="text" id="barra_busca" style="font-size:20px;" placeholder="Pesquise aqui">
 			<button id="btn_filtro" style="border: 0; width:3.3vw; height:3.3vw;background-image: url(../img/icone_lupa_v2.png);background-size:2.8vw 2.8vw;background-repeat: no-repeat;" onclick="searchData()"></button>
 		</div>
 
@@ -129,7 +127,15 @@ $linked_moto = mysqli_fetch_assoc($link_moto);
 
 			</table>
 
+				<div>
+					<?php 
+					$select_valor_total = $sql->query("SELECT SUM(valor) as valor_total FROM gastos WHERE moto_cpf='$moto_cpf' AND mes='$mes'"); 
+					$row_valor = mysqli_fetch_assoc($select_valor_total);
+					$valor_total = $row_valor['valor_total'];
 
+					echo '<label for="valor_total" style="margin-top:54.5vh;align-items:center; text-align:center; margin-left:22vw; position:absolute;">Valor Total: </label><input type="number" id="valor_total" name="valor_total" style="margin-top:55vh;align-items:center; text-align:center; margin-left:30vw; position:absolute;" value="'.$valor_total.'">';
+					?>
+				</div>
 
 		</div>
 		<div id="gere_voltar" style="margin-top: 5vh;">
