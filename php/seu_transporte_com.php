@@ -242,9 +242,8 @@ if (isset($_GET['trans_id'])) {
     </form>
     </dialog>
 
-    <dialog id="modal-chamada" style="width: 60vw; height: 40vw; padding: 0;">
-        <p>CHAMADA <button id="chamada-close" style="position: absolute; right: 2vw;"><i class="ph ph-x"></i></button></p>
-        <div class="modal-avaliacao" style="padding: 4vw 0;">
+    <dialog id="modal-chamada" class="modal-chamada">
+        <p>CHAMADA <button id="chamada-close" style="position: absolute; right: 2vw; border-radius: 10px;"><i class="ph ph-x"></i></button></p>
             <div class="chamada" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 2vw;">
             <?php
                 // Verifica se o usuário está autenticado
@@ -320,7 +319,7 @@ if (isset($_GET['trans_id'])) {
                 </a>
             </div>
             <div class="home-menu-item col">
-                <a href="chat.html">
+                <a href="chatt.php">
                     <i class="ph ph-chat-circle-dots"></i>
                     <p>Mensagens</p>
                 </a>
